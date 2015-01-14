@@ -1,5 +1,7 @@
 #Boiler-template Meteor-Polymer
 
+blog link : [meteor + polymer boiler-template](http://koenigromain.meteor.com/post/PdxDMLa5K5kAwiMqb)
+
 This boiler template is a very simple meteor app with some polymer components.
 It has a menu, a toolbar and a drop-down example. It can be use to start meteor projects with polymer !
 
