@@ -1,15 +1,14 @@
 <template name="menu">
- 		
- 		
-       {{#if currentUser}} 
- 		<a class="link_menu" href="{{pathFor 'postsList'}}"><paper-item><i class="fa fa-newspaper-o" style="margin-right:15px;"></i>
-Blog</paper-item></a>
- 		<paper-item><i class="fa fa-star-half" style="margin-right:15px;"></i>
-Start a Game</paper-item>
-        <a class="link_menu" href="{{pathFor 'userProfil'}}"><paper-item><i class="fa fa-user" style="margin-right:15px;"></i>
-Profile</paper-item></a>
-        <paper-item><i class="fa fa-times" style="margin-right:15px;"></i>
-Disconnect</paper-item>
-        {{/if}}
-
+    {{#if currentUser}} 
+ 		<a class="link_menu" href="{{pathFor 'postsList'}}">
+ 			<paper-item><i class="fa fa-newspaper-o" style="margin-right:15px;"></i>Blog</paper-item>
+ 		</a>
+ 		<paper-item><i class="fa fa-star" style="margin-right:15px;"></i>Start a Game</paper-item>
+        <a class="link_menu" href="{{pathFor 'userProfil'}}">
+        	<paper-item><i class="fa fa-user" style="margin-right:15px;"></i>Profile</paper-item>
+        </a>
+        <a class="link_menu" href="{{pathFor 'logout'}}">
+        	<paper-item><i class="fa fa-times" style="margin-right:15px;"></i>Disconnect</paper-item>
+        </a>
+    {{/if}}
 </template>

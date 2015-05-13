@@ -11,7 +11,7 @@
     <core-header-panel main>
       <core-toolbar id="mainheader">
         <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
-        <span flex>App {{> loginButtons}}</span>
+        <span flex>Beta Golf</span>
         <!-- <paper-icon-button id='trigger' icon="more-vert"></paper-icon-button> -->
         <paper-menu-button>
           <paper-icon-button icon="more-vert"></paper-icon-button>
@@ -25,9 +25,7 @@
         </paper-menu-button>
       </core-toolbar>
       <div class="content">
-        {{#if currentUser}} 
         {{> yield}}
-        {{/if}}
       </div>
     </core-header-panel>
   </core-drawer-panel> 
