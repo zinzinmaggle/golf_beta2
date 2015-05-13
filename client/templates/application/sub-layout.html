@@ -1,0 +1,34 @@
+<template name="sublayout">
+<core-drawer-panel id="drawerPanel">
+    <core-header-panel drawer>
+      <core-toolbar id="navheader">
+        <span><i class="fa fa-home" style="margin-right:15px;"></i>Home</span>
+      </core-toolbar>
+      <core-menu class='menu'>
+         {{> menu}}
+      </core-menu>
+    </core-header-panel>
+    <core-header-panel main>
+      <core-toolbar id="mainheader">
+        <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
+        <span flex>App</span>
+        <!-- <paper-icon-button id='trigger' icon="more-vert"></paper-icon-button> -->
+        <paper-menu-button>
+          <paper-icon-button icon="more-vert"></paper-icon-button>
+          <paper-dropdown class='dropdown' halign='right' valign='top'>
+            <core-menu class='menu'>
+              <paper-item>Share</paper-item>
+              <paper-item>Settings</paper-item>
+              <paper-item>Help</paper-item>
+            </core-menu>
+          </paper-dropdown>
+        </paper-menu-button>
+      </core-toolbar>
+      <div class="content">
+        {{#if currentUser}} 
+        {{> yield}}
+        {{/if}}
+      </div>
+    </core-header-panel>
+  </core-drawer-panel> 
+  </template>

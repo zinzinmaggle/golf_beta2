@@ -1,0 +1,14 @@
+.link_menu
+{
+	color:white;
+}
+.link_menu:hover
+{
+	color:white;
+	text-decoration: none;
+}
+.content
+{
+padding:15px;
+
+}
