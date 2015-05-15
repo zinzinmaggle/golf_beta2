@@ -14,3 +14,41 @@
 
 
 }
+.carousel-inner
+{
+height:100% !important;
+width:100% !important;
+
+}
+.item
+{
+	height:100% !important;
+	width:100% !important;
+}
+.row
+{
+	height:100% !important;
+	width:100% !important;
+	padding: 0;
+	margin: 0 auto;
+}
+
+.span4
+{
+	height:100% !important;
+	width:100% !important;
+	padding: 0;
+	margin: 0 auto;
+}
+
+.slide
+{
+	height:100% !important;
+	width:100% !important;
+}
+
+img
+{
+	height:100% !important;
+	width:100% !important;
+}
