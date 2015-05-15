@@ -52,3 +52,43 @@ img
 	height:100% !important;
 	width:100% !important;
 }
+/***************************************************loginForm******************************/
+.loginButtons
+{
+	text-align:center;
+
+}
+.loginButtons a
+{
+	vertical-align: middle;
+	margin: 10px;
+}
+.container_loginButtons
+{
+	vertical-align: middle;
+}
+.toolbar
+{
+
+		width:100%;
+		margin: 0 auto;
+}
+.formContainer
+{
+	width: 100%;
+	height:100%;
+	margin: 0 auto;
+}
+
+.form
+{
+	z-index: 15;
+	position:absolute;
+    left: 50%;
+    top: 50%;
+    width: 350px;
+    height: 300px;
+    margin-left: -175px; /* Cette valeur doit être la moitié négative de la valeur du width */
+    margin-top: -150px; 
+
+}
