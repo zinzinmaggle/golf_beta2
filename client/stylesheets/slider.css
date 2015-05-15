@@ -1,0 +1,16 @@
+.loginForm
+{
+
+
+
+	z-index: 15;
+	position:absolute;
+    left: 50%;
+    top: 50%;
+    width: 350px;
+    height: 300px;
+    margin-left: -175px; /* Cette valeur doit être la moitié négative de la valeur du width */
+    margin-top: -150px; 
+
+
+}
