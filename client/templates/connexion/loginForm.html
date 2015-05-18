@@ -1,48 +1,33 @@
-
-
-
-
-
 <template name="loginButtons">
-<a href="{{pathFor 'connexion'}}" class="btn btn-primary btn-lg active" role="button">Connexion</a>
-<a href="{{pathFor 'inscription'}}" class="btn btn-default btn-lg active" role="button">Inscription</a>
+	<a href="{{pathFor 'login'}}" class="btn btn-primary btn-lg active" role="button">Connexion</a>
+	<a href="{{pathFor 'register'}}" class="btn btn-default btn-lg active" role="button">Inscription</a>
 </template>
 
 <template name="headerloginForm">
    <div class="toolbar"> 
-		    <core-toolbar id="core_toolbar" class="small-tall">
-		      <a class="link_menu" href="{{pathFor 'login'}}"><core-icon-button icon="arrow-back" id="core_icon_button" horizontal layout></core-icon-button></a>
-		       <span flex>Inscription</span>
-		    </core-toolbar>
+	    <core-toolbar id="core_toolbar" class="small-tall">
+	    	<a class="link_menu" href="{{pathFor 'home'}}">
+	    		<core-icon-button icon="arrow-back" id="core_icon_button" horizontal layout></core-icon-button>
+	    	</a>
+	       <span flex>{{title}}</span>
+	    </core-toolbar>
 	</div> 
 </template>
 
-<template name="inscription">
-
-
+<template name="register">
 	{{> headerloginForm}}	
 	<div class="formContainer">
-		
     	<div class="form"> 
-   			 {{> subscribeForm}}
+   			{{> atForm state='signUp'}}
    		</div>
    </div>
-  
-
-
 </template>
 
-<template name="connexion">
-
-
+<template name="login">
 	{{> headerloginForm}}	
 	<div class="formContainer">
-
     	<div class="form"> 
-   			 {{> connexionForm}}
+   			{{> atForm state='signIn'}}
  	 	</div>
    </div>
-  
-
-
 </template>

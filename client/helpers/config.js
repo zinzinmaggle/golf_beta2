@@ -1,3 +1,1 @@
-Accounts.ui.config({
-  passwordSignupFields: 'EMAIL_ONLY'
-});
+T9n.setLanguage('fr');

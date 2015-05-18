@@ -9,9 +9,7 @@ ecwyne:polymer-elements
 twbs:bootstrap
 iron:router
 fortawesome:fontawesome
-ian:accounts-ui-bootstrap-3
 accounts-password
 less
 aldeed:template-extension
-shcherbin:slickjs
-richsilv:owl-carousel
+useraccounts:polymer

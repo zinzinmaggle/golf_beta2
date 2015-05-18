@@ -1,8 +1,5 @@
 .loginForm
 {
-
-
-
 	z-index: 15;
 	position:absolute;
     left: 50%;
@@ -11,8 +8,19 @@
     height: 300px;
     margin-left: -175px; /* Cette valeur doit être la moitié négative de la valeur du width */
     margin-top: -150px; 
-
-
+}
+.spinner_div
+{
+	position: relative;
+    top: 50%;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+.spinner_div paper-spinner
+{
+    width: 100px;
+    height: 100px;
 }
 .carousel-inner
 {

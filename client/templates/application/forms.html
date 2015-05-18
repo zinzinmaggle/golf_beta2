@@ -1,88 +1,24 @@
-<template name="subscribeForm">
-
-<form class="main form page">
-	    <section id="section" vertical layout>
-	      <paper-input label="Choisir un pseudo" error="Ce champs nécéssite une valeur" floatinglabel id="username" name="username" ></paper-input>
-	      <paper-input label="Choisir un mot de passe" floatinglabel id="mdp"></paper-input>
-	      <paper-input label="Confirmer ce mot de passe" floatinglabel id="conf_mdp"></paper-input>
-	      <paper-input label="Indiquer une adresse e-mail" floatinglabel id="email"></paper-input>
-	      <section id="section1" horizontal layout center around-justified>
-	        <paper-button raised="" primary="" onclick="validateAll()" role="button" tabindex="0">OK GO !</paper-button>
-	      </section>
-	    </section>
-   </form>
-
-</template>
-
-
-<template name="connexionForm">
-<!-- <form class="main form page">
-	    <section id="section" vertical layout>
-	      <paper-input label="Entrer votre adresse e-mail" floatinglabel id="email"></paper-input>
-	 
-	      <paper-input label="Entrer votre mot de passe" floatinglabel id="mdp"></paper-input>
-	      <section id="section1" horizontal layout center around-justified>
-	        <paper-fab icon="done" mini id="paper_fab"></paper-fab>
-	        <paper-fab icon="cancel" mini id="paper_fab1"></paper-fab>
-	      </section>
-	    </section>
-	 </form>-->
-<link rel="import" href="bower_components/polymer-rails-forms/rails-form.html">
-<polymer-element name="simple-form" extends='rails-form'>
-  <shadow></shadow>
-    
-  <script>
-    Polymer({
-      action: "/signup", //the URL the form will be submitted to
-      method: "Post", //the submit method
-      xhr: false, //whether or not to use xhr when submitting the form
-      scope: "user", //the ActiveRecord naming scope. this will scope input names like 'name=user[name]'
-        
-      ready: function(){
-        /*
-          The structure is the meat and potatoes of the form. It's where you define what goes where and how.
-          The structure array is made up of object that define either inputs or structural components of the 
-          form. This is a simple structure that contains only inputs. 
-        */
-        this.structure = [
-          //The most basic input - it will be a non-required string and the key will be used as a label
-          { key: 'name' },
-          //slightly more complex - specifying a type and making it a required field
-          { key: 'email', type: "email", required: true },
-          { key: 'password', type: "password", required: true },
-          //specifying a label
-          { key: 'password_confirmation', type: 'password', label: "Retype Password" }
-        ];        
-      }
-    });
-  </script>
-</polymer-element>
-</template>
-
 <template name="ProfileForm">
- 
-<form class="main form page">
+    <form class="main form page">
         <div class="form-group">
-          <label class="control-label" for="username">Surname </label>
-          <div class="controls">
-              <input name="username" id="username" type="text" value="" placeholder="{{surname}}" class="form-control"/>
+            <label class="control-label" for="username">Surname </label>
+            <div class="controls">
+                <input name="username" id="username" type="text" value="" placeholder="{{surname}}" class="form-control"/>
             </div>
         </div>
         <div class="form-group">
-          <label class="control-label" for="title">First Name</label>
-          <div class="controls">
-              <input name="fname" id="fname" type="text" value="" placeholder="Your First Name" class="form-control"/>
+            <label class="control-label" for="title">First Name</label>
+            <div class="controls">
+                <input name="fname" id="fname" type="text" value="" placeholder="Your First Name" class="form-control"/>
             </div>
         </div>
         <div class="form-group">
-          <label class="control-label" for="title">Last Name</label>
-          <div class="controls">
-              <input name="lname" id="lname" type="text" value="" placeholder="Your Last Name" class="form-control"/>
+            <label class="control-label" for="title">Last Name</label>
+            <div class="controls">
+                <input name="lname" id="lname" type="text" value="" placeholder="Your Last Name" class="form-control"/>
             </div>
         </div>
 
-      <input type="submit" value="Submit" class="btn btn-primary"/>
+        <input type="submit" value="Submit" class="btn btn-primary"/>
     </form>
-
-
 </template>

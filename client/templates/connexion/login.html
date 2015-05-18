@@ -1,55 +1,37 @@
-<template name="login">
+<template name="home">
 	<div class="login-block" style="margin: 0 auto; width : 100%; height: 100%;max-width: 100%;">
-		
 		{{> slider_connexion}}
-	
-	</div>
-</template>
-
-<template name="_loginButtonsLoggedOutWithoutDropdown">
-	<div id="login-dropdown-list" class="dropdown">
-		<h3>{{i18n 'loginButtonsLoggedOutDropdown.signIn'}}{{#unless forbidClientAccountCreation}} / {{i18n 'loginButtonsLoggedOutDropdown.up'}}{{/unless}}</h3>
-		{{> _loginButtonsLoggedOutAllServices}}
 	</div>
 </template>
 
 <template name="slider_connexion">
     <div class="row">
-    <div class="span4">
-		
-		 <div class="loginForm">
+	    <div class="span4">
+			
+			 <div class="loginForm">
 
-		 	<div class="row">
-    		<div class="span4 loginButtons">
-    			<div class="container_loginButtons">
-    		 	{{> loginButtons}}
-    		 	</div>
-    		</div>
-    		</div>
-		
-   	    	<!--{{> loginForm}}-->
+			 	<div class="row">
+		    		<div class="span4 loginButtons">
+		    			<div class="container_loginButtons">
+		    		 	{{> loginButtons}}
+		    		 	</div>
+		    		</div>
+	    		</div>
 
-
-   	    </div>
-       <div id="myCarousel" class="carousel slide">
-		    <ol class="carousel-indicators">
-		    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-		    <li data-target="#myCarousel" data-slide-to="1"></li>
-		    </ol>
-		    <!-- Carousel items -->
-		    <div class="carousel-inner">
-		    <div class="active item"><img src ="pictures_slider/slider_image_1.jpg"/></div>
-		    <div class="item"><img src ="pictures_slider/slider_image_2.jpg"/></div>
-		    </div>
-		    <!-- Carousel nav -->
-		 
-   	    </div>
-
-
-	</div>
-   
+	   	    </div>
+	       <div id="myCarousel" class="carousel slide">
+			    <ol class="carousel-indicators">
+			    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			    <li data-target="#myCarousel" data-slide-to="1"></li>
+			    </ol>
+			    <!-- Carousel items -->
+			    <div class="carousel-inner">
+			    <div class="active item"><img src ="pictures_slider/slider_image_1.jpg"/></div>
+			    <div class="item"><img src ="pictures_slider/slider_image_2.jpg"/></div>
+			    </div>
+			    <!-- Carousel nav -->
+			 
+	   	    </div>
+		</div>
     </div>
-
 </template>
-
-
