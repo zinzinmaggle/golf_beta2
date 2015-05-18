@@ -11,9 +11,33 @@
 <template name="headerloginForm">
    <div class="toolbar"> 
 		    <core-toolbar id="core_toolbar" class="small-tall">
-		      <core-icon-button icon="arrow-back" id="core_icon_button" horizontal layout></core-icon-button>
+		      <a class="link_menu" href="{{pathFor 'login'}}"><core-icon-button icon="arrow-back" id="core_icon_button" horizontal layout></core-icon-button></a>
+		       <span flex>Inscription</span>
 		    </core-toolbar>
 	</div> 
+</template>
+
+<template name="inscription">
+
+
+	{{> headerloginForm}}	
+	<div class="formContainer">
+    <div class="form"> 
+	    <section id="section" vertical layout>
+	      <paper-input label="Choisir un pseudo" floatinglabel id="pseudo"></paper-input>
+	      <paper-input label="Choisir un mot de passe" floatinglabel id="mdp"></paper-input>
+	      <paper-input label="Confirmer ce mot de passe" floatinglabel id="conf_mdp"></paper-input>
+	      <paper-input label="Indiquer une adresse e-mail" floatinglabel id="email"></paper-input>
+	      <section id="section1" horizontal layout center around-justified>
+	        <paper-fab icon="done" mini id="paper_fab"></paper-fab>
+	        <paper-fab icon="cancel" mini id="paper_fab1"></paper-fab>
+	      </section>
+	    </section>
+   </div>
+   </div>
+  
+
+
 </template>
 
 <template name="connexion">
@@ -23,10 +47,9 @@
 	<div class="formContainer">
     <div class="form"> 
 	    <section id="section" vertical layout>
-	      <paper-input label="Pseudo" floatinglabel id="pseudo"></paper-input>
-	      <paper-input label="Mot de passe" floatinglabel id="mdp"></paper-input>
-	      <paper-input label="confirmer le mot de passe" floatinglabel id="conf_mdp"></paper-input>
-	      <paper-input label="adresse e-mail" floatinglabel id="email"></paper-input>
+	      <paper-input label="Entrer votre adresse e-mail" floatinglabel id="email"></paper-input>
+	 
+	      <paper-input label="Entrer votre mot de passe" floatinglabel id="mdp"></paper-input>
 	      <section id="section1" horizontal layout center around-justified>
 	        <paper-fab icon="done" mini id="paper_fab"></paper-fab>
 	        <paper-fab icon="cancel" mini id="paper_fab1"></paper-fab>
