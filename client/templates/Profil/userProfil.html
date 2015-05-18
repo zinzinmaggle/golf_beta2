@@ -1,13 +1,13 @@
 <template name="userProfil">
-  <div class="information">
-   
-  <h3>Your informations</h3>
-  <p>ID : {{_id}}</p>  
-  <p>Mail : 
-  	{{#each emails}}
-  		{{address}}
-	{{/each}}
-  </p>
-  {{> ProfileForm}}
-  </div>
+	<div class="information">
+		<h3>Your informations</h3>
+		<p>ID : {{_id}}</p>  
+		<p>Username : {{username}}</p>  
+		<p>Mail : 
+			{{#each emails}}
+				{{address}}
+			{{/each}}
+		</p>
+		{{> ProfileForm}}
+	</div>
 </template>
