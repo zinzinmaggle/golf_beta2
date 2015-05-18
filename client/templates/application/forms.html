@@ -1,0 +1,59 @@
+<template name="subscribeForm">
+
+<form class="main form page">
+	    <section id="section" vertical layout>
+	      <paper-input label="Choisir un pseudo" floatinglabel id="pseudo" name="username" ></paper-input>
+	      <paper-input label="Choisir un mot de passe" floatinglabel id="mdp"></paper-input>
+	      <paper-input label="Confirmer ce mot de passe" floatinglabel id="conf_mdp"></paper-input>
+	      <paper-input label="Indiquer une adresse e-mail" floatinglabel id="email"></paper-input>
+	      <section id="section1" horizontal layout center around-justified>
+	        <paper-fab icon="done" type="submit" mini id="paper_fab"></paper-fab>
+	        <paper-fab icon="cancel" mini id="paper_fab1"></paper-fab>
+	      </section>
+	    </section>
+   </form>
+
+</template>
+
+
+<template name="connexionForm">
+ <form class="main form page">
+	    <section id="section" vertical layout>
+	      <paper-input label="Entrer votre adresse e-mail" floatinglabel id="email"></paper-input>
+	 
+	      <paper-input label="Entrer votre mot de passe" floatinglabel id="mdp"></paper-input>
+	      <section id="section1" horizontal layout center around-justified>
+	        <paper-fab icon="done" mini id="paper_fab"></paper-fab>
+	        <paper-fab icon="cancel" mini id="paper_fab1"></paper-fab>
+	      </section>
+	    </section>
+	 </form>
+</template>
+
+<template name="ProfileForm">
+ 
+<form class="main form page">
+        <div class="form-group">
+          <label class="control-label" for="username">Surname </label>
+          <div class="controls">
+              <input name="username" id="username" type="text" value="" placeholder="{{surname}}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="title">First Name</label>
+          <div class="controls">
+              <input name="fname" id="fname" type="text" value="" placeholder="Your First Name" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="title">Last Name</label>
+          <div class="controls">
+              <input name="lname" id="lname" type="text" value="" placeholder="Your Last Name" class="form-control"/>
+            </div>
+        </div>
+
+      <input type="submit" value="Submit" class="btn btn-primary"/>
+    </form>
+
+
+</template>

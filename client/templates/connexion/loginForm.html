@@ -22,18 +22,10 @@
 
 	{{> headerloginForm}}	
 	<div class="formContainer">
-    <div class="form"> 
-	    <section id="section" vertical layout>
-	      <paper-input label="Choisir un pseudo" floatinglabel id="pseudo"></paper-input>
-	      <paper-input label="Choisir un mot de passe" floatinglabel id="mdp"></paper-input>
-	      <paper-input label="Confirmer ce mot de passe" floatinglabel id="conf_mdp"></paper-input>
-	      <paper-input label="Indiquer une adresse e-mail" floatinglabel id="email"></paper-input>
-	      <section id="section1" horizontal layout center around-justified>
-	        <paper-fab icon="done" mini id="paper_fab"></paper-fab>
-	        <paper-fab icon="cancel" mini id="paper_fab1"></paper-fab>
-	      </section>
-	    </section>
-   </div>
+	
+    	<div class="form"> 
+   			 {{> subscribeForm}}
+   		</div>
    </div>
   
 
@@ -45,17 +37,9 @@
 
 	{{> headerloginForm}}	
 	<div class="formContainer">
-    <div class="form"> 
-	    <section id="section" vertical layout>
-	      <paper-input label="Entrer votre adresse e-mail" floatinglabel id="email"></paper-input>
-	 
-	      <paper-input label="Entrer votre mot de passe" floatinglabel id="mdp"></paper-input>
-	      <section id="section1" horizontal layout center around-justified>
-	        <paper-fab icon="done" mini id="paper_fab"></paper-fab>
-	        <paper-fab icon="cancel" mini id="paper_fab1"></paper-fab>
-	      </section>
-	    </section>
-   </div>
+    	<div class="form"> 
+   			 {{> connexionForm}}
+ 	 	</div>
    </div>
   
 
