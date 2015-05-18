@@ -1,3 +1,4 @@
 public/
+!public/pictures_slider/*
 /*.sublime-workspace
 /*.sublime-project
