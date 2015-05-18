@@ -59,12 +59,12 @@ img
 }
 .loginButtons a
 {
-	vertical-align: middle;
+	
 	margin: 10px;
 }
 .container_loginButtons
 {
-	vertical-align: middle;
+	padding-top:100%;
 }
 .toolbar
 {
@@ -75,7 +75,7 @@ img
 .formContainer
 {
 	width: 100%;
-	height:100%;
+	height: auto;
 	margin: 0 auto;
 }
 
@@ -90,4 +90,7 @@ img
     margin-left: -175px; /* Cette valeur doit être la moitié négative de la valeur du width */
     margin-top: -150px; 
 
+    
+    padding: 25px;
+   
 }
