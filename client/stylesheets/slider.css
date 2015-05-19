@@ -1,14 +1,24 @@
 .loginForm
 {
-	z-index: 15;
-	position:absolute;
-    left: 50%;
-    top: 50%;
-    width: 350px;
-    height: 300px;
-    margin-left: -175px; /* Cette valeur doit être la moitié négative de la valeur du width */
-    margin-top: -150px; 
+	position:relative;
+    
+    width: 100%;
+    height: auto;
+    margin : 0 auto; /* Cette valeur doit être la moitié négative de la valeur du width */
+    
 }
+
+.test
+{
+		z-index: 15;
+		position: absolute;
+		width:350px;
+		left:50%;
+		margin-left : -175px;
+		bottom:10%;
+
+}
+
 .spinner_div
 {
 	position: relative;
@@ -59,6 +69,11 @@ img
 	height:100% !important;
 	width:100% !important;
 }
+.carousel-caption
+{
+	bottom:50%;
+	position: absolute;
+}
 /***************************************************loginForm******************************/
 .loginButtons
 {
@@ -70,10 +85,7 @@ img
 	
 	margin: 10px;
 }
-.container_loginButtons
-{
-	padding-top:100%;
-}
+
 .toolbar
 {
 
@@ -89,16 +101,11 @@ img
 
 .form
 {
-	z-index: 15;
-	position:absolute;
-    left: 50%;
-    top: 50%;
-    width: 350px;
-    height: 300px;
-    margin-left: -175px; /* Cette valeur doit être la moitié négative de la valeur du width */
-    margin-top: -150px; 
-
-    
+	
+	position:relative;
     padding: 25px;
+  	margin: 0 auto;
+
+   
    
 }
