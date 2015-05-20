@@ -1,12 +1,12 @@
 Template.showFriendsQuery.helpers({
-  friends: function() {
-    return Friends.find({ accepted: false, id1 : Meteor.userId() }).fetch();
+  friendsQuery: function() {
+    return Friends.find({ accepted: false, id2 : Meteor.userId() }).fetch();
   }
   
 });
 Template.showFriendsList.helpers({
-  friends: function() {
-    return Friends.find({ accepted: true, id1 : Meteor.userId() }).fetch();
+  friendsList: function() {
+    return Friends.find({ accepted: true, id2 : Meteor.userId() }).fetch();
  }
 });
 Template.showFriends.events({
@@ -22,5 +22,13 @@ Template.showFriends.events({
 				accepted: true
 			}
 		});
+ 	
+ 	Meteor.users.insert({
+ 	friends: {
+                friend : Friends.find({ accepted: true, id2 : Meteor.userId() }).username
+                
+    },
+
+});
   }
 });
