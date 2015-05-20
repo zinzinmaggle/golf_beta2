@@ -1,9 +1,20 @@
 <template name="postItem">
   <div class="post">
     <div class="post-content">
-      <h3><a href="{{url}}">{{title}}</a><span>{{subtitle}} | {{domain}}</span></h3>
-      <p>{{content}}</p>
-      <span>{{author}} | <small>{{date}}</small></span>
+    	 <div class="col s12 m8 offset-m2 l6 offset-l3">
+        <div class="card-panel grey lighten-5 z-depth-1">
+          <div class="row valign-wrapper">
+            <div class="col s2">
+              <img src="http://www.gravatar.com/avatar/{{encrypted_mail}}" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+            </div>
+            <div class="col s10">
+              <span class="black-text">
+                This is a square image. Add the "circle" class to it to make it appear circular.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>	 
     </div>
   </div>
 </template>
