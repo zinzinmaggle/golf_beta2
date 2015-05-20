@@ -6,7 +6,36 @@
      
         
           
-          <input id="icon_prefix" type="text" placeholder="Entrer le nom, pseudo, e-mail d'un ami" class="validate">
+          {{> esInput index="users" placeholder="Search..." }}
+
+		    
+		        {{#esEach index="users"}}
+		            <div class="col s12 m8 offset-m2 l6 offset-l3">
+			        <div class="card-panel grey lighten-5 z-depth-1">
+			          <div class="row valign-wrapper">
+			            <div class="col s2">
+			              <img src="http://www.gravatar.com/avatar/{{encryptedMail}}" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+			            </div>
+			            <div class="col s10">
+			              <span class="black-text">
+			               {{username}}
+			              </span>
+			            </div>
+			          </div>
+			        </div>
+			      </div>	 
+		        {{/esEach}}
+		    
+
+		    {{> esLoadMoreButton index="users"}}
+		    
+		    {{#ifEsHasNoResults index="users"}}
+		        <div class="no-results">No results found!</div>
+		    {{/ifEsHasNoResults}}
+
+		    {{#ifEsIsSearching index="users"}}
+		            <div>{{> loading}}</div>
+		    {{/ifEsIsSearching}}
          
         
       

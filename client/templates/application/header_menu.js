@@ -4,8 +4,7 @@ Template.header_menu.helpers({
 	},
 
 	encrypted_mail: function(){
-		var em = CryptoJS.MD5(Meteor.user().emails[0].address).toString();
-		return em;
+		return Meteor.user().encryptedMail;
 	},
 	level: function(){
 		return Meteor.user().level;

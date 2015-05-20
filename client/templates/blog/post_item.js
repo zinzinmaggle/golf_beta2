@@ -5,7 +5,6 @@ Template.postItem.helpers({
     return a.hostname;
   },
   encrypted_mail: function(){
-		var em = CryptoJS.MD5(Meteor.user().emails[0].address).toString();
-		return em;
+		return Meteor.user().encryptedMail;
 	}
 });
