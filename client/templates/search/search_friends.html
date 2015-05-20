@@ -16,10 +16,16 @@
 			            <div class="col s2">
 			              <img src="http://www.gravatar.com/avatar/{{encryptedMail}}" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
 			            </div>
-			            <div class="col s10">
+			            <div class="col s6">
 			              <span class="black-text">
-			               {{username}}
+			              <p class="search_content_username"> {{username}} <br></p>
+			              <p class="search_content_level"> Niveau {{level}} </p>
 			              </span>
+			            </div>
+			             <div class="col s4">
+			              	
+   						 <a class="waves-effect waves-light btn" id="addFriend" user-id="{{_id}}">ADD</a>
+  							
 			            </div>
 			          </div>
 			        </div>

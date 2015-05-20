@@ -1,0 +1,67 @@
+<template name="showFriends">
+
+{{> showFriendsQuery}}
+<hr>
+{{> showFriendsList}}
+</template>
+
+<template name="showFriendsQuery">
+<div class="row">
+    <form class="col s12">
+     <h2>Demande en attente :</h2>
+	 {{#each friends}}
+      <div class="col s12 m8 offset-m2 l6 offset-l3">
+		<div class="card-panel grey lighten-5 z-depth-1">
+			<div class="row valign-wrapper">
+			    <div class="col s2">
+			        <img src="http://www.gravatar.com/avatar/{{encryptedMail}}" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+			    </div>
+			    <div class="col s6">
+			        <span class="black-text">
+				        <p class="search_content_username"> {{username}} <br></p>
+				        <p class="search_content_level"> Niveau {{level}} </p>
+			        </span>
+			    </div>
+			    <div class="col s4">
+			              	
+   					<a class="waves-effect waves-light btn" id="confirmFriend" user-id="{{_id}}">YES</a>
+  							
+			    </div>
+			</div>
+		</div>
+    </div>	 
+    {{/each}}
+    </form>
+</div>
+</template>
+
+
+<template name="showFriendsList">
+<div class="row">
+    <form class="col s12">
+     <h2>Mes amis :</h2>
+	 {{#each friends}}
+      <div class="col s12 m8 offset-m2 l6 offset-l3">
+		<div class="card-panel grey lighten-5 z-depth-1">
+			<div class="row valign-wrapper">
+			    <div class="col s2">
+			        <img src="http://www.gravatar.com/avatar/{{encryptedMail}}" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+			    </div>
+			    <div class="col s6">
+			        <span class="black-text">
+				        <p class="search_content_username"> {{username}} <br></p>
+				        <p class="search_content_level"> Niveau {{level}} </p>
+			        </span>
+			    </div>
+			    <div class="col s4">
+			              	
+   				
+  							
+			    </div>
+			</div>
+		</div>
+    </div>	 
+    {{/each}}
+    </form>
+</div>
+</template>

@@ -13,10 +13,66 @@
         position: relative;
         top: 1px;
       }
+          #ButtonAccueil{
+   font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+      -webkit-touch-callout: none;
+  }
+
+  /* C EST ICI POUR MODIFIER LA TAILLE DES BOUTTONS */
+    #ButtonAccueil .button {
+      display: inline-block;
+      position: relative;
+      width: 120px;
+      height: 32px;
+      line-height: 32px;
+      border-radius: 2px;
+      font-size: 0.9em;
+      background-color: #fff;
+      color: #646464;
+    }
+    
+  #ButtonAccueil .button > paper-ripple {
+      border-radius: 2px;
+      overflow: hidden;
+    }
+  
+    #ButtonAccueil .button.green {
+      background-color: #0f9d58;
+      color: #fff;
+    }
+    
+    #ButtonAccueil .button.raised {
+      transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      transition-delay: 0.2s;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    }
+    
+    #ButtonAccueil .button.raised:active {
+      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+      transition-delay: 0s;
+    }
+    
+    #ButtonAccueil .center {
+    text-align: center;
+    }
     </style>
-    <a href="{{pathFor 'login'}}"><paper-button id="paper_button" noink vertical layout center-justified>Connexion</paper-button></a><br>
-    <a href="{{pathFor 'register'}}"><paper-button id="paper_button" noink vertical layout center-justified>Inscription</paper-button></a>
-	 
+   <!-- <a href="{{pathFor 'login'}}"><paper-button id="paper_button" noink vertical layout center-justified>Connexion</paper-button></a><br>
+    <a href="{{pathFor 'register'}}"><paper-button id="paper_button" noink vertical layout center-justified>Inscription</paper-button></a>-->
+	   <div id="ButtonAccueil">  
+          <div class="button raised green">
+            <a href="{{pathFor 'login'}}"> <div class="center" fit>Connexion</div>
+                <paper-ripple fit></paper-ripple></a>
+          </div>    <br>
+          <div class="button raised">
+               <a href="{{pathFor 'register'}}"><div class="center" fit>Inscription</div>
+                <paper-ripple fit></paper-ripple></a>
+          </div>
+    </div>
 </template>
 
 <template name="headerloginForm">
