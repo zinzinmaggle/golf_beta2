@@ -1,0 +1,23 @@
+<template name="golfSearch">
+	<div class="row">
+	    <div class="col s12">
+		    {{> esInput index="golfs" placeholder="Search..." }}
+
+		    <ul class="row">
+		        {{#esEach index="golfs"}}
+		            {{> golfCard}}
+		        {{/esEach}}
+		    </ul>
+
+		    {{> loadMoreButton index="golfs"}}
+
+		    {{#ifEsHasNoResults index="golfs"}}
+		        <div class="no-results">No results found!</div>
+		    {{/ifEsHasNoResults}}
+
+		    {{#ifEsIsSearching index="golfs"}}
+		        <div>{{> loading}}</div>
+		    {{/ifEsIsSearching}}
+	    </div>
+	</div>
+</template>
