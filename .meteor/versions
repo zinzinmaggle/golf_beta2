@@ -18,6 +18,7 @@ email@1.0.6
 fastclick@1.0.3
 fortawesome:fontawesome@4.3.0
 geojson-utils@1.0.3
+hedcet:touch-swipe@1.6.6
 html-tools@1.0.4
 htmljs@1.0.4
 http@1.1.0
@@ -30,6 +31,8 @@ iron:location@1.0.7
 iron:middleware-stack@1.0.7
 iron:router@1.0.7
 iron:url@1.0.7
+jparker:crypto-core@0.1.0
+jparker:crypto-md5@0.1.1
 jquery@1.11.3_2
 json@1.0.3
 launch-screen@1.0.2
@@ -37,6 +40,7 @@ less@1.0.14
 livedata@1.0.13
 localstorage@1.0.3
 logging@1.0.7
+materialize:materialize@0.96.1
 meteor@1.1.6
 meteor-platform@1.2.2
 minifiers@1.1.5

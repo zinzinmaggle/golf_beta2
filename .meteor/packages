@@ -6,11 +6,14 @@
 
 meteor-platform
 ecwyne:polymer-elements
-twbs:bootstrap
 iron:router
 fortawesome:fontawesome
 accounts-password
 less
 aldeed:template-extension
 useraccounts:polymer
-service-configuration
+hedcet:touch-swipe
+fastclick
+jparker:crypto-md5
+materialize:materialize
+twbs:bootstrap

@@ -1,12 +1,13 @@
 <template name="sublayout">
 <core-drawer-panel id="drawerPanel">
-    <core-header-panel drawer>
+    <core-header-panel drawer style="background-color:#263238;color:#fff;">
       <core-toolbar id="navheader">
-        <span><i class="fa fa-home" style="margin-right:15px;"></i>Home</span>
+        {{> header_menu}}
+      
       </core-toolbar>
-      <core-menu class='menu'>
-         {{> menu}}
-      </core-menu>
+      <core-menu selected="1" selectedindex="1" class="menu" id="core_menu">
+          {{> menu}}
+    </core-menu>
     </core-header-panel>
     <core-header-panel main>
       <core-toolbar id="mainheader">

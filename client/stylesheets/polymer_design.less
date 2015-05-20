@@ -2,10 +2,11 @@
 @import url("//fonts.googleapis.com/css?family=Roboto");
 
 @toolbar: #2ECC71;
-@body: #34495E;
-
+@body: #f1f8e9 ;
+@menu : blue;
+@police :#263238;
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif !important;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   font-weight: 400;
@@ -17,7 +18,7 @@ body {
   padding: 0px;
   height: 100%;
   background-color: @body;
-  color: #fff;
+  color: @police;
 }
 html .font-special,
 html e('/')deep e('/') .font-special {
@@ -26,10 +27,12 @@ html e('/')deep e('/') .font-special {
 html core-header-panel,
 html e('/')deep e('/') core-header-panel {
   height: 100%;
+
 }
 html core-header-panel[mode=cover]::shadow #mainContainer,
 html e('/')deep e('/') core-header-panel[mode=cover]::shadow #mainContainer {
   left: 70px;
+  
 }
 html .core-header,
 html e('/')deep e('/') .core-header {
@@ -40,6 +43,7 @@ html e('/')deep e('/') .core-header {
   background-color: @toolbar;
   color: #fff;
 }
+
 html .core-header a,
 html e('/')deep e('/') .core-header a {
   color: #fff;
