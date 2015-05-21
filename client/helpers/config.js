@@ -36,8 +36,3 @@ AccountsTemplates.addFields([
 	},
 	pwd
 ]);
-
-AccountsTemplates.configure({
-    // Redirects
-    homeRoutePath: '/news'
-});
