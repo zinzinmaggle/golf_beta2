@@ -1,9 +1,14 @@
 <template name="searchFriends">
 	<div class="row">
 	    <div class="col s12">
-	        {{> esInput index="users" placeholder="Search..." }}
+	        {{> esInput index="users" id="friendSearch" placeholder="Search..." }}
+	        {{#esEach index="users" id="friendSearch"}}
+		    <p>
+			{{#if results}}
+	    		{{results}} résultat{{pluralize}}
+	    	{{/if}}
+	    	</p>
 
-			{{#esEach index="users"}}
 			    <div class="col s12 m8 offset-m2 l6 offset-l3">
 				    <div class="card-panel grey lighten-5 z-depth-1">
 						<div class="row valign-wrapper">
@@ -26,11 +31,11 @@
 
 		    {{> esLoadMoreButton index="users"}}
 		    
-		    {{#ifEsHasNoResults index="users"}}
-		        <div class="no-results">No results found!</div>
+		    {{#ifEsHasNoResults index="users" id="friendSearch"}}
+		        <div class="no-results">Désolé, nous n'avons pas pu trouver votre ami ... :(</div>
 		    {{/ifEsHasNoResults}}
 
-		    {{#ifEsIsSearching index="users"}}
+		    {{#ifEsIsSearching index="users" id="friendSearch"}}
 	            <div>{{> loading}}</div>
 		    {{/ifEsIsSearching}}
 	    </div>

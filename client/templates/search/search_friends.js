@@ -1,31 +1,34 @@
 
-/*  field: 'username',
-  collection: Meteor.users,
-  use: 'mongo-db',
-  query: function (searchString, opts) {
-    // Default query that is used for searching
-    var query = EasySearch.getSearcher(this.use).defaultQuery(this, searchString);
 
-    // Make the emails searchable
- 
-
-    return query;
-  }
-});*/
-EasySearch.createSearchIndex('users', {
-  field: ['username'],
-  collection: Meteor.users,
-});
+Template.searchFriends.rendered = function() {
+    instance = EasySearch.getComponentInstance({
+        id: 'friendSearch',
+        index: 'users'
+    });
+};
 
 
+var instance;
 Template.searchFriends.helpers({
 	users: function() {
 		return Meteor.users.find();
-	}
+	},
+  results: function(){
+    if (instance !== undefined)
+      return instance.get('total');
+    return false;
+  },
+  pluralize: function() {
+    if (instance !== undefined && instance.get('total') > 1)
+      return 's';
+    return '';
+  }
 
 
 });
- 
+
+
+
 
 Template.searchFriends.events({
   'click .btn': function (event) {
