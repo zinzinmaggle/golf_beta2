@@ -1,6 +1,5 @@
 
-EasySearch.createSearchIndex('users', {
-  field: 'username',
+/*  field: 'username',
   collection: Meteor.users,
   use: 'mongo-db',
   query: function (searchString, opts) {
@@ -12,7 +11,12 @@ EasySearch.createSearchIndex('users', {
 
     return query;
   }
+});*/
+EasySearch.createSearchIndex('users', {
+  field: ['username'],
+  collection: Meteor.users,
 });
+
 
 Template.searchFriends.helpers({
 	users: function() {
