@@ -1,21 +1,30 @@
 <template name="showFriends">
-    <section id="section" layout vertical>
-      <paper-tabs selected="1" selectedindex="1" id="paper_tabs" horizontal center layout>
-        <paper-tab id="paper_tab" inline flex center-center horizontal layout><a class="link_menu link_tab" href="{{pathFor 'showFriendsList'}}"
-		>Amis {{friendListCounter}}</a></paper-tab>
-        <paper-tab id="paper_tab1" inline flex center-center horizontal layout active><a  class="link_menu link_tab" href="{{pathFor 'showFriendsQuery'}}">Demande d'amis {{friendQueryCounter}}</a></paper-tab>
-      </paper-tabs>
-      <section id="section1" flex relative>
-      </section>
-    </section>
+	<paper-tabs selected="0" horizontal center layout>
+		<paper-tab id="tabFirst" page="tab1" inline flex center-center horizontal layout>
+			Amis {{friendListCounter}}
+		</paper-tab>
+		<paper-tab id="tabSecond" page="tab2" inline flex center-center horizontal layout>
+			Demande d'amis {{friendQueryCounter}}
+		</paper-tab>
+	</paper-tabs>
+	<div class="row">
+	    <div class="col s12">
+			<core-pages valueattr="label" selected="{{currentTab}}">
+				<div label="tab1">
+					{{> showFriendsList}}
+				</div>
+				<div label="tab2">
+					{{> showFriendsQuery}}
+				</div>
+			</core-pages>
+		</div>
+	</div>
 </template>
+
 <template name="showFriendsQuery">
-{{> showFriends}}
-<div class="row">
-    <form class="col s12">
-     <h2>Demande en attente :</h2>
-	 {{#each friendsQuery}}
-      <div class="col s12 m8 offset-m2 l6 offset-l3">
+    <h2>Demande en attente :</h2>
+	{{#each friendsQuery}}
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
 		<div class="card-panel grey lighten-5 z-depth-1">
 			<div class="row valign-wrapper">
 			    <div class="col s2">
@@ -36,20 +45,13 @@
 		</div>
     </div>	 
     {{/each}}
-    </form>
-</div>
 </template>
 
 
 <template name="showFriendsList">
-
-{{> showFriends}}
-
-<div class="row">
-    <form class="col s12">
-     <h2>Mes amis :</h2>
-	 {{#each friendsList}}
-      <div class="col s12 m8 offset-m2 l6 offset-l3">
+    <h2>Mes amis :</h2>
+	{{#each friendsList}}
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
 		<div class="card-panel grey lighten-5 z-depth-1">
 			<div class="row valign-wrapper">
 			    <div class="col s2">
@@ -70,6 +72,4 @@
 		</div>
     </div>	 
     {{/each}}
-    </form>
-</div>
 </template>
