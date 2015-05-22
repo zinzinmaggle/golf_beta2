@@ -1,5 +1,5 @@
 <template name="userProfil">
-	<div class="information">
+	<!--<div class="information">
 		<h3>Your informations</h3>
 		<p>ID : {{_id}}</p>  
 		<p>Username : {{username}}</p>  
@@ -9,5 +9,43 @@
 			{{/each}}
 		</p>
 		{{> ProfileForm}}
+	</div>-->
+	<paper-tabs selected="0" horizontal center layout>
+		<paper-tab id="tabFirst" page="tab1" inline flex center-center horizontal layout>
+			Profil
+		</paper-tab>
+		<paper-tab id="tabSecond" page="tab2" inline flex center-center horizontal layout>
+			Matériel
+		</paper-tab>
+		<paper-tab id="tabThird" page="tab3" inline flex center-center horizontal layout>
+			Stats
+		</paper-tab>
+		<paper-tab id="tabFourth" page="tab4" inline flex center-center horizontal layout>
+			Historique
+		</paper-tab>
+		<paper-tab id="tabFith" page="tab5" inline flex center-center horizontal layout>
+			Badges
+		</paper-tab>
+	</paper-tabs>
+	<div class="row">
+	    <div class="col s12">
+			<core-pages valueattr="label" selected="{{currentTab}}">
+				<div label="tab1">
+					{{> ProfileForm}}
+				</div>
+				<div label="tab2">
+					{{> ProfileForm}}
+				</div>
+				<div label="tab3">
+					{{> ProfileForm}}
+				</div>
+				<div label="tab4">
+					{{> ProfileForm}}
+				</div>
+				<div label="tab5">
+					{{> ProfileForm}}
+				</div>
+			</core-pages>
+		</div>
 	</div>
 </template>

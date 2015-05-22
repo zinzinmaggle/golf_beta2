@@ -1,0 +1,22 @@
+<template name ="settings">
+	<paper-tabs selected="0" horizontal center layout>
+		<paper-tab id="tabFirst" page="tab1" inline flex center-center horizontal layout>
+			Compte
+		</paper-tab>
+		<paper-tab id="tabSecond" page="tab2" inline flex center-center horizontal layout>
+			Application
+		</paper-tab>
+	</paper-tabs>
+	<div class="row">
+	    <div class="col s12">
+			<core-pages valueattr="label" selected="{{currentTab}}">
+				<div label="tab1">
+					
+				</div>
+				<div label="tab2">
+					
+				</div>
+			</core-pages>
+		</div>
+	</div>
+</template>	

@@ -1,4 +1,3 @@
-Meteor.subscribe('users');
 Template.ProfileForm.events({
 	'submit form': function(e) {
 		e.preventDefault();
@@ -18,7 +17,12 @@ Template.ProfileForm.events({
 		Router.go('postsList');
 	}
 });
-
+Template.userProfil.events({
+	'click paper-tab': function (e) {
+		console.log($(e.target).attr('page'));
+		Session.set('currentTab', $(e.target).attr('page'));
+	},
+});
 Deps.autorun(function(){
 	Meteor.subscribe('userData');
 });
@@ -26,5 +30,8 @@ Deps.autorun(function(){
 Template.userProfil.helpers({
 	users: function() {
 		return Meteor.users.find();
+	},
+	currentTab: function() {
+		return Session.get('currentTab');
 	}
 });
