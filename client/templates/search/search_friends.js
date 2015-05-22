@@ -1,14 +1,11 @@
-
-
+var instance;
 Template.searchFriends.rendered = function() {
     instance = EasySearch.getComponentInstance({
         id: 'friendSearch',
         index: 'users'
     });
+    
 };
-
-
-var instance;
 Template.searchFriends.helpers({
 	users: function() {
 		return Meteor.users.find();
@@ -22,19 +19,34 @@ Template.searchFriends.helpers({
     if (instance !== undefined && instance.get('total') > 1)
       return 's';
     return '';
+
+  },
+  ifNotFriend: function(){
+    console.log(this);
+    var msg = "";
+    var frd = Friends.find({$or: [{ accepted: true, id2 : Meteor.userId(), id1: this._id }, { accepted: true, id1 : Meteor.userId(), id2: this._id }]}).fetch();
+    
+    
+    if( frd.length == 0)
+    {
+       return false;
+    }
+    else
+    {
+
+      return true;
+    }
+       
   }
+  
 
 
 });
-
-
-
-
 Template.searchFriends.events({
   'click .btn': function (event) {
     event.preventDefault();
-
     var $button = $(event.target);
+   
 
     console.log($button.attr('user-id'));
     var friend = {
@@ -46,22 +58,9 @@ Template.searchFriends.events({
             // affiche l'erreur à l'utilisateur et s'interrompt
             if (error)
                 return alert(error.reason);
-           else
-            {
-              /*if()
-              {*/
-                 $button.text('En attente');
-                 $button.attr('disabled', 'disabled');
-              /*}
-              else if()
-              {
-
-              }
-              else
-              {
-
-              }*/
-            }
+         
+            
         });
   }
 });
+

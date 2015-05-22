@@ -27,10 +27,9 @@ Template.showFriendsList.helpers({
     return friends;
  }
 });
-Template.showFriends.events({
-  'click .btn': function (event) {
+Template.showFriendsQuery.events({
+  'click #confirmFriend': function (event) {
     event.preventDefault();
-
     var $button = $(event.target);
 
    	Friends.update({
@@ -40,12 +39,7 @@ Template.showFriends.events({
 			accepted: true
 		}
 	});
- 	
- 	Meteor.users.insert({
-	 	friends: {
-	        friend : Friends.find({ accepted: true, id2 : Meteor.userId() }).username             
-	    },
-	});
+
   }
 });
 
