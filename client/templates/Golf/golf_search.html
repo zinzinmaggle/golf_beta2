@@ -1,21 +1,27 @@
 <template name="golfSearch">
 	<div class="row">
 	    <div class="col s12">
-		    {{> esInput index="golfs" placeholder="Search..." }}
+		    {{> esInput index="golfs" id="golfSearch" placeholder="Search..." }}
 
-		    <ul class="row">
-		        {{#esEach index="golfs"}}
+		    <p>
+			{{#if results}}
+	    		{{results}} résultat{{pluralize}}
+	    	{{/if}}
+	    	</p>
+
+		    <ul class="row golfCards">
+		        {{#esEach index="golfs" id="golfSearch"}}
 		            {{> golfCard}}
 		        {{/esEach}}
 		    </ul>
 
-		    {{> loadMoreButton index="golfs"}}
+		    {{> loadMoreButton index="golfs" id="golfSearch"}}
 
-		    {{#ifEsHasNoResults index="golfs"}}
+		    {{#ifEsHasNoResults index="golfs" id="golfSearch"}}
 		        <div class="no-results">No results found!</div>
 		    {{/ifEsHasNoResults}}
 
-		    {{#ifEsIsSearching index="golfs"}}
+		    {{#ifEsIsSearching index="golfs" id="golfSearch"}}
 		        <div>{{> loading}}</div>
 		    {{/ifEsIsSearching}}
 	    </div>

@@ -1,8 +1,8 @@
 <template name="loadMoreButton">
     {{#if hasMoreResults}}
     	<button style="display: none;"></button>
-    	<div>
-    		<paper-button raised class="greenButton">Afficher plus</paper-button>
+    	<div class="col s12 m8 offset-m2 l6 offset-l3">
+    		<paper-button raised class="greenButton loadMore" id="btnLoadMore">Afficher plus</paper-button>
     	</div>
     {{/if}}
 </template>
