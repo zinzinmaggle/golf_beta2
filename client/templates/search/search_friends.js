@@ -46,9 +46,22 @@ Template.searchFriends.events({
             // affiche l'erreur à l'utilisateur et s'interrompt
             if (error)
                 return alert(error.reason);
-            $button.text('En attente');
-            $button.attr('disabled', 'disabled');
-            
+           else
+            {
+              /*if()
+              {*/
+                 $button.text('En attente');
+                 $button.attr('disabled', 'disabled');
+              /*}
+              else if()
+              {
+
+              }
+              else
+              {
+
+              }*/
+            }
         });
   }
 });

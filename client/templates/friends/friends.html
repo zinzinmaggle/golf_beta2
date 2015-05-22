@@ -1,11 +1,16 @@
 <template name="showFriends">
-
-{{> showFriendsQuery}}
-<hr>
-{{> showFriendsList}}
+    <section id="section" layout vertical>
+      <paper-tabs selected="1" selectedindex="1" id="paper_tabs" horizontal center layout>
+        <paper-tab id="paper_tab" inline flex center-center horizontal layout><a class="link_menu link_tab" href="{{pathFor 'showFriendsList'}}"
+		>Amis {{friendListCounter}}</a></paper-tab>
+        <paper-tab id="paper_tab1" inline flex center-center horizontal layout active><a  class="link_menu link_tab" href="{{pathFor 'showFriendsQuery'}}">Demande d'amis {{friendQueryCounter}}</a></paper-tab>
+      </paper-tabs>
+      <section id="section1" flex relative>
+      </section>
+    </section>
 </template>
-
 <template name="showFriendsQuery">
+{{> showFriends}}
 <div class="row">
     <form class="col s12">
      <h2>Demande en attente :</h2>
@@ -37,6 +42,9 @@
 
 
 <template name="showFriendsList">
+
+{{> showFriends}}
+
 <div class="row">
     <form class="col s12">
      <h2>Mes amis :</h2>
