@@ -1,33 +1,32 @@
 <template name="sublayout">
-<core-drawer-panel id="drawerPanel">
-    <core-header-panel drawer style="background-color:#263238;color:#fff;">
-      <core-toolbar id="navheader">
-        {{> header_menu}}
-      
-      </core-toolbar>
-      <core-menu selected="1" selectedindex="1" class="menu" id="core_menu">
-          {{> menu}}
-    </core-menu>
-    </core-header-panel>
-    <core-header-panel main>
-      <core-toolbar id="mainheader">
-        <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
-        <span flex>Beta Golf</span>
-        <!-- <paper-icon-button id='trigger' icon="more-vert"></paper-icon-button> -->
-        <paper-menu-button>
-          <paper-icon-button icon="more-vert"></paper-icon-button>
-          <paper-dropdown class='dropdown' halign='right' valign='top'>
-            <core-menu class='menu'>
-              <paper-item>Share</paper-item>
-              <paper-item>Settings</paper-item>
-              <paper-item>Help</paper-item>
-            </core-menu>
-          </paper-dropdown>
-        </paper-menu-button>
-      </core-toolbar>
-      <div class="content">
-        {{> yield}}
-      </div>
-    </core-header-panel>
-  </core-drawer-panel> 
-  </template>
+	<core-drawer-panel id="drawerPanel">
+		<core-header-panel drawer style="background-color:#263238;color:#fff;">
+			<core-toolbar id="navheader">
+				{{> header_menu}}
+			</core-toolbar>
+			<core-menu selected="1" selectedindex="1" class="menu" id="core_menu">
+				{{> menu}}
+			</core-menu>
+		</core-header-panel>
+		<core-header-panel main>
+			<core-toolbar id="mainheader">
+				<paper-icon-button id="navicon" icon="menu"></paper-icon-button>
+				<span flex>{{pageTitle}}</span>
+				<!-- <paper-icon-button id='trigger' icon="more-vert"></paper-icon-button> -->
+				<paper-menu-button>
+					<paper-icon-button icon="more-vert"></paper-icon-button>
+					<paper-dropdown class='dropdown' halign='right' valign='top'>
+						<core-menu class='menu'>
+							<paper-item>Share</paper-item>
+							<paper-item>Settings</paper-item>
+							<paper-item>Help</paper-item>
+						</core-menu>
+					</paper-dropdown>
+				</paper-menu-button>
+			</core-toolbar>
+			<div class="content">
+				{{> yield}}
+			</div>
+		</core-header-panel>
+	</core-drawer-panel> 
+</template>

@@ -10,8 +10,6 @@ Template.showFriendsList.helpers({
   		friends = [],
   		user;
 
-  	console.log(frd);
-
   	for (var i = frd.length - 1; i >= 0; i--) {
   		var id;
   		if (frd[i].id1 == Meteor.userId()) {
