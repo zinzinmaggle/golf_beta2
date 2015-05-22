@@ -27,25 +27,6 @@ Template.showFriendsList.helpers({
 });
 
 Template.showFriends.events({
-	'click .btn': function (event) {
-		event.preventDefault();
-
-		var $button = $(event.target);
-
-		Friends.update({
-			_id: $button.attr('user-id')
-		}, {
-			$set: { 
-				accepted: true
-			}
-		});
-	
-		Meteor.users.insert({
-			friends: {
-						friend : Friends.find({ accepted: true, id2 : Meteor.userId() }).username             
-				},
-		});
-	},
 	'click paper-tab': function (e) {
 		console.log($(e.target).attr('page'));
 		Session.set('currentTab', $(e.target).attr('page'));
@@ -53,6 +34,22 @@ Template.showFriends.events({
 		// 	return $(e.target).attr('page')
 		// });
 	},
+});
+
+Template.showFriendsQuery.events({
+  'click #confirmFriend': function (event) {
+    event.preventDefault();
+    var $button = $(event.target);
+
+   	Friends.update({
+		_id: $button.attr('user-id')
+	}, {
+		$set: { 
+			accepted: true
+		}
+	});
+
+  }
 });
 
 Template.showFriends.helpers({
