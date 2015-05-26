@@ -1,24 +1,27 @@
 <template name="ProfileForm">
     <form class="main form page">
         <div class="form-group">
-            <label class="control-label" for="username">Username </label>
             <div class="controls">
-                <input name="username" id="username" type="text" value="" placeholder="{{username}}" class="form-control"/>
+                <paper-input-decorator floatingLabel label="Username">
+                    <input name="username" id="username" type="text" value="{{username}}"/>
+                </paper-input-decorator>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="title">First Name</label>
             <div class="controls">
-                <input name="fname" id="fname" type="text" value="" placeholder="Your First Name" class="form-control"/>
+                <paper-input-decorator floatingLabel label="First Name">
+                    <input name="fname" id="fname" type="text" value="" placeholder="Your First Name"/>
+                </paper-input-decorator>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="title">Last Name</label>
             <div class="controls">
-                <input name="lname" id="lname" type="text" value="" placeholder="Your Last Name" class="form-control"/>
+                <paper-input-decorator floatingLabel label="Last Name">
+                    <input name="lname" id="lname" type="text" value="" placeholder="Your Last Name"/>
+                </paper-input-decorator>
             </div>
         </div>
 
-        <input type="submit" value="Submit" class="btn btn-primary"/>
+        <paper-button primary raised>Submit</paper-button>
     </form>
 </template>
