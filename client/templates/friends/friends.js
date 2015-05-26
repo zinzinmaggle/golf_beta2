@@ -48,7 +48,7 @@ Template.showFriendsQuery.events({
 			accepted: true
 		}
 	});
-
+   
   }
 });
 
