@@ -6,7 +6,7 @@ Template.ProfileForm.events({
 			_id:Meteor.user()._id
 		}, {
 			$set: { 
-				username: $(e.target).find('[name=username]').val()
+				username: $(e.target).find('[name=username]').val(),
 				firstName: $(e.target).find('[name=fname]').val(),
 				lastName: $(e.target).find('[name=lname]').val(),
 				accountType : 'regular',
