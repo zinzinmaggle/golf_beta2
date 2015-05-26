@@ -11,5 +11,7 @@ Template.headerloginForm.helpers({
 	}
 });
 
-
-
+Template.pwdFormBtn.inheritsHelpersFrom("atPwdFormBtn");
+Template.pwdFormBtn.inheritsEventsFrom("atPwdFormBtn");
+Template.pwdFormBtn.inheritsHooksFrom("atPwdFormBtn");
+Template.pwdFormBtn.replaces("atPwdFormBtn");

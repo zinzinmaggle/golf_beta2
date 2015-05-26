@@ -175,11 +175,11 @@ html paper-button[primary] #ripple,
 html /deep/ paper-button[primary] #ripple,
 html paper-button[primary]::shadow #ripple,
 html /deep/ paper-button[primary]::shadow #ripple {
-  color: #f6b6bf;
+  color: #31FF88;
 }
 html paper-button[primary][raised],
 html /deep/ paper-button[primary][raised] {
-  background-color: #e8485f;
+  background-color: #2ECC71;
   color: #fff;
 }
 html paper-button[primary][raised] #ripple,
@@ -422,7 +422,7 @@ html /deep/ paper-toast::shadow * {
 }
 html paper-input[focused] .floated-label,
 html /deep/ paper-input[focused] .floated-label {
-  color: #e8485f;
+  color: #2ECC71;
 }
 html paper-input[focused] .error-text,
 html /deep/ paper-input[focused] .error-text,
@@ -461,12 +461,12 @@ html /deep/ paper-input-decorator /deep/ .unfocused-underline {
 html paper-input-decorator /deep/ .focused-underline,
 html /deep/ paper-input-decorator /deep/ .focused-underline {
 /* line color when the input is focused */
-  background-color: #e8485f;
+  background-color: #2ECC71;
 }
 html paper-input-decorator /deep/ .cursor,
 html /deep/ paper-input-decorator /deep/ .cursor {
 /* cursor color during the focus transition */
-  background-color: #e8485f;
+  background-color: #2ECC71;
 }
 html paper-input-decorator /deep/ ::-webkit-input-placeholder,
 html /deep/ paper-input-decorator /deep/ ::-webkit-input-placeholder {
@@ -486,7 +486,7 @@ html /deep/ paper-input-decorator[focused] .floated-label .label-text,
 html paper-input-decorator[focused] /deep/ .floated-label .label-text,
 html /deep/ paper-input-decorator[focused] /deep/ .floated-label .label-text {
 /* floating label color when the input is focused */
-  color: #e8485f;
+  color: #2ECC71;
 }
 html paper-input-decorator.invalid[focused] /deep/ .floated-label .label-text,
 html /deep/ paper-input-decorator.invalid[focused] /deep/ .floated-label .label-text,

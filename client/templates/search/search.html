@@ -6,3 +6,9 @@
     	</div>
     {{/if}}
 </template>
+
+<template name="searchInput">
+	<paper-input-decorator label="{{placeholder}}">
+    	<input type="{{type}}" id="{{id}}" placeholder="{{placeholder}}" class="{{class}}" />
+	</paper-input-decorator>
+</template>

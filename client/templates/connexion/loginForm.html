@@ -129,3 +129,12 @@
 		</div>
 	</div>
 </template>
+
+<template name="pwdFormBtn">
+  <div  horizontal layout center-justified>
+    <button type="submit" id="at-btn" hidden></button>
+    <paper-button primary class="at-btn submit {{submitDisabled}}" role="button" id="at-btn-polymer" raised>
+      {{buttonText}}
+    </paper-button>
+  </div>
+</template>
