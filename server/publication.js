@@ -1,5 +1,5 @@
-Meteor.publish('posts', function(author) {
-	return Posts.find({id: author});
+Meteor.publish('posts', function(id) {
+	return Posts.find({id: id});
 });
 Meteor.publish('region', function() {
 	return Region.find();

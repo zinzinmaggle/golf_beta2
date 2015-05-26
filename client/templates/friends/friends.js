@@ -22,6 +22,7 @@ Template.showFriendsList.helpers({
 			friends.push(user[0]);
 		};
 
+		
 		return friends;
 	}
 });

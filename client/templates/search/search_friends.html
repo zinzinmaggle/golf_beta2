@@ -8,7 +8,7 @@
 	    		{{results}} résultat{{pluralize}}
 	    	{{/if}}
 	    	</p>
-
+<!-- 
 			    <div class="col s12 m8 offset-m2 l6 offset-l3">
 				    <div class="card-panel grey lighten-5 z-depth-1">
 						<div class="row valign-wrapper">
@@ -26,7 +26,37 @@
 							</div>
 						</div>
 				    </div>
-				</div>	 
+				</div>-->
+				<div class="row">	
+				<div class="card col s12">
+					<div class="col s4">
+						<div class="card-image">
+							<img src="http://www.gravatar.com/avatar/{{encryptedMail}}" alt="" class="circle responsive-img">
+							<span class="card-title">Label 1</span>
+						</div>
+					</div>
+					<div class="col s8">
+						<div class="col s12">
+								<h4>{{username}}</h4>
+								<div class="col s6">
+									<p>HCP : 36,5</p>
+								</div>
+								<div class="col s6 align-droite">
+									<p>Niveau {{level}}</p>
+								</div>				
+							
+						</div>
+						<div class="col s12">
+							<div class="card-action">
+								<div class="col s6 offset-s6  align-droite">
+									<p><a class="waves-effect waves-light btn {{#if ifNotFriend}} disabled{{/if}}" id="addFriend" user-id="{{_id}}">Ajouter</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+       	 
 			{{/esEach}}
 
 		    {{> esLoadMoreButton index="users"}}
