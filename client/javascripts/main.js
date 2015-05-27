@@ -1,5 +1,3 @@
-// Meteor.users.update({_id:Meteor.user()._id}, {$set: { surname: ""
-// 	}});
 Deps.autorun(function () {
   if (Meteor.user())
   {
@@ -13,6 +11,17 @@ Deps.autorun(function () {
 				firstConnexion: '0',
 			}
 		});
+		
+		Posts.insert({
+		title: Meteor.user().username,
+		subtitle : '− à rejoint l\'application',
+		content : '',
+		author : Meteor.user().username,
+		submit_date : new Date(),
+		type : 'statut',
+		encrypted_mail : Meteor.user().encryptedMail,
+		id : Meteor.userId(),
+	});
 	}
 	else
 	{
