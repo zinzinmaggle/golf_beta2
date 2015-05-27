@@ -10,19 +10,22 @@
         </div> -->
         {{> editYourAvatarModal}}
         <div class="form-group">
-            <label class="control-label" for="title">Prénom</label>
             <div class="controls">
-                <input name="fname" id="fname" type="text" value="" placeholder="Votre prénom" class="form-control"/>
+            	<paper-input-decorator floatingLabel label="Prénom">
+                	<input name="fname" id="fname" type="text" value="" placeholder="Votre prénom" />
+                 </paper-input-decorator>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="title">Nom</label>
+            
             <div class="controls">
-                <input name="lname" id="lname" type="text" value="" placeholder="Votre nom" class="form-control"/>
+            <paper-input-decorator floatingLabel label="Nom">
+                <input name="lname" id="lname" type="text" value="" placeholder="Votre nom" />
+             </paper-input-decorator>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="title">Genre</label>
+           
             <div class="radio">
               <label>
                 <input type="radio" name="gender" id="gender" value="">
@@ -37,22 +40,30 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="title">Numéro de téléphone</label>
+       
             <div class="controls">
-                <input name="phone" id="phone" type="text" value="" placeholder="Votre numéro de téléphone" class="form-control"/>
+            	<paper-input-decorator floatingLabel label="Numéro de téléphone">
+                	<input name="phone" id="phone" type="text" value="" placeholder="Votre numéro de téléphone" />
+                </paper-input-decorator>
             </div>
         </div>
          <div class="form-group">
-            <label class="control-label" for="title">Adresse</label>
+            
             <div class="controls">
-                <input name="adresse" id="adresse" type="text" value="" placeholder="Votre adresse" class="form-control"/>
-                <input name="dpt" id="dpt" type="text" value="" placeholder="Votre département" class="form-control"/>
-                 <input name="ville" id="ville" type="text" value="" placeholder="Votre ville" class="form-control"/>
+            	<paper-input-decorator floatingLabel label="Adresse">
+                	<input name="adresse" id="adresse" type="text" value="" placeholder="Votre adresse" />
+                </paper-input-decorator>
+                <paper-input-decorator floatingLabel label="Département">
+                	<input name="dpt" id="dpt" type="text" value="" placeholder="Votre département" />
+                </paper-input-decorator>
+                <paper-input-decorator floatingLabel label="Ville">
+                	 <input name="ville" id="ville" type="text" value="" placeholder="Votre ville" />
+                 </paper-input-decorator>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="title">Nationalité</label>
-            <select name="nationalite" class="form-control">
+           <paper-input-decorator floatingLabel label="Nationalité">
+            <select name="nationalite">
              <option value="">-- select one --</option>
               <option value="afghan">Afghan</option>
               <option value="albanian">Albanian</option>
@@ -247,11 +258,14 @@
               <option value="zambian">Zambian</option>
               <option value="zimbabwean">Zimbabwean</option>
             </select>
+            </paper-input-decorator>
         </div>
         <div class="form-group">
-            <label class="control-label" for="title">Handicap</label>
+            
             <div class="controls">
-                <input name="hdc" id="hdc" type="text" value="" placeholder="Votre handicap" class="form-control"/>
+            <paper-input-decorator floatingLabel label="Handicap">
+                <input name="hdc" id="hdc" type="text" value="" placeholder="Votre handicap" />
+               </paper-input-decorator>
             </div>
         </div>
 

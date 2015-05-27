@@ -1,23 +1,47 @@
 <template name="postItem">
-  <div class="post">
+  <!-- <div class="post">
     <div class="post-content">
     	 <div class="col s12 m8 offset-m2 l6 offset-l3">
         <div class="card-panel grey lighten-5 z-depth-1">
           <div class="row valign-wrapper">
             <div class="col s2">
-              <img src="http://www.gravatar.com/avatar/{{encrypted_mail}}" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+              <img src="http://www.gravatar.com/avatar/{{encrypted_mail}}" alt="" class="circle responsive-img"> 
             </div>
             <div class="col s10">
               <span class="black-text">
                {{title}}<small>{{subtitle}}</small><br>
                {{content}}<br>
                <hr>
-               il y a 56min
+               {{date}}
               </span>
             </div>
           </div>
         </div>
       </div>	 
     </div>
-  </div>
+  </div> -->
+  <ul class="timeline">
+        <li>
+          <div class="timeline-badge">{{date}}</div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title"><img src="http://www.gravatar.com/avatar/{{encrypted_mail}}" alt="" class="circle responsive-img" style='width:64px !important;height:64px !important;'><span style="margin-left:10px;">{{title}}</span><small style="margin-left:10px;font-size:12px;">{{subtitle}}</small></h4>
+              <p><small class="text-muted"></small></p>
+            </div>
+            <div class="timeline-body">
+              <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.</p>
+              <div class="bouton_timeline-body" style="margin-top:25px;">
+                <div class="row">
+                    <div class="col-xs-2 col-sm-1"><a href='#' class="bouton_blog"><i class="fa fa-comments"></i></a></div>
+                    <div class="col-xs-2 col-sm-1"><a href='#' class="bouton_blog"><i class="fa fa-heart-o"></i></a></div>
+                 <!--    Optional: clear the XS cols if their content doesn't match in height
+                    <div class="clearfix visible-xs-block"></div> -->
+                    <div class="col-xs-2 col-sm-1"><a href='#' class="bouton_blog"><i class="fa fa-gamepad"></i></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+</ul>
+  
 </template>
