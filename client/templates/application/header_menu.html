@@ -32,13 +32,16 @@
 			top: 15px;
 		}
 	</style>
-	<div class="row">
-		<div class="col s4">
+	<div class="row" align="center">
+		
 			<div class="left_header_panel">
 				<img class="circle responsive-img" src="http://www.gravatar.com/avatar/{{encrypted_mail}}" /> 
 			</div>		
-		</div>
-		<div class="col s6">
+			
+			<p style="font-style:italic;font-size:13px;"> <i class="fa fa-key" style="margin-right:5px;"></i>connecté en tant que {{statut}}</p>
+			<p style="font-size:25px;text-transform: lowercase;">{{username}} <i class="fa fa-sign-out"></i></p>
+			<p style="font-size:35px;padding-bottom:20px;"><span style="font-size:25px;"><i class="fa fa-level-up"></i></span>{{level}}</p>
+		<!-- <div class="col s6">
 			<div class="right_header_panel">
 				<p class="username">{{username}}</p>
 				<div class="row">
@@ -54,6 +57,6 @@
 					</div>		
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 </template>

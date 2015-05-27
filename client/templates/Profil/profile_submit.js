@@ -6,11 +6,17 @@ Template.ProfileForm.events({
 			_id:Meteor.user()._id
 		}, {
 			$set: { 
-				username: $(e.target).find('[name=username]').val()
-				/*firstname: $(e.target).find('[name=fname]').val(),
-				lastname: $(e.target).find('[name=lname]').val(),
-					level : 'beginner',
-					accounttype : 'regular'*/
+				username: $(e.target).find('[name=username]').val(),
+				firstName: $(e.target).find('[name=fname]').val(),
+				lastName: $(e.target).find('[name=lname]').val(),
+				accountType : 'regular',
+				gender : $(e.target).find('[name=gender]').val(),
+				phone : $(e.target).find('[name=phone]').val(),
+				adresse : $(e.target).find('[name=adresse]').val(),
+				codePostal : $(e.target).find('[name=dpt]').val(),
+				ville : $(e.target).find('[name=ville]').val(),
+				nationalite : $(e.target).find('[name=nationalite]').val(),
+				handicape : $(e.target).find('[name=hdc]').val(),
 			}
 		});
 

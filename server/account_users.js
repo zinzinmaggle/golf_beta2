@@ -5,7 +5,7 @@ Accounts.onCreateUser(function(options, user){
 	user.experienceTotale ='100';
 	user.firstConnexion = '1';
 	user.friends =[];
-
+	user.accountType = "regular";
 
 	if(options.profile)
 	{
@@ -13,7 +13,20 @@ Accounts.onCreateUser(function(options, user){
 		user.profile['experience'] = options.experience,
 		user.profile['experienceTotale'] = options.experienceTotale,
 		user.profile['encryptedMail'] = options.encryptedMail,
-		user.profile['firstConnexion'] = options.firstConnexion
+		user.profile['firstConnexion'] = options.firstConnexion,
+
+		user.profile['firstName'] = options.firstName,
+		user.profile['lastName'] = options.lastName,
+		user.profile['gender'] = options.gender,
+		user.profile['phone'] = options.phone,
+		user.profile['adresse'] = options.adresse,
+		user.profile['codePostal'] = options.codePostal,
+		user.profile['ville'] = options.ville,
+		user.profile['nationalite'] = options.nationalite,
+		user.profile['handicape'] = options.handicape,
+
+		user.profile['accountType'] = options.accountType
+
 	}
 	 return user;
 });
@@ -30,6 +43,17 @@ Meteor.publish('userData', function(){
 		encryptedMail : 1,
 		firstConnexion : 1,
 		friends : 1,
+		firstName : 1,
+		lastName : 1,
+		gender : 1,
+		phone : 1,
+		adresse : 1,
+		codePostal : 1,
+		ville : 1,
+		nationalite : 1,
+		handicape : 1,
+		accountType : 1,
+
 	}});
 });
 Meteor.publish('users', function(){
