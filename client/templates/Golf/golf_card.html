@@ -1,17 +1,56 @@
 <template name="golfCard">
-    <div class="col s12 m8 offset-m2 l6 offset-l3">
-	    <div class="card-panel grey lighten-5 z-depth-1">
-			<div class="row valign-wrapper">
-				<div class="col s2">
-					<img src="http://lorempixel.com/90/90/nature/g{{zipCode}}" class="circle responsive-img">
+    <div class="card white col s12 m8 offset-m2 l6 offset-l3 golfCard">
+		<div class="row valign-wrapper">
+			<div class="col s4">
+				<img src="http://lorempixel.com/90/90/nature/g{{zipCode}}">
+			</div>
+			<div class="col s8">
+				<div class="col s12">
+					<div class="">
+						<span class="left black-text flow-text capitalize">
+							{{name}}
+						</span>
+						<span class="center-align small right">
+							<a href="#" class="infoLink"><core-icon icon="info"></core-icon></a>
+						</span>
+					</div>
 				</div>
-				<div class="col s10">
-					<h5 class="black-text capitalize">{{name}}</h5>
-					<p>
-						{{city}} - {{zipCode}}
-					</p>
+				<div class="col s9">
+					<div class="center-align small col s1"><core-icon icon="star"></core-icon></div>
+					<div class="center-align small col s1"><core-icon icon="star"></core-icon></div>
+					<div class="center-align small col s1"><core-icon icon="star"></core-icon></div>
+					<div class="center-align small col s1"><core-icon icon="star-half"></core-icon></div>
+					<div class="center-align small col s1"><core-icon icon="star-outline"></core-icon></div>
+				</div>
+				<div class="col s3">
+					{{ golfDistance _id }}
+				</div>
+				<div class="divider"></div>
+				<div class="col s12 card-action center-align" id="test">
+					<div class="row">
+						<div class="col s6" style="border-right: 1px solid rgba(160, 160, 160, 0.2);">
+							<div class="row">
+								<div class="col s12 center-align" id="div1">
+								logo amis
+								</div>
+								<div class="col s12">
+									<div class="col s6 truncate">
+										<span class="black-text">
+										Undefined
+										</span>
+									</div>
+									<i class="center-align small mdi-action-android col s6 icon"></i>
+								</div>
+							</div>
+						</div>
+						<div class="col s6">
+							<span class="black-text">
+							This is a square image.
+							</span>
+						</div>
+					</div>
 				</div>
 			</div>
-	    </div>
+		</div>
 	</div>	
 </template>

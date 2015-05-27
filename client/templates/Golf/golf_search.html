@@ -3,6 +3,10 @@
 	    <div class="col s12">
 		    {{> esInput index="golfs" id="golfSearch" placeholder="Search..." }}
 
+			<div id="google_map">
+				{{> googleMap name="map" options=mapOptions}}
+			</div>
+
 		    <p>
 			{{#if results}}
 	    		{{results}} résultat{{pluralize}}

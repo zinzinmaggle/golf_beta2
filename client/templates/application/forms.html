@@ -3,7 +3,9 @@
        <!--  <div class="form-group">
             <label class="control-label" for="username">Username </label>
             <div class="controls">
-                <input name="username" id="username" type="text" value="" placeholder="{{username}}" class="form-control"/>
+                <paper-input-decorator floatingLabel label="Username">
+                    <input name="username" id="username" type="text" value="{{username}}"/>
+                </paper-input-decorator>
             </div>
         </div> -->
         {{> editYourAvatarModal}}
@@ -253,6 +255,6 @@
             </div>
         </div>
 
-        <input type="submit" value="Submit" class="btn btn-primary"/>
+        <paper-button primary raised>Submit</paper-button>
     </form>
 </template>
