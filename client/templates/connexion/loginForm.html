@@ -80,15 +80,15 @@
    <!-- <a href="{{pathFor 'login'}}"><paper-button id="paper_button" noink vertical layout center-justified>Connexion</paper-button></a><br>
     <a href="{{pathFor 'register'}}"><paper-button id="paper_button" noink vertical layout center-justified>Inscription</paper-button></a>-->
 	   <div id="ButtonsAccueil">
-        <div class="button raised green">
+        <a href="{{pathFor 'login'}}"><div class="button raised green">
                 <div class="center" fit>Connexion</div>
                 <paper-ripple fit></paper-ripple>
-        </div>
+        </div></a>
               <div class="espaceButton"></div>  
-        <div class="button raised">
+        <a href="{{pathFor 'register'}}"><div class="button raised">
               <div class="center" fit>Inscription</div>
               <paper-ripple fit></paper-ripple>
-        </div>
+        </div></a>
   </div>
 </template>
 
