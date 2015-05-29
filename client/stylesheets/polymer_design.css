@@ -36,7 +36,7 @@ html /deep/ .core-header {
   font-size: 18px;
   padding: 0 10px;
   transition: height 0.2s;
-  background-color: #2ECC71;
+  background-color: #A4D354;
   color: #fff;
 }
 
@@ -179,7 +179,7 @@ html /deep/ paper-button[primary]::shadow #ripple {
 }
 html paper-button[primary][raised],
 html /deep/ paper-button[primary][raised] {
-  background-color: #2ECC71;
+  background-color: #A4D354;
   color: #fff;
 }
 html paper-button[primary][raised] #ripple,
@@ -360,7 +360,7 @@ html /deep/ core-toolbar {
 }
 core-toolbar
 {
-  background-color: #2ECC71;
+  background-color: #A4D354;
   color: #fff;
   -webkit-box-shadow: 0px 3px 2px rgba(0,0,0,0.2);
   box-shadow: 0px 3px 2px rgba(0,0,0,0.2);
@@ -368,17 +368,17 @@ core-toolbar
 html paper-tabs.transparent-teal,
 html /deep/ paper-tabs.transparent-teal {
   background-color: transparent;
-  color: #2ECC71;
+  color: #A4D354;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 html paper-tabs.transparent-teal::shadow #selectionBar,
 html /deep/ paper-tabs.transparent-teal::shadow #selectionBar {
-  background-color: #2ECC71;
+  background-color: #A4D354;
 }
 html paper-tabs.transparent-teal paper-tab::shadow #ink,
 html /deep/ paper-tabs.transparent-teal paper-tab::shadow #ink {
-  color: #2ECC71;
+  color: #A4D354;
 }
 html paper-tabs[noink][nobar] paper-tab.core-selected,
 html /deep/ paper-tabs[noink][nobar] paper-tab.core-selected {
@@ -422,7 +422,7 @@ html /deep/ paper-toast::shadow * {
 }
 html paper-input[focused] .floated-label,
 html /deep/ paper-input[focused] .floated-label {
-  color: #2ECC71;
+  color: #A4D354;
 }
 html paper-input[focused] .error-text,
 html /deep/ paper-input[focused] .error-text,
@@ -461,12 +461,12 @@ html /deep/ paper-input-decorator /deep/ .unfocused-underline {
 html paper-input-decorator /deep/ .focused-underline,
 html /deep/ paper-input-decorator /deep/ .focused-underline {
 /* line color when the input is focused */
-  background-color: #2ECC71;
+  background-color: #A4D354;
 }
 html paper-input-decorator /deep/ .cursor,
 html /deep/ paper-input-decorator /deep/ .cursor {
 /* cursor color during the focus transition */
-  background-color: #2ECC71;
+  background-color: #A4D354;
 }
 html paper-input-decorator /deep/ ::-webkit-input-placeholder,
 html /deep/ paper-input-decorator /deep/ ::-webkit-input-placeholder {
@@ -486,7 +486,7 @@ html /deep/ paper-input-decorator[focused] .floated-label .label-text,
 html paper-input-decorator[focused] /deep/ .floated-label .label-text,
 html /deep/ paper-input-decorator[focused] /deep/ .floated-label .label-text {
 /* floating label color when the input is focused */
-  color: #2ECC71;
+  color: #A4D354;
 }
 html paper-input-decorator.invalid[focused] /deep/ .floated-label .label-text,
 html /deep/ paper-input-decorator.invalid[focused] /deep/ .floated-label .label-text,
@@ -512,7 +512,7 @@ html /deep/ paper-input-decorator.invalid /deep/ .cursor {
 html .toolbar,
 html /deep/ .toolbar {
   color: #fff;
-  background: #2ECC71;
+  background: #A4D354;
 }
 html .card,
 html /deep/ .card {
@@ -525,7 +525,7 @@ html /deep/ paper-item {
 }
 paper-item:hover,
 /deep/ paper-item:hover {
-  background-color: #2ECC71;
+  background-color: #A4D354;
 }
 html paper-item.core-selected,
 html /deep/ paper-item.core-selected {
@@ -627,6 +627,6 @@ html /deep/ paper-spinner:not([default-spinner])::shadow .circle {
 }
 
 paper-button[raised].greenButton {
-  background-color: #2ECC71;
+  background-color: #A4D354;
   color: white;
 }
