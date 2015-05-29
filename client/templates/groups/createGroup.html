@@ -1,0 +1,38 @@
+<template name="createGroup">
+ <form class="main form page">
+
+        <div class="form-group">
+            <div class="controls">
+            	<paper-input-decorator floatingLabel label="Nom du groupe">
+                	<input name="ngroupe" id="ngroupe" type="text" value="" placeholder="Nom du groupe" />
+                 </paper-input-decorator>
+            </div>
+        </div>
+
+
+         {{> esInput index="usersgroup" id="friendSearch" placeholder="Search..." }}
+            <p>
+			{{#if results}}
+	    		{{results}} résultat{{pluralize}}
+	    	{{/if}}
+	    	</p>
+	        {{#esEach index="usersgroup" id="friendSearch"}}
+		 
+	    	{{#if ifSelf}} 
+	    	<p>{{username}} <paper-button primary raisedicon="add"> Submit</paper-button></p>
+	    	{{/if}}
+			{{/esEach}}
+
+		    {{> esLoadMoreButton index="usersgroup"}}
+		    
+		    {{#ifEsHasNoResults index="usersgroup" id="friendSearch"}}
+		        <div class="no-results">Désolé, nous n'avons pas pu trouver votre ami ... :(</div>
+		    {{/ifEsHasNoResults}}
+
+		    {{#ifEsIsSearching index="usersgroup" id="friendSearch"}}
+	            <div>{{> loading}}</div>
+		    {{/ifEsIsSearching}}
+        <paper-button primary raised>Submit</paper-button>
+ </form>
+
+</template>
