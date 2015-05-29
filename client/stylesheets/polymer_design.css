@@ -520,7 +520,7 @@ html /deep/ .card {
 }
 html paper-item,
 html /deep/ paper-item {
-  background-color: #d13d51;
+  background-color: #263238;
   color: #fff;
 }
 paper-item:hover,
@@ -529,11 +529,14 @@ paper-item:hover,
 }
 html paper-item.core-selected,
 html /deep/ paper-item.core-selected {
-  background-color: #da6474;
+  background-color: #A4D354;
 }
 html paper-dropdown::shadow #background,
 html /deep/ paper-dropdown::shadow #background {
-  background-color: #d13d51;
+  background-color: #263238;
+}
+html /deep/ paper-dropdown {
+    position: absolute !important;
 }
 html .small,
 html /deep/ .small {
