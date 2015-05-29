@@ -9,6 +9,15 @@ Deps.autorun(function () {
 			$set: { 
 				encryptedMail: em,
 				firstConnexion: '0',
+				firstName: "",
+				lastName : "",
+				gender : "",
+				phone : "",
+				adresse : "",
+				codePostal : "",
+				ville : "",
+				nationalite : "",
+				handicape : "",
 			}
 		});
 		

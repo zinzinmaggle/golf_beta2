@@ -11,7 +11,7 @@ Template.searchFriends.helpers({
 		return Meteor.users.find();
 	},
   results: function(){
-    if (instance !== undefined)
+    if ((instance !== undefined) && (this._id !== Meteor.userId()))
       return instance.get('total');
     return false;
   },
@@ -22,28 +22,38 @@ Template.searchFriends.helpers({
 
   },
   ifNotFriend: function(){
-    console.log(this);
-    var msg = "";
-    var frd = Friends.find({$or: [{ accepted: true, id2 : Meteor.userId(), id1: this._id }, { accepted: true, id1 : Meteor.userId(), id2: this._id }]}).fetch();
     
+    var frd = Friends.find({$or: [{ accepted: true, id2 : Meteor.userId(), id1: this._id }, { accepted: true, id1 : Meteor.userId(), id2: this._id },{ accepted: false, id2 : Meteor.userId(), id1: this._id }, { accepted: false, id1 : Meteor.userId(), id2: this._id }]}).fetch();
+   
     
     if( frd.length == 0)
     {
-       return false;
+       return "";
     }
     else
     {
 
-      return true;
+      return "disabled";
     }
        
+  },
+  ifSelf:function(){
+
+    if(this._id == Meteor.userId())
+    {
+      return false;
+    }
+    else
+    {
+      return true;
+    }
   }
   
 
 
 });
 Template.searchFriends.events({
-  'click .btn': function (event) {
+  'click .addFriend': function (event) {
     event.preventDefault();
     var $button = $(event.target);
    

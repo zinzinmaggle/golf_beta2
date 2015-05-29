@@ -4,7 +4,6 @@ Accounts.onCreateUser(function(options, user){
 	user.experience = '50';
 	user.experienceTotale ='100';
 	user.firstConnexion = '1';
-	user.friends =[];
 	user.accountType = "regular";
 
 	if(options.profile)
@@ -42,7 +41,6 @@ Meteor.publish('userData', function(){
 		experienceTotale : 1,
 		encryptedMail : 1,
 		firstConnexion : 1,
-		friends : 1,
 		firstName : 1,
 		lastName : 1,
 		gender : 1,
