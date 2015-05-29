@@ -37,6 +37,10 @@ Template.showFriends.events({
 	},
 });
 
+Template.showFriends.rendered = function() {
+	Session.set('currentTab', 'tab1');
+};
+
 Template.showFriendsQuery.events({
   'click .confirmFriend': function (event) {
     event.preventDefault();
