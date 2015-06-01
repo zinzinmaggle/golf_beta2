@@ -1,14 +1,16 @@
 
 Template.postsList.helpers({
  posts: function() {
- 		Meteor.subscribe('posts', Meteor.userId());
+ 		//Meteor.subscribe('posts', Meteor.userId());
   		var frd_subscribe = Friends.find({$or: [{ accepted: true, id2 : Meteor.userId()}, { accepted: true, id1 : Meteor.userId()}]}).fetch();
    		var tab_id = [];
    		var user;
    		tab_id.push(Meteor.userId());
    		if( frd_subscribe.length == 0)
 	    {
+
 	       console.log("Aucunes relations !");
+	    	return Posts.find({id: Meteor.userId()},{sort: {submit_date: -1}});
 	    }
 	    else
 	    {	

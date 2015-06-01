@@ -2,6 +2,7 @@ Deps.autorun(function () {
   if (Meteor.user())
   {
   		if(Meteor.user().firstConnexion == '1'){
+  		
   		var em = CryptoJS.MD5(Meteor.user().emails[0].address).toString();
 		Meteor.users.update({
 			_id:Meteor.user()._id
@@ -9,6 +10,15 @@ Deps.autorun(function () {
 			$set: { 
 				encryptedMail: em,
 				firstConnexion: '0',
+				firstName: "",
+				lastName : "",
+				gender : "",
+				phone : "",
+				adresse : "",
+				codePostal : "",
+				ville : "",
+				nationalite : "",
+				handicape : "",
 			}
 		});
 		
