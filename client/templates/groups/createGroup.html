@@ -1,0 +1,66 @@
+<template name="createGroup">
+<paper-tabs selected="0" horizontal center layout>
+		<paper-tab id="tabFirst" page="tab1" inline flex center-center horizontal layout>
+			Créer groupe
+		</paper-tab>
+		<paper-tab id="tabSecond" page="tab2" inline flex center-center horizontal layout>
+			Mes groupes
+		</paper-tab>
+		<paper-tab id="tabThird" page="tab3" inline flex center-center horizontal layout>
+			Invitation(s)
+		</paper-tab>
+	</paper-tabs>
+	<div class="row">
+	    <div class="col s12">
+			<core-pages valueattr="label" selected="{{currentTab}}">
+				<div label="tab1">
+		<form class="main form page">
+
+        <div class="form-group">
+            <div class="controls">
+            	<paper-input-decorator floatingLabel label="Nom du groupe">
+                	<input name="ngroupe" id="ngroupe" class="nomdugroupe" type="text" value="" placeholder="Nom du groupe" />
+                 </paper-input-decorator>
+            </div>
+        </div>
+
+
+         {{> esInput index="usersgroup" id="friendSearch" placeholder="Rechercher des amis à ajouter..." }}
+     
+	        {{#esEach index="usersgroup" id="friendSearch"}}
+		 
+	    	
+	    	<p>{{username}} <paper-button primary raised class="greenButton createGroup" user-name="{{username}}"> <i class="fa fa-plus-circle"></i></paper-button></p>
+	    
+			{{/esEach}}
+
+		    {{> esLoadMoreButton index="usersgroup"}}
+		    
+		    {{#ifEsHasNoResults index="usersgroup" id="friendSearch"}}
+		        <div class="no-results">Désolé, nous n'avons pas pu trouver votre ami ... :(</div>
+		    {{/ifEsHasNoResults}}
+
+		    {{#ifEsIsSearching index="usersgroup" id="friendSearch"}}
+	            <div>{{> loading}}</div>
+		    {{/ifEsIsSearching}}
+		<hr>
+        <button primary raised type="submit" >Créer le groupe</button>
+ 		</form>
+				</div>
+				<div label="tab2">
+					{{#each GroupList}}
+					<p>Actuellement dans le groupe {{name}} avec : 
+					{{#each FriendsGroupList}}<small>
+					{{username}}
+					</small>{{/each}}</p>
+					{{/each}}
+				</div>
+				<div label="tab3">
+					
+				</div>
+			</core-pages>
+		</div>
+	</div>
+ 
+
+</template>

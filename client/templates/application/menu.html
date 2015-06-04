@@ -1,8 +1,8 @@
 <template name="menu">
-	<core-submenu id="core_submenu" icon="loyalty" label="Favoris">
-		<core-item id="core_item1" icon="favorite-outline" label="Ajouter un Favoris" horizontal center layout></core-item>
-		<core-item id="core_item2" icon="favorite-outline" label="Liens Favoris 1" horizontal center layout></core-item>
-	</core-submenu>
+	<core-submenu id="core_submenu" icon="loyalty" label="Groupe(s)">
+		<a class="link_menu" href="{{pathFor 'createGroup'}}"><core-item id="core_item1" icon="add" label="Créer un groupe" horizontal center layout></core-item></a>
+<!-- 		<core-item id="core_item2" icon="favorite-outline" label="Liens Favoris 1" horizontal center layout></core-item>
+ -->	</core-submenu>
 	<core-submenu id="core_submenu1" icon="face" label="Mon Réseau">
 		<a class="link_menu" href="{{pathFor 'userProfil'}}">
 			<core-item id="core_item4" icon="perm-identity" label="Profil" horizontal center layout></core-item>

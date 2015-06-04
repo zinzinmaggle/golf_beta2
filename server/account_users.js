@@ -5,7 +5,7 @@ Accounts.onCreateUser(function(options, user){
 	user.experienceTotale ='100';
 	user.firstConnexion = '1';
 	user.accountType = "regular";
-
+	user.friendsList = [];
 	if(options.profile)
 	{
 		user.profile['level'] = options.level,
@@ -24,7 +24,8 @@ Accounts.onCreateUser(function(options, user){
 		user.profile['nationalite'] = options.nationalite,
 		user.profile['handicape'] = options.handicape,
 
-		user.profile['accountType'] = options.accountType
+		user.profile['accountType'] = options.accountType,
+		user.profile['friendsList'] = options.friendsList
 
 	}
 	 return user;
@@ -51,6 +52,7 @@ Meteor.publish('userData', function(){
 		nationalite : 1,
 		handicape : 1,
 		accountType : 1,
+		friendsList :1,
 
 	}});
 });

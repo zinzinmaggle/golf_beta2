@@ -1,6 +1,10 @@
 Template.showFriendsQuery.helpers({
 	friendsQuery: function() {
 		return Friends.find({ accepted: false, id2 : Meteor.userId() }).fetch();
+	},
+	myUsername : function(){
+
+		return Meteor.user().username;
 	}
 });
 
@@ -42,10 +46,11 @@ Template.showFriends.rendered = function() {
 };
 
 Template.showFriendsQuery.events({
+
   'click .confirmFriend': function (event) {
     event.preventDefault();
     var $button = $(event.target);
-
+    var currentUsername = Meteor.user().username;
    	Friends.update({
 		_id: $button.attr('user-id')
 	}, {
@@ -54,7 +59,23 @@ Template.showFriendsQuery.events({
 		}
 	});
    
-  }
+   	if($button.attr('id2') == Meteor.userId())
+   	{
+   		Meteor.users.update({ _id: $button.attr('id1') },{ $push: { friendsList: $button.attr('usernameSelf') }});
+   		Meteor.users.update({ _id: $button.attr('id2') },{ $push: { friendsList: $button.attr('username') }});
+   	}
+   	else
+   	{
+   		Meteor.users.update({ _id: $button.attr('id1') },{ $push: { friendsList: $button.attr('username') }});
+   		Meteor.users.update({ _id: $button.attr('id2') },{ $push: { friendsList: $button.attr('usernameSelf')  }});
+   	}	
+   
+   	
+   	
+  
+   
+ 
+   	}
 });
 
 Template.showFriends.helpers({

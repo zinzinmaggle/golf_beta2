@@ -39,7 +39,7 @@ Template.searchFriends.helpers({
   },
   ifSelf:function(){
 
-    if(this._id == Meteor.userId())
+    if(this.username == Meteor.user().username)
     {
       return false;
     }
