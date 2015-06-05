@@ -49,7 +49,7 @@
         <div class="form-group">
             <paper-dropdown-menu label="Nationalité">
                 <paper-dropdown class="dropdown">
-                    <core-menu class="menu">
+                    <core-menu class="menu" id="nat">
                         <paper-item value="europeenne">Européenne</paper-item>
                         <paper-item value="Americain">Américaine</paper-item>
                         <paper-item value="chinois">Chinoise</paper-item>
@@ -69,4 +69,13 @@
 
         <paper-button id="submitProfil" primary raised>Submit</paper-button>
     </form>
+</template>
+<template name="SettingsFormAccount">
+
+        {{> atForm state='changePwd'}}
+        <paper-button id="removeAccount" primary raised>Supprimer votre compte</paper-button>
+
+    
+
+
 </template>

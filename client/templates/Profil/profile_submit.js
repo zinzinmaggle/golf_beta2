@@ -1,7 +1,12 @@
 Template.ProfileForm.events({
-	'click paper-button#submitProfil': function(e) {
+	'click #submitProfil': function(e) {
 		e.preventDefault();
-	
+		if($('[name=fname]').val() =="" || $('[name=lname]').val() == "" || $('[name=phone]').val() =="" || $('[name=adresse]').val() =="" || $('[name=dpt]').val() =="" || $('[name=ville]').val() =="" ||$('[name=hdc]').val() =="")
+		{
+			alert("Veuillez remplir tout les champs !");
+		}
+		else
+		{
 		Meteor.users.update({
 			_id:Meteor.user()._id
 		}, {
@@ -15,12 +20,13 @@ Template.ProfileForm.events({
 				adresse : $('[name=adresse]').val(),
 				codePostal : $('[name=dpt]').val(),
 				ville : $('[name=ville]').val(),
-				nationalite : $('[name=nationalite]').val(),
+				nationalite : $("#nat").selected,
 				handicape : $('[name=hdc]').val(),
 			}
 		});
-
 		Router.go('postsList');
+		}
+		
 	}
 });
 Template.userProfil.events({
