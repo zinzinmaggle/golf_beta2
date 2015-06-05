@@ -25,6 +25,7 @@
 				</div>
 				<div label="tab2">
 					{{> stuff}}
+					{{> myStuff}}
 				</div>
 				<div label="tab3">
 					{{> ProfileForm}}
@@ -38,4 +39,21 @@
 			</core-pages>
 		</div>
 	</div>
+</template>
+<template name="myStuff">
+		  {{> carousel}}
+</template>
+<template name="carousel">  
+  <div id="carousel">
+  {{#each stuff}}
+ 		{{> MystuffTemplate}}
+  {{/each}}
+    
+  </div>
+</template>
+<template name="MystuffTemplate">
+	<div>
+		 <p>{{marque}}</p>
+  		 <p>{{club}}</p>
+  </div>
 </template>
