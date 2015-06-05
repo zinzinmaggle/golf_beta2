@@ -33,7 +33,7 @@ Template.gallery.events({
     //  return $(e.target).attr('page')
     // });
   },
-  'submit form':function(e){
+  'click .creeralbum':function(e){
     e.preventDefault();
     if($(e.target).find('[name=nalbum]').val() == "" || isError == 1)
     {
@@ -45,7 +45,20 @@ Template.gallery.events({
       Meteor.call('InsertDefinitive', $(e.target).find('[name=nalbum]').val(),'1',Meteor.userId());
       
     }
+  },
+  'keyup .nomdelalbum' : function(e){
+    e.preventDefault();
+    if($(e.target).val().length > 0)
+    {
+       $('.creeralbum').removeAttr('disabled');
+    }
+    else
+    {
+       $('.creeralbum').attr('disabled','disabled');
+    }
   }
+
+
 });
 Template.gallery.helpers({
 

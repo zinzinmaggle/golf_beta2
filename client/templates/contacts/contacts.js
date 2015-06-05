@@ -6,6 +6,7 @@ Template.contacts.events({
 	'click #sendReport' :function(e){
 	 	e.preventDefault();
 	 	Meteor.call("SendEmail", Meteor.userId(), $('[name=Eadresse]').val());
+	 	
 	}
 });
 Template.contacts.rendered = function(){

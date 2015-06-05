@@ -79,3 +79,122 @@
 
 
 </template>
+<template name ="stuff">
+
+<div class="stuff-add-container">
+
+
+    <form class="main form page stuffForm">
+         <h4>Nouveau matériel</h4>
+         <div class="form-group club">
+                    <paper-dropdown-menu id="mesClubs" label="Club">
+                        <paper-dropdown class="dropdown">
+                            <core-menu class="menu" id="club">
+                                <paper-item value="driver">Driver</paper-item>
+                                <paper-item value="bois">Bois</paper-item>
+                                <paper-item value="hybride">Hybride</paper-item>
+                                <paper-item value="fer">Fer</paper-item>
+                                <paper-item value="wedge">Wedge</paper-item>
+                                <paper-item value="putter">Putter</paper-item>
+                            </core-menu>
+                        </paper-dropdown>
+                    </paper-dropdown-menu>
+         </div>
+          <div class="form-group marque">
+                    <paper-dropdown-menu id="mesMarques" label="Marque">
+                        <paper-dropdown class="dropdown">
+                            <core-menu class="menu" id="marque">
+                                <paper-item value="Taylor Made">Taylor Made</paper-item>
+                                <paper-item value="Mizuno">Mizuno</paper-item>
+                                <paper-item value="Nike">Nike</paper-item>
+                                <paper-item value="Gallaway">Gallaway</paper-item>
+                                <paper-item value="Wilson">Wilson</paper-item>
+
+                                 <paper-item value="Cobra">Cobra</paper-item>
+                                <paper-item value="Titleist">Titleist</paper-item>
+                                <paper-item value="Ping">Ping</paper-item>
+                                <paper-item value="Cleveland">Cleveland</paper-item>
+                                <paper-item value="Autres">Autres</paper-item>
+
+                            </core-menu>
+                        </paper-dropdown>
+                    </paper-dropdown-menu>
+         </div>
+         <div class="form-group numero">
+                    <paper-dropdown-menu label="Numéro" id="numeroBois">
+                        <paper-dropdown class="dropdown">
+
+                            <core-menu class="menu" >
+                                <paper-item value="bois1">Bois 1</paper-item>
+                                <paper-item value="bois2">Bois 2 </paper-item>
+                                <paper-item value="bois3">Bois 3</paper-item>
+                                <paper-item value="bois4">Bois 4</paper-item>
+                                <paper-item value="bois5">Bois 5</paper-item>
+                            </core-menu>
+                           
+                            
+                        </paper-dropdown>
+
+                    </paper-dropdown-menu>
+
+        </div>
+        <div class="form-group numero">
+                    <paper-dropdown-menu label="Numéro" id="numeroFer">
+                        <paper-dropdown class="dropdown">    
+                             <core-menu class="menu">
+                              
+                                <paper-item value="fer1">Fer 1</paper-item>
+                                <paper-item value="fer2">Fer 2 </paper-item>
+                                <paper-item value="fer3">Fer 3</paper-item>
+                                <paper-item value="fer4">Fer 4</paper-item>
+                                <paper-item value="fer5">Fer 5</paper-item>
+                                <paper-item value="fer6">Fer 6</paper-item>
+                                <paper-item value="fer7">Fer 7</paper-item>
+                                <paper-item value="fer8">Fer 8</paper-item>
+                                <paper-item value="fer9">Fer 9</paper-item>
+                                <paper-item value="fer10">Fer 10</paper-item>
+                                <paper-item value="fer 11">Fer 11</paper-item>
+
+                    
+                            </core-menu>
+                    </paper-dropdown>
+                    </paper-dropdown-menu>
+          </div>
+                    
+          <div class="form-group numero">
+                     <paper-dropdown-menu label="Numéro" id="numeroWedge">
+                        <paper-dropdown class="dropdown">    
+                        <core-menu class="menu" >
+                              
+
+                                <paper-item value="pitch wedge">Pitch wedge</paper-item>
+                                <paper-item value="gap wedge">Gap wedge</paper-item>
+                                <paper-item value="sand wedge">Sand wedge</paper-item>
+                                <paper-item value="lob wedge">Lob wedge</paper-item>
+
+                              
+
+                            </core-menu>
+                    </paper-dropdown>
+
+                    </paper-dropdown-menu>
+                 
+
+         </div>
+          <div class="form-group distance">
+            <div class="controls">
+                <paper-input-decorator floatingLabel label="Distance moyenne">
+                    <input name="distance" id="distance" type="text" value=""  />
+                </paper-input-decorator>
+            </div>
+         </div>
+          <div class="form-group submit">
+            <div class="controls">
+         <paper-button id="submitAddMaterial" primary raised>ENREGISTRER</paper-button>
+            </div>
+         </div>
+    </form>
+
+</div>
+
+</template>
