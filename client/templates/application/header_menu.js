@@ -1,12 +1,18 @@
 Template.header_menu.helpers({
 	username: function(){
-		return Meteor.user().username;
+		if (Meteor.user())
+			return Meteor.user().username;
+		return '';
 	},
 
 	encrypted_mail: function(){
-		return Meteor.user().encryptedMail;
+		if (Meteor.user())
+			return Meteor.user().encryptedMail;
+		return '';
 	},
 	level: function(){
-		return Meteor.user().level;
+		if (Meteor.user())
+			return Meteor.user().level;
+		return '';
 	},
 });
