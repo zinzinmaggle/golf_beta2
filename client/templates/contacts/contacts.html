@@ -1,0 +1,59 @@
+<template name ="contacts">
+	<paper-tabs selected="0" horizontal center layout>
+		<paper-tab id="tabFirst" page="tab1" inline flex center-center horizontal layout>
+			Signaler un bug
+		</paper-tab>
+		<paper-tab id="tabSecond" page="tab2" inline flex center-center horizontal layout>
+			Nous contacter
+		</paper-tab>
+	</paper-tabs>
+	<div class="row">
+	    <div class="col s12">
+			<core-pages valueattr="label" selected="{{currentTab}}">
+				<div label="tab1">
+					{{> SignalBug}}
+				</div>
+				<div label="tab2">
+					{{> ContactUs}}
+				</div>
+			</core-pages>
+		</div>
+	</div>
+</template>	
+
+<template name="SignalBug">
+<form class="main form page">
+        <div class="form-group">
+            <div class="controls">
+            	<paper-input-decorator floatingLabel label="Votre adresse e-mail">
+                    <input name="Eadresse" id="Eadresse" type="text" value=""   />
+                </paper-input-decorator>
+                <paper-autogrow-textarea id ="messageBug">
+                	<textarea id="text2Send"></textarea>
+                </paper-autogrow-textarea><br>
+                <paper-button primary raised id="sendReport">Envoyer</paper-button>
+
+            </div>
+        </div>
+</form>
+</template>
+
+
+<template name="ContactUs">
+<form class="main form page">
+        <div class="form-group">
+            <div class="controls">
+	          
+	            <paper-input-decorator floatingLabel label="Sujet de votre e-mail">
+                <input name="subject" id="subject" type="text" value=""  />
+                </paper-input-decorator>
+                <paper-autogrow-textarea id ="messageContact">
+                	<textarea id="text2Send"></textarea>
+                </paper-autogrow-textarea><br>
+                <paper-button primary raised id="sendReport">Envoyer</paper-button>  	
+
+            </div>
+        </div>
+</form>
+
+</template>
