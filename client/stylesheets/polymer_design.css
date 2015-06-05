@@ -13,7 +13,7 @@ body {
   margin: 0px;
   padding: 0px;
   height: 100%;
-  background-color: #f1f8e9;
+  /*background-color: #f1f8e9;*/
   color: #263238;
 }
 html .font-special,
@@ -566,19 +566,22 @@ html /deep/ paper-progress::shadow #secondaryProgress {
 }
 html paper-radio-button::shadow #ink,
 html /deep/ paper-radio-button::shadow #ink {
-  color: #f6b6bf;
+  color: #31FF88;
 }
 html paper-radio-button::shadow #ink[checked],
 html /deep/ paper-radio-button::shadow #ink[checked] {
-  color: #f6b6bf;
+  color: #31FF88;
 }
 html paper-radio-button::shadow #onRadio,
 html /deep/ paper-radio-button::shadow #onRadio {
-  background-color: #e8485f;
+  background-color: #A4D354;
 }
 html paper-radio-button::shadow #offRadio,
 html /deep/ paper-radio-button::shadow #offRadio {
   background-color: #fff;
+}
+html paper-radio-button[checked]::shadow #offRadio {
+  border-color: #A4D354;
 }
 html paper-toggle-button::shadow paper-radio-button::shadow #ink,
 html /deep/ paper-toggle-button::shadow paper-radio-button::shadow #ink {
