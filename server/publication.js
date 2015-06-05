@@ -1,3 +1,6 @@
+Meteor.publish('gallery', function() {
+	return Gallery.find();
+});
 Meteor.publish('groups', function() {
 	return Groups.find();
 });
