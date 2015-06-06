@@ -19,7 +19,7 @@
         <div class="form-group">
             <div class="controls">
             	<paper-input-decorator floatingLabel label="Nom du groupe">
-                	<input name="ngroupe" id="ngroupe" class="nomdugroupe" type="text" value="" placeholder="Nom du groupe" />
+                	  <input name="namegroupe" id="idGroupe" type="text"  placeholder="Nom du groupe" />
                  </paper-input-decorator>
             </div>
         </div>
@@ -30,7 +30,7 @@
 	        {{#esEach index="usersgroup" id="friendSearch"}}
 		 
 	    	
-	    	<p>{{username}} <paper-button primary raised class="greenButton createGroup" user-name="{{username}}"> <i class="fa fa-plus-circle"></i></paper-button></p>
+	    	<p>{{username}} <paper-button primary raised class="greenButton createGroup" user-id="{{_id}}"> <i class="fa fa-plus-circle"></i></paper-button></p>
 	    
 			{{/esEach}}
 
@@ -44,12 +44,12 @@
 	            <div>{{> loading}}</div>
 		    {{/ifEsIsSearching}}
 		<hr>
-        <button primary raised type="submit" >Créer le groupe</button>
+ 		<paper-button id="createGroupButton" primary raised>Submit</paper-button>
  		</form>
 				</div>
 				<div label="tab2">
 					{{#each GroupList}}
-					<p>Actuellement {{Statut}} dans le groupe {{name}} avec : 
+					<p>Actuellement {{Statut}} dans le groupe {{nomDuGroupe}} avec : 
 					{{#each FriendsGroupList}}<small>
 					{{username}}
 					</small>{{/each}}</p>
@@ -57,7 +57,7 @@
 				</div>
 				<div label="tab3">
 					{{#each QueryGroupList}}
-					<p>vous a invité à rejoindre le groupe {{name}} <paper-button primary raised class="greenButton joinGroup"> <i class="fa fa-check"></i></paper-button> </p> 
+					<p>{{Admin}}, vous a invité à rejoindre le groupe {{nomDuGroupe}} <paper-button primary raised class="greenButton joinGroup"> <i class="fa fa-check"></i></paper-button> </p> 
 					{{/each}}
 				</div>
 			</core-pages>

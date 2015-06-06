@@ -16,52 +16,50 @@ Template.createGroup.helpers({
 	},
 	GroupList:function(){
 
-		// return Groups.find({$or:[{},{}]}).fetch();
+		return Groups.find({$or:[{membre:{"memberID": Meteor.userId(), "statut": "1"}},{admin : Meteor.userId()}]}).fetch();
 	},
 	FriendsGroupList:function(){
 
-		// var tab_temp = Groups.find({users:{"statut":"1"},_id: this._id}).fetch(),
-		// user, 
-		// groupList = [];
-		// console.log(this);
-		// for (var i = tab_temp.length - 1; i >= 0; i--) {
+		var tab_temp = Groups.find({_id: this._id}).fetch(),
+		user;
+		for (var i = tab_temp.length - 1; i >= 0; i--) {
 			
-		// 	user = Meteor.users.find({_id: tab_temp[i].users[0].user_id}).fetch();
-			
-		// 	groupList.push(user[0]);
-		// };
-
+			var ArrayOfId = [];
+			for(var j = tab_temp[i].membre.length -1; j>=0;j--)
+			{
+				
+				user = Meteor.users.find({_id : tab_temp[i].membre[j].memberID}).fetch();
+				ArrayOfId.push(user[0]);
+			}
 		
-		// 	return groupList;
+
+		};
+
+				
+			return ArrayOfId;
 		
 		
 		
 	},
-	Statut:function(){
-
-		// var st = Groups.find({"users.user_id": Meteor.userId()}).fetch();
-		// for (var i = st.length - 1; i >= 0; i--) {
-		// 	var statut;
-		// 	console.log(st[i].users[0].statut);
-		// 	if(st[i].users[i+1].statut == "1" && st[i].users[i+1].user_id == Meteor.userId())
-		// 	{
-		// 		statut = "membre";
-		// 	}
-		// 	else if(st[i].users[i+1].statut == "2" && st[i].users[i+1].user_id == Meteor.userId())
-		// 	{
-		// 		statut = "admin";
-		// 	}
-		// 	else
-		// 	{
-		// 		statut = "non accepté";
-		// 	}
-		// };
-
-		// return statut;
-	},
+	
 	QueryGroupList:function(){
 
-		// return Groups.find({users:{"user_id": Meteor.userId(), "statut": "0"}}).fetch();
+		return Groups.find({membre:{"memberID": Meteor.userId(), "statut": "0"}}).fetch();
+	},
+
+	Admin:function(){
+
+		var Admin = Groups.find({membre:{"memberID": Meteor.userId(), "statut": "0"}}).fetch();
+		var user;
+		user = Meteor.users.find({_id : Admin[0].admin}).fetch();
+		if(user.length > 0)
+		{
+			return user[0].username;
+		}
+		else
+		{
+			return "";
+		}
 	}	
 });
 Template.createGroup.events({
@@ -71,19 +69,18 @@ Template.createGroup.events({
     var $button = $(event.target);
     var user;
     
-    user = Meteor.users.find({username: $button.attr('user-name')}).fetch();
+    user = Meteor.users.find({_id: $button.attr('user-id')}).fetch();
    	
-    mygrouptab.push(user[0]._id);
+    mygrouptab.push({memberID : user[0]._id,statut : '0'});
     
-    console.log("mon tab :"+ mygrouptab)
 	$button.attr('disabled','disabled');   
    
     return mygrouptab;
   },
-  'submit form':function(e){
+  'click #createGroupButton':function(e){
   	e.preventDefault();
-  	mygrouptab.push(Meteor.userId());
-  	if( $(e.target).find('[name=ngroupe]').val() == "")
+ 
+  	if( $('[name=namegroupe]').val() == "")
   	{
   		alert("Veuillez renseigner un nom de groupe");
   	}
@@ -93,12 +90,13 @@ Template.createGroup.events({
   		
 	  	Groups.insert(
 	  	{
-	  		name: $(e.target).find('[name=ngroupe]').val(),
-		    users: mygrouptab.length,
+	  		nomDuGroupe: $('[name=namegroupe]').val(),
+	  		admin : Meteor.userId(),
+	  		membre : mygrouptab,
+		    nombreDeMembre: mygrouptab.length,
 		   
 	  	});
-	  	var temps = Groups.find({name : $(e.target).find('[name=ngroupe]').val()}).fetch();
-	  	Meteor.call("createCollectionGroup",temps[0]._id,$(e.target).find('[name=ngroupe]').val(),mygrouptab);
+	  	
   	}
 
   },
@@ -109,8 +107,8 @@ Template.createGroup.events({
    'click .joinGroup': function(event){
    	 event.preventDefault();
      var $button = $(event.target);
-     $button.attr('disabled','disabled');   
-     Meteor.call("setTo1",this._id);
+   	 $button.attr('disabled','disabled');
+   	 Meteor.call("setTo1",this._id,this.nomDuGroupe);
      
     
 
