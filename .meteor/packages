@@ -22,7 +22,6 @@ fourseven:scss
 reactive-dict
 dburles:google-maps
 jquery
-zimme:iron-router-active
-zimme:active-route
 anbuselvan:justified-gallery
 dbarrett:dropzonejs
+zimme:active-route
