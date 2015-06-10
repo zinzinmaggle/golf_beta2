@@ -16,3 +16,6 @@ Meteor.publish('region', function() {
 Meteor.publish('golf', function() {
 	return Golf.find();
 });
+Meteor.publish('course', function() {
+	return Course.find();
+});

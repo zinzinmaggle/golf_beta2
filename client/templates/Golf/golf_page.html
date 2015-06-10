@@ -1,0 +1,76 @@
+<template name="golfPage">
+	{{ caca }}
+	<div class="row">
+		{{#with golf}}
+			<div class="col s12 m6">
+				<div class="card golf-page">
+					<div class="slider">
+						<ul class="slides">
+							{{#each images}}
+								<li>
+									<img src="{{this}}" />
+								</li>
+							{{/each}}
+						</ul>
+					</div>
+					<ul class="collection">
+						<li class="collection-item">
+							<core-icon icon="maps:place"></core-icon> 
+							<div style="display:inline-block">
+								{{address1}}{{#if address2}}, {{address2}}{{/if}}, {{zipCode}} {{city}}
+							</div>
+						</li>
+						<li class="collection-item"><core-icon icon="device:access-time"></core-icon> {{opening}}</li>
+						<li class="collection-item">{{{description}}}</li>
+						{{#if phone}}
+							<li class="collection-item">
+								<a href="tel:{{phone}}"><core-icon icon="maps:local-phone"></core-icon> {{phone}}</a>
+							</li>
+						{{/if}}
+						{{#if email}}
+							<li class="collection-item">
+								<a href="mailto:{{email}}"><core-icon icon="communication:email"></core-icon> {{email}}</a>
+							</li>
+						{{/if}}
+						{{#if site}}
+							<li class="collection-item">
+								<a href="{{site}}"><core-icon icon="link"></core-icon> {{site}}</a>
+							</li>
+						{{/if}}
+					</ul>
+				</div>
+			</div>
+		{{/with}}
+		{{#each courses}}
+			<div class="col s12 m6">
+				<div class="card">
+					Parcours {{name}} - {{holeNumber}} trous
+					<table>
+						<thead>
+							<tr>
+								<th data-field="trou">Trou</th>
+								<th data-field="par">Par</th>
+								<th data-field="hcp">Hcp</th>
+								<th data-field="noir">n</th>
+								<th data-field="blanc">b</th>
+								<th data-field="jaune">j</th>
+								<th data-field="bleu">b</th>
+								<th data-field="rouge">r</th>
+								<th data-field="tps">Tps jeu</th>
+							</tr>
+						</thead>
+						<tbody>
+							{{#each holes}}
+								<tr>
+									{{#each this}}
+										<td>{{this}}</td>
+									{{/each}}
+								</tr>
+							{{/each}}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		{{/each}}
+	</div>
+</template>
