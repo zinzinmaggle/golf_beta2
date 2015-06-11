@@ -1,16 +1,16 @@
 
-Template.slider_connexion.rendered = function () {
+Template.index.rendered = function () {
     $('.carousel').carousel();
     $('.carousel-inner').swipe( {
-						//Generic swipe handler for all directions
-						swipeLeft:function(event, direction, distance, duration, fingerCount) {
-							$(this).parent().carousel('next'); 
-						},
-						swipeRight: function() {
-							$(this).parent().carousel('prev'); 
-						},
-						//Default is 75px, set to 0 for demo so any distance triggers swipe
-						threshold:0
+		//Generic swipe handler for all directions
+		swipeLeft:function(event, direction, distance, duration, fingerCount) {
+			$(this).parent().carousel('next'); 
+		},
+		swipeRight: function() {
+			$(this).parent().carousel('prev'); 
+		},
+		//Default is 75px, set to 0 for demo so any distance triggers swipe
+		threshold:0
 	});
 	// var $image = $('img.image_slider');
  //    var image_width = $image.width(); 
