@@ -1,140 +1,57 @@
 <template name="loginButtons">
-	 <style>
-  
-  #ButtonsAccueil .espaceButton{
-  height:2%;
-  }
-  
-  #ButtonsAccueil{
-    margin : 0 auto;
-    text-align: center;
-      font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      -webkit-tap-highlight-color: rgba(0,0,0,0);
-      -webkit-touch-callout: none;
-    }
-    
-    section {
-      padding: 30px 25px;
-    }
-    
-    section > * {
-      margin: 10px
-    }
-    
-    /* Button */
-    .button{
-  
-  
-      display: inline-block;
-      position: relative;
-      width: 120px;
-      height: 32px;
-      line-height: 32px;
-      border-radius: 2px;
-      font-size: 0.9em;
-      background-color: #fff;
-      color: #646464;
-    }
-    
-    .button > paper-ripple {
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    
-    .button.narrow {
-      width: 60px;
-    }
-    
-    .button.green {
-      background-color: #0f9d58;
-      color: #fff;
-    }
-    
-    .button.raised {
-      transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      transition-delay: 0.2s;
-      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-    }
-    
-    .button.raised:active {
-      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
-      transition-delay: 0s;
-    }
-    
-    
-    /* Misc */
-    .center {
-      text-align: center;
-    }
-    
-    .label {
-      padding: 0 16px;
-    }
-    
- 
-  </style>
-   <!-- <a href="{{pathFor 'login'}}"><paper-button id="paper_button" noink vertical layout center-justified>Connexion</paper-button></a><br>
-    <a href="{{pathFor 'register'}}"><paper-button id="paper_button" noink vertical layout center-justified>Inscription</paper-button></a>-->
-	   <div id="ButtonsAccueil">
-        <a href="{{pathFor 'login'}}"><div class="button raised green">
-                <div class="center" fit>Connexion</div>
-                <paper-ripple fit></paper-ripple>
-        </div></a>
-              <div class="espaceButton"></div>  
-        <a href="{{pathFor 'register'}}"><div class="button raised">
-              <div class="center" fit>Inscription</div>
-              <paper-ripple fit></paper-ripple>
-        </div></a>
-  </div>
+	<div id="ButtonsAccueil">
+		<a href="{{pathFor 'login'}}">
+			<paper-button raised class="greenButton">Connexion</paper-button>
+		</a>
+		<a href="{{pathFor 'register'}}">
+			<paper-button raised class="white black-text">Inscription</paper-button>
+		</a>
+	</div>
 </template>
 
 <template name="headerloginForm">
-   <div class="toolbar"> 
-	    <core-toolbar id="core_toolbar" class="small-tall">
-	    	<a class="link_menu" href="{{pathFor 'index'}}">
-	    		<core-icon-button icon="arrow-back" id="core_icon_button" horizontal layout></core-icon-button>
-	    	</a>
-	       <span flex>{{title}}</span>
-	    </core-toolbar>
+	 <div class="toolbar"> 
+			<core-toolbar id="core_toolbar" class="small-tall">
+				<a class="link_menu" href="{{pathFor 'index'}}">
+					<core-icon-button icon="arrow-back" id="core_icon_button" horizontal layout></core-icon-button>
+				</a>
+				 <span flex>{{title}}</span>
+			</core-toolbar>
 	</div> 
 </template>
 
 <template name="register">
 	{{> headerloginForm}}	
 	<div class="formContainer">
-    	<div class="form"> 
-   			{{> atForm state='signUp'}}
-   		</div>
-   </div>
+		<div class="form"> 
+			{{> atForm state='signUp'}}
+		</div>
+	 </div>
 </template>
 
 <template name="login">
 	{{> headerloginForm}}	
 	<div class="formContainer">
-    	<div class="form"> 
-   			{{> atForm state='signIn'}}
- 	 	</div>
-   </div>
+		<div class="form"> 
+			{{> atForm state='signIn'}}
+		</div>
+	 </div>
 </template>
 
 <template name='forgotPassword'>
 	{{> headerloginForm}}	
 	<div class="formContainer">
 		<div class="form">
- 			{{> atForm state='forgotPwd'}}
+			{{> atForm state='forgotPwd'}}
 		</div>
 	</div>
 </template>
 
 <template name="pwdFormBtn">
-  <div  horizontal layout center-justified>
-    <button type="submit" id="at-btn" hidden></button>
-    <paper-button primary class="at-btn submit {{submitDisabled}}" role="button" id="at-btn-polymer" raised>
-      {{buttonText}}
-    </paper-button>
-  </div>
+	<div  horizontal layout center-justified>
+		<button type="submit" id="at-btn" hidden></button>
+		<paper-button primary class="at-btn submit {{submitDisabled}}" role="button" id="at-btn-polymer" raised>
+			{{buttonText}}
+		</paper-button>
+	</div>
 </template>
