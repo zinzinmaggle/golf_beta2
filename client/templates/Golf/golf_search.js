@@ -162,6 +162,7 @@ Template.golfSearch.helpers({
 				zoom: 17
 			};
 		}
+		return null;
 	}
 });
 

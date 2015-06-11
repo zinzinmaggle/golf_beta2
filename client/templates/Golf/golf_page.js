@@ -1,6 +1,7 @@
 Template.golfPage.helpers({
 	caca: function() {
 		console.log(this);
+		return null;
 	},
 	images: function() {
 		if (this.photos != undefined && this.photos.length > 0) {
@@ -18,6 +19,6 @@ Template.golfPage.rendered = function() {
 	$(document).ready(function(){
 		$('.slider').slider({indicators: false});
 	});
-	
+
 	Session.set('pageTitle', this.data.golf.name);
 };
