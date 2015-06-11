@@ -8,8 +8,6 @@ Template.postsList.helpers({
    		tab_id.push(Meteor.userId());
    		if( frd_subscribe.length == 0)
 	    {
-
-	       console.log("Aucunes relations !");
 	    	return Posts.find({id: Meteor.userId()},{sort: {submit_date: -1}});
 	    }
 	    else

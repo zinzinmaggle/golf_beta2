@@ -1,3 +1,14 @@
+Meteor.publish('likeposts', function() {
+	return likePosts.find();
+});
+Meteor.publish('commentposts', function() {
+	return commentPosts.find();
+});
+
+
+Meteor.publish('postsgroup', function() {
+	return postsGroup.find();
+});
 Meteor.publish('stuff', function() {
 	return Stuff.find();
 });

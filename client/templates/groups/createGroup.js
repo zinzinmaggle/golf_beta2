@@ -1,5 +1,6 @@
 var instance;
 var mygrouptab = [];
+var groupCreatedId;
 Template.createGroup.rendered = function() {
     instance = EasySearch.getComponentInstance({
         id: 'createGroup',
@@ -88,14 +89,19 @@ Template.createGroup.events({
   	{
 
   		
-	  	Groups.insert(
+  		myquery = {nomDuGroupe: $('[name=namegroupe]').val(),admin : Meteor.userId(), membre : mygrouptab,nombreDeMembre: mygrouptab.length};
+	  	Groups.insert(myquery, function(err,docsInserted)
 	  	{
-	  		nomDuGroupe: $('[name=namegroupe]').val(),
-	  		admin : Meteor.userId(),
-	  		membre : mygrouptab,
-		    nombreDeMembre: mygrouptab.length,
+	  		
+	  		Meteor.call("giveId", docsInserted,Meteor.user().username,Meteor.user().encryptedMail,$('[name=namegroupe]').val());
+	  		// nomDuGroupe: $('[name=namegroupe]').val(),
+	  		// admin : Meteor.userId(),
+	  		// membre : mygrouptab,
+		   //  nombreDeMembre: mygrouptab.length,
 		   
 	  	});
+	  	
+	  	
 	  	
   	}
 

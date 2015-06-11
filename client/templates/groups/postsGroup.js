@@ -1,4 +1,14 @@
-Template.postItem.helpers({
+Template.postsGroup.helpers({
+
+postsGroupList : function(){
+
+	console.log(this._id);
+	return postsGroup.find({id : this._id}).fetch();
+
+}
+
+});
+Template.postItemGroup.helpers({
   date: function() {
 
   	var ma_date = new Date();
@@ -52,28 +62,9 @@ Template.postItem.helpers({
 	  }
   	
 	  return custom_date;
-  },
-
-  nombreLike : function()
-  {
-  	return likePosts.find({postID : this_id}).fetch();
   }
 });
 
-Template.postItem.events({
-'click .comment':function(e){
-	e.preventDefault();
-	console.log(this);
-	Meteor.call("insertComment",Meteor.userId(),this._id,commentaire);
-},
 
-'click .like':function(e){
-	e.preventDefault();
-	console.log(this);
-	Meteor.call("insertLike",Meteor.userId(),this._id);
-}
-
-
-});
 
 

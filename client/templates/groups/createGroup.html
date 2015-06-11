@@ -52,7 +52,7 @@
 					<p>Actuellement {{Statut}} dans le groupe {{nomDuGroupe}} avec : 
 					{{#each FriendsGroupList}}<small>
 					{{username}}
-					</small>{{/each}}</p>
+					</small> {{/each}}<a href="{{pathFor 'postsGroup'}}"><paper-button primary raised class="greenButton seeBlog">BLOG</paper-button></a> </p> 
 					{{/each}}
 				</div>
 				<div label="tab3">

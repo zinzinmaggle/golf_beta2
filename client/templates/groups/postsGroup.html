@@ -1,4 +1,14 @@
-<template name="postItem">
+<template name="postsGroup">
+
+	<div class="container">
+	{{#each postsGroupList}}
+	  {{> postItemGroup}}
+    {{/each}}
+	</div>
+
+</template>
+<template name="postItemGroup">
+
  
   <ul class="timeline">
         <li>
@@ -12,10 +22,11 @@
               <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.</p>
               <div class="bouton_timeline-body" style="margin-top:25px;">
                 <div class="row">
-                    <div class="col-xs-2 col-sm-1"><a href='#' class="bouton_blog comment"><i class="fa fa-comments"></i></a></div>
-                    <div class="col-xs-2 col-sm-1"><a href='#' class="bouton_blog like"><i class="fa fa-heart-o"></i></a></div>
-                    {{#if isEvent}}
-                    <div class="col-xs-2 col-sm-1"><a href='#' class="bouton_blog joinevent"><i class="fa fa-gamepad"></i></a></div>{{/if}}
+                    <div class="col-xs-2 col-sm-1"><a href='#' class="bouton_blog"><i class="fa fa-comments"></i></a></div>
+                    <div class="col-xs-2 col-sm-1"><a href='#' class="bouton_blog"><i class="fa fa-heart-o"></i></a></div>
+                 <!--    Optional: clear the XS cols if their content doesn't match in height
+                    <div class="clearfix visible-xs-block"></div> -->
+                    <div class="col-xs-2 col-sm-1"><a href='#' class="bouton_blog"><i class="fa fa-gamepad"></i></a></div>
                 </div>
               </div>
             </div>
@@ -23,4 +34,4 @@
         </li>
 </ul>
   
-</template>
+</template> 
