@@ -21,15 +21,15 @@
 	</div>
 </template>
 	<template name="createAlbum">
-    <div class="container-gallery" style="padding:25px;">
+    <div  class="container-gallery" style="padding:25px;">
 		<h1>Créer un album</h1>
 		<hr>
-		<form method="post" enctype="multipart/form-data" class="main form page">
+		<form method='post' action='127.0.0.1/upload.php' class="main form page dropzone">
 
         <div class="form-group">
             <div class="controls">
             	<paper-input-decorator floatingLabel label="Nom de l'album">
-                	<input name="nalbum" id="nalbum" class="nomdelalbum" type="text" value="" placeholder="Nom de l'album" />
+                	<input name="nomalbum" id="nalbum" class="nomdelalbum" type="text" placeholder="Nom de l'album" />
                  </paper-input-decorator>
             </div>
 
@@ -37,17 +37,13 @@
          <div class="form-group">
             <div class="controls">
            	
-           	<div id="test" class="dropzone">
-
-           	
-
-           	</div>
+           
 
             </div>
         </div>
 
 		<hr>
-        <paper-button primary raised type="submit" class="creeralbum" disabled="disabled">Créer album</paper-button>
+        <paper-button primary raised type="submit" id="creeralbum" class="creeralbum" disabled="disabled">Créer album</paper-button>
  		</form>
  			</div>
 	</template>

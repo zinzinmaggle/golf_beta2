@@ -56,7 +56,7 @@ Template.stuff.rendered = function()
 	$('#numeroWedge').css('display','none');
 	$('#submitAddMaterial').attr('disabled','disabled');
 };
-var isClubSelected = false, isLabelSelected = false, isNumberSelected = false;
+var isClubSelected = false, isLabelSelected = false, isNumberSelectedB = false, isNumberSelectedW = false,isNumberSelectedF = false;
 var Club = "", Marque ="", NumeroFer ="", NumeroBois= "",NumeroWedge="";
 Template.stuff.events({
 	'core-select #mesClubs ' : function(e){
@@ -70,29 +70,44 @@ Template.stuff.events({
 			$('#numeroFer').css('display','none');
 			$('#numeroWedge').css('display','none');
 			isClubSelected = true;
+			isNumberSelectedF = false;
+			isNumberSelectedB = true;
+			isNumberSelectedW = false;	
 			break;
 			case "Fer" : 
 			$('#numeroBois').css('display','none');
 			$('#numeroFer').css('display','block');
 			$('#numeroWedge').css('display','none');
 			isClubSelected = true;
+			isNumberSelectedF = true;
+			isNumberSelectedB = false;
+			isNumberSelectedW = false;
 			break;
 			case "Wedge" : 
 			$('#numeroBois').css('display','none');
 			$('#numeroFer').css('display','none');
 			$('#numeroWedge').css('display','block');
 			isClubSelected = true;
+			isNumberSelectedF = false;
+			isNumberSelectedB = false;
+			isNumberSelectedW = true;
 			break;
 			case "Driver" : 
 			$('#numeroBois').css('display','none');
 			$('#numeroFer').css('display','none');
 			$('#numeroWedge').css('display','none');
 			isClubSelected = true;
+			isNumberSelectedF = false;
+			isNumberSelectedB = false;
+			isNumberSelectedW = false;
 			break;
 			case "Putter" : 
 		  	$('#numeroBois').css('display','none');
 			$('#numeroFer').css('display','none');
 			$('#numeroWedge').css('display','none');
+			isNumberSelectedF = false;
+			isNumberSelectedB = false;
+			isNumberSelectedW = false;
 			isClubSelected = true;
 			break;
 			case "Hybride" : 
@@ -100,6 +115,9 @@ Template.stuff.events({
 			$('#numeroFer').css('display','none');
 			$('#numeroWedge').css('display','none');
 			isClubSelected = true;
+			isNumberSelectedF = false;
+			isNumberSelectedB = false;
+			isNumberSelectedW = false;
 			break;
 			default: 
         	$('#numeroBois').css('display','none');
@@ -108,6 +126,21 @@ Template.stuff.events({
 			
 		}
 		
+	},
+	'core-select #numeroBois ' : function(e){
+	 e.preventDefault();
+		
+		NumeroBois = $(e.target.selectedItem).text();
+	},
+	'core-select #numeroFer ' : function(e){
+	 e.preventDefault();
+		
+		NumeroFer = $(e.target.selectedItem).text();
+	},
+	'core-select #numeroWedge ' : function(e){
+	 e.preventDefault();
+		
+		NumeroWedge = $(e.target.selectedItem).text();
 	},
 	'core-select #mesMarques ' : function(e){
 	 e.preventDefault();
@@ -150,114 +183,61 @@ Template.stuff.events({
 		}
 	
 	},
-	'core-select #numeroFer ' : function(e){
-	 e.preventDefault();
-		
-		NumeroFer = $(e.target.selectedItem).text();
-		switch(NumeroFer)
-		{
-			case "Fer 1" : 	
-			isNumberSelected = true;
-			break;
-			case "Fer 2" : 
-			isNumberSelected = true;
-			break;
-			case "Fer 3" : 
-			isNumberSelected = true;
-			break;
-			case "Fer 4" : 
-			isNumberSelected = true;
-			break;
-			case "Fer 5" : 
-		  	isNumberSelected = true;
-			break;
-			case "Fer 6" : 
-			isNumberSelected = true;
-			break;
-			case "Fer 7" : 
-			isNumberSelected = true;
-			break;
-			case "Fer 8" : 
-			isNumberSelected = true;
-			break;
-			case "Fer 9" : 
-			isNumberSelected = true;
-			break;
-			case "Fer 10" : 
-			isNumberSelected = true;
-			break;
-			case "Fer 11" : 
-			isNumberSelected = true;
-			break;
-			
-		}
-	
-	},
-	'core-select #numeroBois ' : function(e){
-	 e.preventDefault();
-		
-		NumeroBois = $(e.target.selectedItem).text();
-		switch(NumeroBois)
-		{
-			case "Bois 1" : 	
-			isNumberSelected = true;
-			break;
-			case "Bois 2" : 
-			isNumberSelected = true;
-			break;
-			case "Bois 3" : 
-			isNumberSelected = true;
-			break;
-			case "Bois 4" : 
-			isNumberSelected = true;
-			break;
-			case "Bois 5" : 
-		  	isNumberSelected = true;
-			break;
-			
-			
-		}
-	
-	},
-	'core-select #numeroWedge ' : function(e){
-	 e.preventDefault();
-		
-		NumeroWedge = $(e.target.selectedItem).text();
-		switch(NumeroWedge)
-		{
-			case "Pitch wedge" : 	
-			isNumberSelected = true;
-			break;
-			case "Gap wedge" : 
-			isNumberSelected = true;
-			break;
-			case "Sand wedge" : 
-			isNumberSelected = true;
-			break;
-			case "Lob wedge" : 
-			isNumberSelected = true;
-			break;
-		}
-	
-	},
 	'click #submitAddMaterial' : function(e){
 		 e.preventDefault();
-		 var tabNumero = [];
-		 tabNumero.push(NumeroBois);
-		 tabNumero.push(NumeroFer);
-		 
-		 tabNumero.push(NumeroWedge);
 		
-		 if(isLabelSelected == true && isClubSelected == true && isNumberSelected == true)
+		
+		 if( isLabelSelected == true && isClubSelected == true)
 		 {
+		 	console.log('marque ok, club ok');
+		 	if(isNumberSelectedB == true && isNumberSelectedF == false && isNumberSelectedW == false)
+		 	{
+		 	
 		 	Stuff.insert({
-
+		 	userId : Meteor.userId(),
 		 	club : Club,
 		 	marque : Marque ,
-		 	numero : tabNumero,
+		 	numero : NumeroBois,
 		 	distance : $('[name=distance]').val(),
 
 		 	});
+		 	}
+		 	else if(isNumberSelectedF == true && isNumberSelectedB == false && isNumberSelectedW == false)
+		 	{
+		 
+		 	Stuff.insert({
+		 	userId : Meteor.userId(),
+		 	club : Club,
+		 	marque : Marque ,
+		 	numero : NumeroFer,
+		 	distance : $('[name=distance]').val(),
+
+		 	});
+		 	}
+		 	else if ( isNumberSelectedW == true && isNumberSelectedB == false && isNumberSelectedF == false)
+		 	{
+		 		
+		 	Stuff.insert({
+		 	userId : Meteor.userId(),
+		 	club : Club,
+		 	marque : Marque ,
+		 	numero : NumeroWedge,
+		 	distance : $('[name=distance]').val(),
+
+		 	});
+		 	}
+		 	else
+		 	{
+		 		
+		 		Stuff.insert({
+			 	userId : Meteor.userId(),
+			 	club : Club,
+			 	marque : Marque ,
+			 	numero : "",
+			 	distance : $('[name=distance]').val(),
+
+		 	});
+		 	}
 		 }
 		 else
 		 {
@@ -276,4 +256,19 @@ Template.stuff.events({
 			$('#submitAddMaterial').attr('disabled','disabled');
 		}
 	}
+});
+if (Meteor.isClient) {
+  Template.carousel.rendered = function() {
+    $('#carousel').slick({
+      dots: true,
+      arrows: true
+    });
+  }
+}
+Template.carousel.helpers({
+	stuff : function () {
+		
+		return Stuff.find({userId: Meteor.userId()}).fetch();
+		
+	},
 });
