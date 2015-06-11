@@ -56,7 +56,20 @@ Template.postItem.helpers({
 
   nombreLike : function()
   {
-  	return likePosts.find({postID : this_id}).fetch();
+  	return likePosts.find({postID : this._id}).count();
+  },
+
+  alreadyLike : function()
+  {
+  	var query = likePosts.find({postID : this._id, userID : Meteor.userId()}).fetch();
+  	if(query.length > 0)
+  	{
+  		return "disabled";
+  	}
+  	else
+  	{
+  		return "";
+  	}
   }
 });
 
