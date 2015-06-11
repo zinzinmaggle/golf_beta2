@@ -15,3 +15,11 @@ if (Golf.find().count() === 0) {
 		Golf.insert(dbGolf[i]);		
 	};
 }
+
+if (Course.find().count() === 0) {
+	var dbCourse = [];
+	dbCourse = JSON.parse(Assets.getText("assets/course.json"));
+	for (var i = dbCourse.length - 1; i >= 0; i--) {
+		Course.insert(dbCourse[i]);		
+	};
+}
