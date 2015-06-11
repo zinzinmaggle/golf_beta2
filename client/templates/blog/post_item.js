@@ -70,20 +70,54 @@ Template.postItem.helpers({
   	{
   		return "";
   	}
+  },
+   postID:function()
+  {
+  	return this._id;
+  	//console.log(commentPosts.find({postID : this._id}.fetch()));
   }
+  
 });
+Template.commentList.helpers({
+	listComments: function()
+  {
+  	
+  	var commentedBy = commentPosts.find({postID : this._id},{sort: {submit_date: -1}}).fetch(),
+  	arrayofId = [],
+  	user;
+  	for(var i = commentedBy.length - 1; i >= 0; i--) {
 
+  		
+  		user = Meteor.users.find({_id : commentedBy[i].userID}).fetch();
+  		arrayofId.push({user :  user[0],comment : commentedBy[i].comment, date : commentedBy[i].date});
+  	};
+
+
+  	return arrayofId;
+  }
+
+
+});
+Template.postItem.rendered = function(){
+	$('.commentClass').css('display','none');
+}
 Template.postItem.events({
 'click .comment':function(e){
 	e.preventDefault();
-	console.log(this);
-	Meteor.call("insertComment",Meteor.userId(),this._id,commentaire);
+	var $button = $(event.target);
+	$($button.attr('comment-id')).css('display','block');
+	
 },
 
 'click .like':function(e){
 	e.preventDefault();
-	console.log(this);
 	Meteor.call("insertLike",Meteor.userId(),this._id);
+},
+
+'click .postComment' : function(e){
+	e.preventDefault();
+	var $button = $(event.target);
+	Meteor.call("insertComment",Meteor.userId(),this._id,$($button.attr('post-id')).val());
 }
 
 
