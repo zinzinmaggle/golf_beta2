@@ -7,6 +7,7 @@ App.info({
 App.accessRule('*.google.com/*');
 App.accessRule('*.googleapis.com/*');
 App.accessRule('*.gstatic.com/*');
+App.accessRule('*gravatar.com*');
 
 // App.icons({
 // 	'android_ldpi': 'resources/icons/icon-ldpi.png',
