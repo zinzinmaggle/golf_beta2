@@ -36,3 +36,16 @@ AccountsTemplates.addFields([
 	},
 	pwd
 ]);
+
+Template.registerHelper('$mapped', function(arr) {
+	return _.map(arr, function(item, index) {
+		/* jshint -W053 */
+		// In this case we explicitly want String to be used as a constructor, so that we can add properties to it.
+		var strObj = new String(item + '');
+		/* jshint +W053 */
+		strObj.$first = index === 0;
+		strObj.$index = index;
+		strObj.$last = index === arr.length - 1;
+		return strObj;
+	});
+});
