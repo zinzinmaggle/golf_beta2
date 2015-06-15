@@ -7,8 +7,8 @@ var instance,
 var Results = new Meteor.Collection(null);
 
 location = new ReactiveDict();
-location.set('latitude', 0);
-location.set('longitude', 0);
+location.set('latitude', 48.840694299999996);
+location.set('longitude', 2.5832241);
 
 Template.golfSearch.created = function() {
 	GoogleMaps.ready('map', function(Map) {
@@ -55,6 +55,37 @@ function fitBounds() {
 	}
 }
 
+function manageResults(results)
+{
+	console.log(results);
+	clearMarkers();
+	if (results !== undefined && results.length > 0)
+	{
+		markers = [];
+		var distanceMatrix, distanceRequest, origin = new google.maps.LatLng(location.get("latitude"), location.get("longitude")), id;
+		for (var i = results.length - 1, marker; i >= 0; i--) {
+			marker = new google.maps.Marker({
+				position: new google.maps.LatLng(results[i].pos.lat, results[i].pos.lon),
+				map: map,
+				title: results[i].name,
+				html: '<h4>' + results[i].name + '</h4>' + results[i].address1 + '<br />' + results[i].city
+			});
+			markers.push(marker);
+
+			google.maps.event.addListener(marker, 'click', function (results, i) {
+				infoWindow.setContent(this.html);
+				infoWindow.open(map, this);
+			});
+
+			distanceMatrix  = new google.maps.DistanceMatrixService();
+			distanceRequest = { origins: [origin], destinations: [marker.getPosition()], travelMode: google.maps.TravelMode.DRIVING, unitSystem: google.maps.UnitSystem.METRIC, avoidHighways: false, avoidTolls: false };
+			id              = results[i]._id;
+			distanceMatrix.getDistanceMatrix(distanceRequest, callback(id));
+		}
+		fitBounds();
+	}
+}
+
 function draws() {
 	map.setCenter(new google.maps.LatLng(location.get("latitude"), location.get("longitude")));
 	new google.maps.Marker({
@@ -63,39 +94,27 @@ function draws() {
 		title: 'Ta position Dzoo !'
 	});
 
+	$('input#golfSearch2').val(location.get("latitude") + ';' + location.get("longitude"));
+	$('input#golfSearch2').keyup();
+	var instance2 = EasySearch.getComponentInstance({
+        id: 'golfSearch2',
+        index: 'golfsNears'
+    });
+
 	infoWindow = new google.maps.InfoWindow({
 		content: "yo.."
 	});
 
 	instance.on('searchResults', function (results) {
-		clearMarkers();
-		if (results !== undefined && results.length > 0)
-		{
-			markers = [];
-			var distanceMatrix, distanceRequest, origin = new google.maps.LatLng(location.get("latitude"), location.get("longitude")), id;
-			for (var i = results.length - 1, marker; i >= 0; i--) {
-				marker = new google.maps.Marker({
-					position: new google.maps.LatLng(results[i].latitude, results[i].longitude),
-					map: map,
-					title: results[i].name,
-					html: '<h4>' + results[i].name + '</h4>' + results[i].address1 + '<br />' + results[i].city
-				});
-				markers.push(marker);
+		manageResults(results);
+	});
 
-				google.maps.event.addListener(marker, 'click', function (results, i) {
-					infoWindow.setContent(this.html);
-					infoWindow.open(map, this);
-				});
-
-				distanceMatrix  = new google.maps.DistanceMatrixService();
-				distanceRequest = { origins: [origin], destinations: [marker.getPosition()], travelMode: google.maps.TravelMode.DRIVING, unitSystem: google.maps.UnitSystem.METRIC, avoidHighways: false, avoidTolls: false };
-				id              = results[i]._id;
-				distanceMatrix.getDistanceMatrix(distanceRequest, callback(id));
-			}
-			fitBounds();
-		}
+	instance2.on('searchResults', function (results) {
+		manageResults(results);
 	});
 }
+
+
 
 function callback(id) {
 	return function(response, status) {

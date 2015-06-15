@@ -14,6 +14,7 @@ if (Golf.find().count() === 0) {
 	for (var i = dbGolf.length - 1; i >= 0; i--) {
 		Golf.insert(dbGolf[i]);		
 	};
+	Golf._ensureIndex({ pos : "2d" });
 }
 
 if (Course.find().count() === 0) {
