@@ -28,10 +28,11 @@
          {{> esInput index="usersgroup" id="friendSearch" placeholder="Rechercher des amis à ajouter..." }}
      
 	        {{#esEach index="usersgroup" id="friendSearch"}}
-		 
-	    	
-	    	<p>{{username}} <paper-button primary raised class="greenButton createGroup" user-id="{{_id}}"> <i class="fa fa-plus-circle"></i></paper-button></p>
-	    
+		 		{{#each friendsList}}
+		 		{{#if searchMatch friendIs}}
+	    			<p>{{friendIs}}<paper-button primary raised class="greenButton createGroup" user-id="{{ID}}"> <i class="fa fa-plus-circle"></i></paper-button></p>
+	    		{{/if}}
+	    		{{/each}}
 			{{/esEach}}
 
 		    {{> esLoadMoreButton index="usersgroup"}}
@@ -49,11 +50,59 @@
 				</div>
 				<div label="tab2">
 					{{#each GroupList}}
-					<p>Actuellement {{Statut}} dans le groupe {{nomDuGroupe}} avec : 
+					<p>Actuellement {{Statut}} dans le groupe {{nomDuGroupe}} avec : {{firstMember}},
 					{{#each FriendsGroupList}}<small>
 					{{username}}
-					</small> {{/each}}<a href="{{pathFor 'postsGroup'}}"><paper-button primary raised class="greenButton seeBlog">BLOG</paper-button></a> </p> 
+					</small> {{/each}}<a href="{{pathFor 'postsGroup'}}"><paper-button primary raised class="greenButton seeBlog">BLOG</paper-button></a> 
+					 <paper-icon-button icon="create" class="bouton_blog editGroup" {{isAdmin}}></paper-icon-button>
+					 <paper-icon-button icon="add" class="bouton_blog addMember"></paper-icon-button>
+					 <paper-icon-button icon="close" class="bouton_blog removeGroup" {{isAdmin}}></paper-icon-button>
+					 <paper-icon-button icon="exit-to-app" class="bouton_blog exitGroup" {{isNotAdmin}}></paper-icon-button></p> 
 					{{/each}}
+
+					<div id="editGroup-container">
+					
+
+			        <div class="form-group">
+			            <div class="controls">
+						<paper-input-decorator floatingLabel label="Modifier le nom du groupe">
+	                	  <input name="namegroupe" id="idNewGroupe" type="text"  placeholder="Modifier le nom du groupe" />
+
+	                 	</paper-input-decorator>
+	                 	
+	                 	 <paper-icon-button icon="check" class="bouton_blog changeNameGroup"></paper-icon-button>
+	                 
+	                 	</div>
+	                 </div>
+	                 
+					</div>
+					<div id="addMember-container">
+
+
+				         {{> esInput index="addmorefriends" id="addfriendSearch" placeholder="Rechercher des amis à ajouter..." }}
+				     		
+					        {{#esEach index="addmorefriends" id="addfriendSearch"}}
+						 		{{#each friendsList}}
+						 		{{#if searchMatch2 friendIs}}
+						 			
+					    			<p>{{friendIs}}<paper-icon-button icon="check" class="bouton_blog" id="addFriendToGroup" user-id="{{ID}}"> </paper-icon-button></p>
+						 			
+					    		{{/if}}
+					    		{{/each}}
+							{{/esEach}}
+
+						    {{> esLoadMoreButton index="addmorefriends"}}
+						    
+						    {{#ifEsHasNoResults index="addmorefriends" id="addfriendSearch"}}
+						        <div class="no-results">Désolé, nous n'avons pas pu trouver votre ami ... :(</div>
+						    {{/ifEsHasNoResults}}
+
+						    {{#ifEsIsSearching index="addmorefriends" id="addfriendSearch"}}
+					            <div>{{> loading}}</div>
+						    {{/ifEsIsSearching}}
+
+					</div>
+
 				</div>
 				<div label="tab3">
 					{{#each QueryGroupList}}
