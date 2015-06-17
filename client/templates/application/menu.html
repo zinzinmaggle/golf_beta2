@@ -1,7 +1,7 @@
 <template name="menu">
 	<core-submenu id="core_submenu" icon="loyalty" label="Groupe(s)">
-		<a class="link_menu" href="{{pathFor 'createGroup'}}"><core-item id="core_item1" icon="social:group" label="Centre de gestion{{queryGroupCounter}}" horizontal center layout></core-item></a>
-		<a class="link_menu" href="{{pathFor 'createGroup'}}"><core-item id="core_item2" icon="input" label="Rejoindre un groupe" horizontal center layout></core-item></a>
+		<a class="link_menu" href="{{pathFor 'createGroup'}}"><core-item id="core_item1" icon="social:group" label="Centre de gestion {{queryGroupCounter}}" horizontal center layout></core-item></a>
+		<a class="link_menu" href="{{pathFor 'joinGroup'}}"><core-item id="core_item2" icon="input" label="Rejoindre un groupe" horizontal center layout></core-item></a>
 
 		{{#each chatList}}
 		<a class="link_menu" href="{{pathFor 'chatGroup'}}"><core-item id="core_item3" icon="group-work" label="{{nomDuGroupe}}" horizontal center layout></core-item></a>

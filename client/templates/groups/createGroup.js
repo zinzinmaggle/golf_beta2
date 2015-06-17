@@ -57,6 +57,10 @@ Template.createGroup.helpers({
 
 		return Groups.find({membre:{"memberID": Meteor.userId(), "statut": "0"}}).fetch();
 	},
+	QueryGroupListAsk:function(){
+
+		return JGroup.find({Administrateur : Meteor.userId(), Accepter : "0"}).fetch();
+	},
 	firstMember :function()
 	{
 		var Admin = Groups.find({_id : this._id}).fetch();
@@ -117,7 +121,7 @@ Template.createGroup.helpers({
 	},
 	queryGroupCounter:function()
 	{
-		var Counter = Groups.find({membre:{memberID: Meteor.userId(), statut : '0'}}).count();
+		var Counter = (Groups.find({membre:{memberID: Meteor.userId(), statut : '0'}}).count()) + (JGroup.find({Administrateur : Meteor.userId(), Accepter : "0"}).count());
 		if(Counter === 0)
 		{
 			return "";
@@ -126,6 +130,13 @@ Template.createGroup.helpers({
 		{
 			return "("+Counter+")";
 		}
+	},
+	utilisateur:function(){
+		
+		var userAsk = JGroup.find({_id : this._id}).fetch();
+		
+		return Meteor.users.find({_id : userAsk[0].Demandeur});
+		
 	}
 		
 });
@@ -181,6 +192,16 @@ Template.createGroup.events({
     
 
    },
+   'click .joinGroupAsk': function(event){
+   	 event.preventDefault();
+     var $button = $(event.target);
+   	 $button.attr('disabled','disabled');
+   	 console.log(this);
+   	 Meteor.call("Accepter",this._id,this.Demandeur,this.Administrateur);
+     Meteor.call("Insert",this.IDGroupe,this.Demandeur,this.Administrateur);
+    
+
+   },
    'click .editGroup':function(event){
    	 event.preventDefault();
    	 $('#editGroup-container').css('display','block');
@@ -203,7 +224,15 @@ Template.createGroup.events({
    	 event.preventDefault();
    	 Groups.remove({_id: this._id});
    	 $('#editGroup-container').css('display','none');
-    $('#addMember-container').css('display','none');
+     $('#addMember-container').css('display','none');
+    var erase = JGroup.find({IDGroupe : this._id, Administrateur :Meteor.userId()}).fetch();
+    if(erase.length > 0)
+    {
+   		 for(var i = erase.length-1;i>=0;i--)
+    	{
+    		JGroup.remove({_id : erase[i]._id});
+    	};
+    }
    },
    'click .exitGroup':function(event){
    	 event.preventDefault();
@@ -213,6 +242,15 @@ Template.createGroup.events({
 	  { _id: this._id },
 	  { $pull: { membre: { memberID: Meteor.userId() } } }
 	);	
+	var erase = JGroup.find({IDGroupe : this._id, Demandeur :Meteor.userId()}).fetch();
+    if(erase.length > 0)
+    {
+    	for(var i = erase.length-1;i>=0;i--)
+    	{
+    		JGroup.remove({_id : erase[i]._id});
+    	};
+    	
+    }
    },
    'click #addFriendToGroup' :function(e){
    	e.preventDefault();

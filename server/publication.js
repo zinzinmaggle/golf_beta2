@@ -1,5 +1,6 @@
-
-
+Meteor.publish('jgroup', function() {
+	return JGroup.find();
+});
 Meteor.publish('likepostsgroup', function() {
 	return likePostsGroup.find();
 });

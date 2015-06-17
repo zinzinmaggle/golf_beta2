@@ -7,7 +7,7 @@
 			Mes groupes
 		</paper-tab>
 		<paper-tab id="tabThird" page="tab3" inline flex center-center horizontal layout>
-			Invitations {{queryGroupCounter}}
+			Requetes {{queryGroupCounter}}
 		</paper-tab>
 	</paper-tabs>
 	<div class="row">
@@ -107,6 +107,11 @@
 				<div label="tab3">
 					{{#each QueryGroupList}}
 					<p>{{Admin}}, vous a invité à rejoindre le groupe {{nomDuGroupe}} <paper-button primary raised class="greenButton joinGroup"> <i class="fa fa-check"></i></paper-button> </p> 
+					{{/each}}
+					{{#each QueryGroupListAsk}}
+						<p>	{{#each utilisateur}}
+					{{username}}{{/each}}, vous demande s'il peut rejoindre votre groupe <paper-button primary raised class="greenButton joinGroupAsk"> <i class="fa fa-check"></i></paper-button> </p> 
+
 					{{/each}}
 				</div>
 			</core-pages>
