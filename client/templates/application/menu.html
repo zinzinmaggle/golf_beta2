@@ -1,10 +1,11 @@
 <template name="menu">
 	<core-submenu id="core_submenu" icon="loyalty" label="Groupe(s)">
-		<a class="link_menu" href="{{pathFor 'createGroup'}}"><core-item id="core_item1" icon="add" label="Créer un groupe" horizontal center layout></core-item></a>
-		{{#each chatList}}
-		<a class="link_menu" href="{{pathFor 'chatGroup'}}"><core-item id="core_item1" icon="group-work" label="{{nomDuGroupe}}" horizontal center layout></core-item></a>
-		{{/each}}
+		<a class="link_menu" href="{{pathFor 'createGroup'}}"><core-item id="core_item1" icon="add" label="Créer un groupe {{queryGroupCounter}}" horizontal center layout></core-item></a>
+		<a class="link_menu" href="{{pathFor 'createGroup'}}"><core-item id="core_item2" icon="input" label="Rejoindre un groupe" horizontal center layout></core-item></a>
 
+		{{#each chatList}}
+		<a class="link_menu" href="{{pathFor 'chatGroup'}}"><core-item id="core_item3" icon="group-work" label="{{nomDuGroupe}}" horizontal center layout></core-item></a>
+		{{/each}}
 
  	</core-submenu>
 	<core-submenu id="core_submenu1" icon="face" label="Mon Réseau">
@@ -15,7 +16,7 @@
 			<core-item id="core_item5" icon="dashboard" label="Fil D'actualités" horizontal center layout></core-item>
 		</a>
 		<a class="link_menu" href="{{pathFor 'showFriends'}}">
-			<core-item id="core_item7" icon="supervisor-account" label="Amis" horizontal center layout></core-item>
+			<core-item id="core_item7" icon="supervisor-account" label="Amis {{queryFriendCounter}}" horizontal center layout></core-item>
 		</a>
 		<a class="link_menu" href="{{pathFor 'gallery'}}"><core-item id="core_item8" icon="exit-to-app" label="Photos / Video" horizontal center layout></core-item></a>
 		<core-item id="core_item9" icon="today" label="Evenements" horizontal center layout></core-item>
@@ -34,6 +35,6 @@
 		</a>	
 		<a class="link_menu" href="{{pathFor 'contacts'}}"><core-item id="core_item17" icon="bug-report" label="Signaler un Bug" horizontal center layout></core-item> </a>
 		<core-item id="core_item18" icon="favorite-outline" label="Aide / Tuto" horizontal center layout></core-item>
-		<a class="link_menu" href="{{pathFor 'logout'}}"><core-item id="core_item19" icon="favorite-outline" label="Déconnexion" horizontal center layout></core-item></a>
+		<a class="link_menu" href="{{pathFor 'logout'}}"><core-item id="core_item19" icon="settings-power" label="Déconnexion" horizontal center layout></core-item></a>
 	</core-submenu>
 </template>

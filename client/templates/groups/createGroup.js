@@ -114,6 +114,18 @@ Template.createGroup.helpers({
 		if(name.indexOf($('#addfriendSearch').val()) > -1)
 			return true;
 		return false;
+	},
+	queryGroupCounter:function()
+	{
+		var Counter = Groups.find({membre:{memberID: Meteor.userId(), statut : '0'}}).count();
+		if(Counter === 0)
+		{
+			return "";
+		}
+		else
+		{
+			return "("+Counter+")";
+		}
 	}
 		
 });

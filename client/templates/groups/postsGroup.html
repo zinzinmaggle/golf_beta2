@@ -19,19 +19,66 @@
               <p><small class="text-muted"></small></p>
             </div>
             <div class="timeline-body">
-              <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.</p>
-              <div class="bouton_timeline-body" style="margin-top:25px;">
+              <p>{{content}}</p>
+            <div class="bouton_timeline-body" style="margin-top:25px;">
                 <div class="row">
-                    <div class="col-xs-2 col-sm-1"><a href='#' class="bouton_blog"><i class="fa fa-comments"></i></a></div>
-                    <div class="col-xs-2 col-sm-1"><a href='#' class="bouton_blog"><i class="fa fa-heart-o"></i></a></div>
-                 <!--    Optional: clear the XS cols if their content doesn't match in height
-                    <div class="clearfix visible-xs-block"></div> -->
-                    <div class="col-xs-2 col-sm-1"><a href='#' class="bouton_blog"><i class="fa fa-gamepad"></i></a></div>
+
+                    <div class="col-xs-2 col-sm-1"> <paper-icon-button class= "bouton_blog comment" icon="question-answer" comment-id=".{{postID}}"></paper-icon-button></div>
+
+                    <div class="col-xs-3 col-sm-3">
+
+                    <paper-icon-button class="bouton_blog like " icon="favorite" {{alreadyLike}} >
+                   
+                    </paper-icon-button><p class="numberOfLike"> + {{nombreLike}}</p>
+                  
+                    </div>
+                    {{#if isEvent}}
+                    <div class="col-xs-2 col-sm-1"><a href='#' class="bouton_blog joinevent"><i class="fa fa-gamepad"></i></a></div>{{/if}}
                 </div>
               </div>
             </div>
+              <div id="commentaire" class="commentClass {{postID}}">
+
+                  <div class="col-xs-6 col-sm-8">
+                    <paper-input-decorator floatingLabel label="Entrer votre commentaire ....">
+                        <input id="{{postID}}" class="ci" type="text" />
+                    </paper-input-decorator>
+                  </div>
+                  <div class="col-xs-2 col-sm-1">
+                        <paper-icon-button  class="postComment" icon="send" post-id="#{{postID}}"></paper-icon-button>
+                  </div><br>
+                   {{> commentListGroup}}
+             
+                 </div>
           </div>
         </li>
 </ul>
   
 </template> 
+<template name="commentListGroup">
+
+   
+                 <div class="comments-container">
+                  {{#each listComments}}
+                  <div class="col s12 m8 offset-m2 l6 offset-l3">
+                  <div class="card-panel grey lighten-5 z-depth-1">
+                    <div class="row valign-wrapper">
+                      <div class="col s2">
+                        <img src="http://gravatar.com/avatar/{{this.user.encryptedMail}}" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                      </div>
+                      <div class="col s10">
+                        <span class="black-text">
+                        <span class="username-comment">{{this.user.username}}<small> − il y a {{commentDate}}</small></span><br>
+                          <span class="user-comment">{{this.comment}}</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            
+            
+
+                  {{/each}}
+               </div>
+    
+</template>
