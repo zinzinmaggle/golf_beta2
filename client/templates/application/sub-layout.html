@@ -1,10 +1,10 @@
 <template name="sublayout">
 	<core-drawer-panel id="drawerPanel">
 		<core-header-panel drawer style="background-color:#263238;color:#fff;">
-			<a class="link_menu" href="{{pathFor 'userProfil'}}"><core-toolbar id="navheader">
+			<core-toolbar id="navheader">
 				{{> header_menu}}
-			</core-toolbar></a>
-			<core-menu selected="{{isActivePath class='1' regex='network'}}{{isActivePath class='2' regex='explorer'}}{{isActivePath class='3' regex='others'}}" class="menu" id="core_menu">
+			</core-toolbar>
+			<core-menu selected="{{isActivePath class='0' regex='group'}}{{isActivePath class='1' regex='games'}}{{isActivePath class='2' regex='network'}}{{isActivePath class='3' regex='explorer'}}{{isActivePath class='4' regex='others'}}" class="menu" id="core_menu">
 				{{> menu}}
 			</core-menu>
 		</core-header-panel>

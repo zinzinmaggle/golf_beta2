@@ -1,4 +1,3 @@
-@import url("//fonts.googleapis.com/css?family=Lobster");
 @import url("//fonts.googleapis.com/css?family=Roboto");
 
 body {
@@ -18,7 +17,7 @@ body {
 }
 html .font-special,
 html /deep/ .font-special {
-  font-family: 'Lobster', cursive;
+  /*font-family: 'Lobster', cursive;*/
 }
 html core-header-panel,
 html /deep/ core-header-panel {
@@ -99,7 +98,7 @@ html h3,
 html /deep/ h3,
 html h5,
 html /deep/ h5 {
-  font-family: 'Lobster', cursive;
+  /*font-family: 'Lobster', cursive;*/
 }
 html h1,
 html /deep/ h1 {
