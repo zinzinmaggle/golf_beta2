@@ -20,8 +20,12 @@
 								{{address1}}{{#if address2}}, {{address2}}{{/if}}, {{zipCode}} {{city}}
 							</div>
 						</li>
-						<li class="collection-item"><core-icon icon="device:access-time"></core-icon> {{opening}}</li>
-						<li class="collection-item">{{{description}}}</li>
+						{{#if opening}}
+							<li class="collection-item"><core-icon icon="device:access-time"></core-icon> {{opening}}</li>
+						{{/if}}
+						{{#if description}}
+							<li class="collection-item">{{{description}}}</li>
+						{{/if}}
 						{{#if phone}}
 							<li class="collection-item">
 								<a href="tel:{{phone}}"><core-icon icon="maps:local-phone"></core-icon> {{phone}}</a>

@@ -1,12 +1,15 @@
-var avatar;
+Template.chat_form.inheritsHelpersFrom("chapp_form");
+Template.chat_form.inheritsEventsFrom("chapp_form");
+Template.chat_form.inheritsHooksFrom("chapp_form");
+Template.chat_item.inheritsHelpersFrom("chapp_item");
+Template.chat_item.inheritsEventsFrom("chapp_item");
+Template.chat_item.inheritsHooksFrom("chapp_item");
+
 Template.chatGroup.rendered = function()
 {
-	Session.set('chapp-username',Meteor.user().username); //you could set the user name on user login
-	avatar = Meteor.user().encryptedMail;
+	Session.set('chapp-username', Meteor.user().username);
 	//Session.set('chapp-historysince',new Date());
 }
-
-
 
 Template.chat_form.events({
 	'click #fake' : function(e) {
@@ -17,18 +20,10 @@ Template.chat_form.events({
 });
 
 Template.chat_item.helpers({
-
 	users:function(){
-		
-		console.log(this);
-		return avatar;
-		
-	}
-	
+		return Meteor.users.findOne({username: this.chatUserName}).encryptedMail;
+	},
+    formatDate: function(date) {
+        return moment(date).fromNow();
+    }
 });
-Template.chat_form.inheritsHelpersFrom("chapp_form");
-Template.chat_form.inheritsEventsFrom("chapp_form");
-Template.chat_item.inheritsHelpersFrom("chapp_item");
-Template.chat_item.inheritsEventsFrom("chapp_item");
-Template.chat_form.replaces("chapp_form");
-Template.chat_item.replaces("chapp_item");

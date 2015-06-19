@@ -337,7 +337,7 @@ html /deep/ paper-checkbox::shadow #checkbox.checked {
 }
 html paper-fab,
 html /deep/ paper-fab {
-  background-color: #e8485f;
+  background-color: #A4D354;
 }
 html paper-fab::shadow core-icon,
 html /deep/ paper-fab::shadow core-icon {

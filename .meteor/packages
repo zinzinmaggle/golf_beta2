@@ -29,3 +29,5 @@ npm-bcrypt
 email
 udondan:slick
 ryanswrt:chapp
+momentjs:moment
+rzymek:moment-locale-fr

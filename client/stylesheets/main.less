@@ -506,6 +506,7 @@ span.badge.badge-table {
 {
 	border : 6px dotted #A4D354;
 }
+
 .title
 {
 	font-weight: :bold !important;
@@ -552,4 +553,26 @@ span.badge.badge-table {
 .confirmFriend,.refuseFriend,.profilFriend
 {
 	color:white;
+}
+
+.full-height {
+	height: 100%;
+}
+div#chapp_text {
+	height: initial;
+}
+form#chapp-form {
+	padding: 0 16px 6px 16px;
+	height: initial;
+	> div > paper-input-decorator {
+		padding: 0;
+	}
+}
+.shim {
+	position: fixed;
+	bottom: 59px;
+	left: 0;
+	right: 0;
+	height: 36px;
+	background: linear-gradient(rgba(255,255,255,0), #FFF 80%) top center no-repeat;
 }
