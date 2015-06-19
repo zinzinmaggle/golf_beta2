@@ -22,9 +22,8 @@
 </template>
 
 <template name="showFriendsQuery">
-    <h2>Demande en attente :</h2>
 	{{#each friendsQuery}}
-    <div class="col s12 m8 offset-m2 l6 offset-l3">
+    <!-- <div class="col s12 m8 offset-m2 l6 offset-l3">
 		<div class="card-panel grey lighten-5 z-depth-1">
 			<div class="row valign-wrapper">
 			    <div class="col s2">
@@ -41,27 +40,44 @@
 			    </div>
 			</div>
 		</div>
-    </div>	 
+    </div>	  -->
+    <div class="col s12 container-grouplist">
+				        <div class="card-panel grey lighten-5 z-depth-1">
+				          <div class="row valign-wrapper">
+							    <div class="col s2">
+							        <img src="http://www.gravatar.com/avatar/{{user.encryptedMail}}" alt="" class="circle responsive-img">
+							    </div>
+							    <div class="col s8">
+							        <span class="black-text">
+								        <p class="search_content_username"> {{user.username}}, <small>vous a ajouté !</small> <br></p>
+								        <p class="search_content_level"> Niveau {{user.level}} </p>
+							        </span>
+							    </div>
+							    <div class="col s4">
+				   					<paper-button raised class="greenButton confirmFriend" user-id="{{idRelation}}" username="{{user.username}}"  usernameSelf="{{myUsername}}" id1="{{id1}}" id2="{{id2}}">ACCEPTER</paper-button>
+							    </div>
+							</div>
+				        </div>
+				    </div> 
     {{/each}}
 </template>
 
 
 <template name="showFriendsList">
-    <h2>Mes amis :</h2>
 	{{#each friendsList}}
-    <div class="col s12 m8 offset-m2 l6 offset-l3">
+    <div class="col s12 container-grouplist">
 		<div class="card-panel grey lighten-5 z-depth-1">
 			<div class="row valign-wrapper">
 			    <div class="col s2">
 			        <img src="http://www.gravatar.com/avatar/{{encryptedMail}}" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
 			    </div>
-			    <div class="col s6">
+			    <div class="col s8">
 			        <span class="black-text">
 				        <p class="search_content_username"> {{username}} <br></p>
 				        <p class="search_content_level"> Niveau {{level}} </p>
 			        </span>
 			    </div>
-			    <div class="col s4">
+			    <div class="col s2">
 			    <paper-icon-button icon="close" class="removeFriend"></paper-icon-button>
 			    </div>
 			</div>

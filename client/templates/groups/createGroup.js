@@ -2,6 +2,7 @@ var instance;
 var mygrouptab = [];
 var groupCreatedId;
 var currentGroupID;
+var memberCounterL;
 Template.createGroup.rendered = function() {
     instance = EasySearch.getComponentInstance({
         id: 'createGroup',
@@ -11,8 +12,9 @@ Template.createGroup.rendered = function() {
         id: 'createGroup',
         index: 'addmorefriends'
     });
-    $('#editGroup-container').css('display','none');
-    $('#addMember-container').css('display','none');
+    $('.eG-C').css('display','none');
+    $('.aM-C').css('display','none');
+    $('#createGroupButton').attr('disabled','disabled');
 };
 
 Template.createGroup.helpers({
@@ -137,11 +139,36 @@ Template.createGroup.helpers({
 		
 		return Meteor.users.find({_id : userAsk[0].Demandeur});
 		
+	},
+	nombreDeMembre:function(){
+
+		var memberCounter = Groups.find({_id : this._id}).fetch();
+		memberCounterL =  memberCounter[0].membre.length;
+		return memberCounter[0].membre.length;
+	},
+	pluriel:function(){
+
+		if(memberCounterL > 1)
+			return "s";
+		return "";
+
 	}
 		
 });
 Template.createGroup.events({
-
+   'keyup .nomGroupe':function(e){
+   	e.preventDefault();
+   	if($(e.target).val().length>0)
+   	{
+   			
+   		 $('#createGroupButton').removeAttr('disabled');
+   	}
+   	else
+   	{
+   		
+   		$('#createGroupButton').attr('disabled','disabled');
+   	}
+   },
   'click .createGroup': function (event) {
     event.preventDefault();
     var $button = $(event.target);
@@ -196,16 +223,15 @@ Template.createGroup.events({
    	 event.preventDefault();
      var $button = $(event.target);
    	 $button.attr('disabled','disabled');
-   	 console.log(this);
    	 Meteor.call("Accepter",this._id,this.Demandeur,this.Administrateur);
      Meteor.call("Insert",this.IDGroupe,this.Demandeur,this.Administrateur);
     
 
    },
-   'click .editGroup':function(event){
+   'click #edG':function(event){
    	 event.preventDefault();
-   	 $('#editGroup-container').css('display','block');
-     $('#addMember-container').css('display','none');
+   	 $('.eG-C').css('display','block');
+     $('.aM-C').css('display','none');
      currentGroupID = this._id;
    },
    'click .changeNameGroup':function(e){
@@ -214,16 +240,16 @@ Template.createGroup.events({
    	{'$set' :{nomDuGroupe : $('#idNewGroupe').val()}});
 
    },
-   'click .addMember':function(event){
+   'click #aM':function(event){
    	 event.preventDefault();
-   	 $('#editGroup-container').css('display','none');
-     $('#addMember-container').css('display','block');
+   	 $('.eG-C').css('display','none');
+     $('.aM-C').css('display','block');
      currentGroupID = this._id;
    },
-   'click .removeGroup':function(event){
+   'click #rG':function(event){
    	 event.preventDefault();
    	 Groups.remove({_id: this._id});
-   	 $('#editGroup-container').css('display','none');
+   	 $('.eG-C').css('display','none');
      $('#addMember-container').css('display','none');
     var erase = JGroup.find({IDGroupe : this._id, Administrateur :Meteor.userId()}).fetch();
     if(erase.length > 0)
@@ -234,10 +260,10 @@ Template.createGroup.events({
     	};
     }
    },
-   'click .exitGroup':function(event){
+   'click #eG':function(event){
    	 event.preventDefault();
-   	 $('#editGroup-container').css('display','none');
-    $('#addMember-container').css('display','none');
+   	 $('.eG-C').css('display','none');
+    $('.aM-C').css('display','none');
     Groups.update(
 	  { _id: this._id },
 	  { $pull: { membre: { memberID: Meteor.userId() } } }
@@ -254,7 +280,7 @@ Template.createGroup.events({
    },
    'click #addFriendToGroup' :function(e){
    	e.preventDefault();
-   	console.log(this);
+    $(e.target).attr("disabled","disabled")
    	Groups.update(
    	{
    		_id : currentGroupID},
