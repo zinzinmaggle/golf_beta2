@@ -16,7 +16,7 @@
 					{{> createEvent}}
 				</div>
 				<div label="tab2">
-					
+					   {{> calendar}}
 				</div>
 				
 			</core-pages>
@@ -317,4 +317,38 @@
 	</div>	
 
 
+</template>
+<template name="calendar">
+
+<div class="container-calendar">
+
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel teal cadre">
+          <span class="white-text">
+         
+         
+          <p class="day"></p>
+          <p class="day"></p>
+          <p class="day">{{day1522}}</p>
+         <p class="day">{{day2229}}</p>
+         
+           {{#each days}}
+          <div class="row">
+            <div class="col s12">
+              <ul class="tabs">
+                <li class="tab col s3"><a href="#test1">{{day17}}</a></li>
+                <li class="tab col s3"><a class="active" href="#test2">{{day815}}</a></li>
+                <li class="tab col s3"><a href="#test3">Test 3</a></li>
+                <li class="tab col s3"><a href="#test4">Test 4</a></li>
+              </ul>
+            </div>
+          </div>
+           {{/each}}
+          </span>
+        </div>
+      </div>
+    </div>
+
+</div>
 </template>

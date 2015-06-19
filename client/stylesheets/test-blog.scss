@@ -91,7 +91,6 @@
             margin-left: -25px;
             background-color: #999999;
             z-index: 100;
-            border-top-right-radius: 50%;
             border-top-left-radius: 50%;
             border-bottom-right-radius: 50%;
             border-bottom-left-radius: 50%;
@@ -187,9 +186,7 @@
 .bouton_blog
 {
     
-    padding: 10px;
-    border-radius: 20px ;
-    border:2px solid #cfd8dc;
+    
     color: #A4D354;
 }
 .bouton_blog:hover
@@ -209,4 +206,13 @@
     
   
      color: gold;
+}
+.menu_blog_parent
+{
+    display:inline-flex !important;
+    width:81% !important;
+}
+.menu_blog
+{
+    vertical-align:bottom;
 }

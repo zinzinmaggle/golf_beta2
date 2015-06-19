@@ -6,26 +6,23 @@
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h4 class="timeline-title"><img src="http://www.gravatar.com/avatar/{{encrypted_mail}}" alt="" class="circle responsive-img" style='width:64px !important;height:64px !important;'><span style="margin-left:10px;">{{title}}</span><small style="margin-left:10px;font-size:12px;">{{subtitle}}</small></h4>
-              <p><small class="text-muted"></small></p>
+                <p><small class="text-muted"></small></p>
             </div>
             <div class="timeline-body">
-              <p>{{{content}}}</p>
-              <div class="bouton_timeline-body" style="margin-top:25px;">
-                <div class="row">
-
-                    <div class="col-xs-2 col-sm-1"> <paper-icon-button class= "bouton_blog comment" icon="question-answer" comment-id=".{{postID}}"></paper-icon-button></div>
-
-                    <div class="col-xs-4 col-sm-3">
-
-                    <paper-icon-button class="bouton_blog like " icon="favorite" {{alreadyLike}} >
+              <p class="menu_blog_parent">{{{content}}}</p>
+              
+              <paper-menu-button >
+                    <paper-icon-button icon="more-vert" class="menu_blog"></paper-icon-button>
+                    <paper-dropdown class='dropdown' halign='right' valign='top'>
+                      <core-menu class='menu'>
+                       <paper-icon-button class= "bouton_blog comment" icon="question-answer" comment-id=".{{postID}}"></paper-icon-button>
+                         <paper-icon-button class="bouton_blog like " icon="favorite" {{alreadyLike}} >
                    
-                    </paper-icon-button><p class="numberOfLike"> + {{nombreLike}}</p>
-                  
-                    </div>
-                    {{#if isEvent}}
-                    <div class="col-xs-2 col-sm-1"><paper-icon-button class= "bouton_blog event" icon="event" comment-id=".{{postID}}"></paper-icon-button></div>{{/if}}
-                </div>
-              </div>
+                        </paper-icon-button>
+                        {{#if isEvent}}<paper-icon-button class= "bouton_blog event" icon="event" comment-id=".{{postID}}"></paper-icon-button>{{/if}}
+                      </core-menu>
+                    </paper-dropdown>
+                  </paper-menu-button>
                 <div id="commentaire" class="commentClass {{postID}}">
 
                   <div class="col-xs-7 col-sm-8">
@@ -33,7 +30,7 @@
                         <input id="{{postID}}" class="ci" type="text" />
                     </paper-input-decorator>
                   </div>
-                  <div class="col-xs-2 col-sm-1">
+                  <div class="col-xs-1 col-sm-1">
                         <paper-icon-button  class="postComment" icon="send" post-id="#{{postID}}"></paper-icon-button>
                   </div><br>
                    {{> commentList}}

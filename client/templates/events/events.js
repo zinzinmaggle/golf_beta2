@@ -111,3 +111,36 @@ Template.golfCard2.events({
 		$(e.target).attr('disabled','disabled')
 	}
 });
+Template.calendar.helpers({
+
+	days : function()
+	{
+		var TabofDay = [];
+		for(var i = 1;i<31;i++)
+		{
+			if(i<8)
+			{
+				TabofDay.push({day17 : i, day815 :'', day1522:'', day2229:''});
+			}
+			if(i>7 && i<16)
+			{
+				TabofDay.push({day17 : '', day815 :i, day1522:'', day2229:''});
+			}
+			if(i>15 && i<22)
+			{
+				TabofDay.push({day17 : '', day815 :'', day1522:i, day2229:''});
+			}
+			if(i>21 && i<29)
+			{
+				TabofDay.push({day17 : '', day815 :'', day1522:'', day2229:i});
+			}
+		};
+		
+		console.log(TabofDay);
+		return TabofDay;
+	},
+
+
+
+
+});
