@@ -30,3 +30,6 @@ Meteor.publish('golf', function() {
 Meteor.publish('course', function() {
 	return Course.find();
 });
+Meteor.publish('games', function() {
+	return Games.find();
+});

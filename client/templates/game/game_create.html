@@ -1,0 +1,110 @@
+<template name="gameCreate1">
+    <form class="main form page">
+        <h3>Etape 1 - Choix du Golf</h3>
+        <div class="form-group">
+            <div class="controls">
+                {{> esInput id="golfSelect" index="golfs" placeholder="Choisir le Golf" }}
+
+                <div class="collection">
+    		        {{#esEach id="golfSelect" index="golfs"}}
+                        <a href="{{pathFor 'gameCreate2' _golf_id=_id}}" class="collection-item avatar">
+                            <img src="{{image}}" alt="" class="circle">
+                            <span class="title">{{name}}</span>
+                            <p>{{nbParcours}}
+                            </p>
+                        </a>
+    		        {{/esEach}}
+                </div>
+            </div>
+        </div>
+
+        <!-- <paper-button id="submitProfil" primary raised>Submit</paper-button> -->
+        {{#if courses}}
+        <paper-dropdown-menu label="Choisir le parcours">
+            <paper-dropdown class="dropdown">
+                <core-menu class="menu" id="course">
+                    {{#each courses}}
+                        <paper-item value="{{ _id }}">Parcours {{ name }}</paper-item>
+                    {{/each}}
+                </core-menu>
+            </paper-dropdown>
+        </paper-dropdown-menu>
+        {{/if}}
+    </form>
+</template>
+
+<template name="gameCreate2">
+    <form class="main form page">
+        <h3>Etape 2 - Choix du Parcours</h3>
+        <a href="{{pathFor 'gameCreate1'}}">Retour à l'étape 1</a>
+        <h4>{{ name }}</h4>
+        <div class="collection">
+            {{#each courses}}
+                <a href="{{pathFor 'gameCreate3' _golf_id=../_id _course_id=_id}}" class="collection-item avatar">
+                    <span class="title">Parcours {{ name }}</span>
+                    <p>{{holeNumber}} trous</p>
+                </a>
+            {{/each}}
+        </div>
+    </form>
+</template>
+
+<template name="gameCreate3">
+    <form class="main form page">
+        <h3>Etape 3 - Choix des joueurs</h3>
+        <a href="{{pathFor 'gameCreate2' _golf_id=golf._id}}">Retour à l'étape 2</a>
+        <h4>{{ golf.name }}</h4>
+        <h4>Parcours {{ course.name }}</h4>
+
+        <div class="collection">
+            {{#each players}}
+                {{#if this}}
+                    <div class="collection-item avatar">
+                        <img src="http://www.gravatar.com/avatar/{{encryptedMail}}" class="circle">
+                        <span class="title">{{username}}</span>
+                        <div class="align-right">
+                            Index<br />
+                            {{handicape}}
+                        </div>
+                    </div>
+                {{else}}
+                    <a href="{{pathFor 'gameCreate2' _golf_id=_id}}" class="collection-item center-align">
+                        <core-icon icon="add"></core-icon>
+                    </a>
+                {{/if}}
+            {{/each}}
+        </div>
+        <a href="{{pathFor 'gameCreate4' _golf_id=golf._id _course_id=course._id}}">
+            <paper-button primary raised>Suivant</paper-button>
+        </a>
+    </form>
+</template>
+
+<template name="gameCreate4">
+    <form class="main form page">
+        <h3>Etape 4 - Paramètres</h3>
+        <a href="{{pathFor 'gameCreate3' _golf_id=golf._id _course_id=course._id}}">Retour à l'étape 3</a>
+        <h4>{{ golf.name }}</h4>
+        <h4>Parcours {{ course.name }}</h4>
+
+        <div>
+            <div class="form-group">
+                <h6>Formule</h6>
+                <paper-radio-group id="formule">
+                    <paper-radio-button name="match_play" label="Match Play"></paper-radio-button>
+                    <paper-radio-button name="stroke_play" label="Stroke Play"></paper-radio-button>
+                    <paper-radio-button name="stableford" label="Stableford"></paper-radio-button>
+                </paper-radio-group>
+            </div>
+        </div>
+        <paper-button primary raised id="finish">Valider création</paper-button>
+    </form>
+</template>
+
+<template name="suggestionTpl">
+    <li class="{{selected}}">
+        <a href="#" class="suggestion">
+            {{pre}}<span class="found">{{found}}</span>{{post}}
+        </a>
+    </li>
+</template>

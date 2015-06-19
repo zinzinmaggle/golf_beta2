@@ -49,3 +49,35 @@ Template.registerHelper('$mapped', function(arr) {
 		return strObj;
 	});
 });
+
+function pad(n, width, z) {
+	z = z || '0';
+	n = n + '';
+	return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+}
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
+UI.registerHelper('formatMinutes', function(minutes) {
+	var str = '';
+	if (minutes > 60) {
+		var hours = Math.floor(minutes / 60);
+		str = '' + pad(hours, 2) + ':' + pad(minutes - (hours*60), 2);
+	} else {
+		str = '' + minutes;
+	}
+
+	return str;
+});
+UI.registerHelper('formatNumber', function(number) {
+	if (parseInt(number) !== NaN)
+	{
+		if (parseInt(number) >= 1000)
+		{
+			return numberWithCommas(parseInt(number));
+		}
+	}
+	return number;
+});

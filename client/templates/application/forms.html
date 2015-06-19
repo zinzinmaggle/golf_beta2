@@ -62,12 +62,12 @@
         <div class="form-group">
             <div class="controls">
                 <paper-input-decorator floatingLabel label="Handicap">
-                    <input name="hdc" id="hdc" type="text" value="{{handicape}}" placeholder="Votre handicap" />
+                    <input type="number" step="any" name="hdc" id="hdc" value="{{handicape}}" placeholder="Votre handicap" />
                 </paper-input-decorator>
             </div>
         </div>
 
-        <paper-button id="submitProfil" primary raised>Submit</paper-button>
+        <paper-button id="submitProfil" primary raised>Envoyer</paper-button>
     </form>
 </template>
 <template name="SettingsFormAccount">

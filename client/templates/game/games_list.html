@@ -1,0 +1,57 @@
+<template name="gamesList">
+	<paper-tabs selected="0" horizontal center layout>
+		<paper-tab id="tabFirst" page="tab1" inline flex center-center horizontal layout>
+			Partie en cours
+		</paper-tab>
+		<paper-tab id="tabSecond" page="tab2" inline flex center-center horizontal layout>
+			Rejoindre une partie
+		</paper-tab>
+	</paper-tabs>
+	<div class="row">
+	    <div class="col s12">
+			<core-pages valueattr="label" selected="{{currentTabGames}}">
+				<div label="tab1">
+    				<div class="main form page">
+						<h4>
+							Partie en cours
+						</h4>
+						<div class="collection">
+							{{#each games}}
+								<a href="#!" class="collection-item avatar">
+                    				<span class="title">Partie sur {{golfName}}</span>
+								</a>
+							{{/each}}
+						</div>
+						<div class="col s2 offset-s2 center-align">
+							<a href="{{pathFor 'gameCreate1' data=null}}">
+								<paper-button raised class="greenButton">Créer</paper-button>
+							</a>
+						</div>
+						<div class="col s2 offset-s4 center-align">
+							<a href="#!">
+								<paper-button raised class="greenButton">Reprendre</paper-button>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div label="tab2">
+    				<div class="main form page">
+						<h4>
+							Rejoindre une partie
+						</h4>
+						<div class="col s4 offset-s1">
+							<paper-input-decorator floatingLabel label="Pseudo">
+								<input type="text">
+							</paper-input-decorator>
+						</div>
+						<div class="col s2 offset-s3 center-align">
+							<a href="#!">
+								<paper-button raised class="greenButton">Rejoindre</paper-button>
+							</a>
+						</div>
+					</div>
+				</div>
+			</core-pages>
+		</div>
+	</div>
+</template>

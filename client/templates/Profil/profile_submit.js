@@ -20,8 +20,8 @@ Template.ProfileForm.events({
 				adresse : $('[name=adresse]').val(),
 				codePostal : $('[name=dpt]').val(),
 				ville : $('[name=ville]').val(),
-				nationalite : $("#nat").selectedItem.text(),
-				handicape : $('[name=hdc]').val(),
+				// nationalite : $("#nat").selectedItem.text(),
+				handicape : parseFloat($('[name=hdc]').val()),
 			}
 		});
 		Router.go('postsList');
@@ -31,7 +31,6 @@ Template.ProfileForm.events({
 });
 Template.userProfil.events({
 	'click paper-tab': function (e) {
-		console.log($(e.target).attr('page'));
 		Session.set('currentTabProfil', $(e.target).attr('page'));
 		
 	},

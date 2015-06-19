@@ -1,0 +1,39 @@
+<template name="golfCourse">
+	<div class="col s12 m6">
+		<div class="card white">
+			<div class="card-content">
+				Parcours {{name}} - {{holeNumber}} trous
+				<table classe="striped">
+					<thead>
+						<tr>
+							<th data-field="trou">Trou</th>
+							<th data-field="par">Par</th>
+							<th data-field="hcp">Hcp</th>
+							<th data-field="noir"><span class="black white-text badge badge-table">n</span></th>
+							<th data-field="blanc"><span class="white badge badge-table">b</span></th>
+							<th data-field="jaune"><span class="yellow white-text badge badge-table">j</span></th>
+							<th data-field="bleu"><span class="blue white-text badge badge-table">b</span></th>
+							<th data-field="rouge"><span class="red white-text badge badge-table">r</span></th>
+							<th data-field="tps">Tps jeu</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each holes}}
+							<tr>
+								{{#each $mapped this}}
+									<td>
+										{{#if $last}}
+											{{formatMinutes this}}
+										{{else}}
+											{{formatNumber this}}
+										{{/if}}
+									</td>
+								{{/each}}
+							</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</template>
