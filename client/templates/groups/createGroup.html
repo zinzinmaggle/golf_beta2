@@ -19,7 +19,7 @@
         <div class="form-group">
             <div class="controls">
             	<paper-input-decorator floatingLabel label="Nom du groupe">
-                	  <input name="namegroupe" id="idGroupe" type="text"  placeholder="Nom du groupe" />
+                	  <input name="namegroupe" id="idGroupe" class="nomGroupe" type="text"  placeholder="Nom du groupe" />
                  </paper-input-decorator>
             </div>
         </div>
@@ -30,7 +30,28 @@
 	        {{#esEach index="usersgroup" id="friendSearch"}}
 		 		{{#each friendsList}}
 		 		{{#if searchMatch friendIs}}
-	    			<p>{{friendIs}}<paper-button primary raised class="greenButton createGroup" user-id="{{ID}}"> <i class="fa fa-plus-circle"></i></paper-button></p>
+		 			<div class="col s12 m8 offset-m2 l6 offset-l3 container-grouplist">
+				        <div class="card-panel grey lighten-5 z-depth-1">
+				          <div class="row valign-wrapper">
+				            <div class="col s2">
+				              <core-icon icon="social:person"></core-icon>
+				            </div>
+				            <div class="col s10">
+				              <span class="black-text">
+				              <p class="friendName">{{friendIs}}</p>	
+				              </span>
+				            </div>
+
+				            <div class="col s2">
+
+				            	<paper-icon-button icon="add" class="createGroup" user-id="{{ID}}"></paper-icon-button>
+
+				            </div>
+
+				          </div>
+				        </div>
+				    </div>
+	    			
 	    		{{/if}}
 	    		{{/each}}
 			{{/esEach}}
@@ -49,34 +70,49 @@
  		</form>
 				</div>
 				<div label="tab2">
-					{{#each GroupList}}
-					<p>Actuellement {{Statut}} dans le groupe {{nomDuGroupe}} avec : {{firstMember}},
-					{{#each FriendsGroupList}}<small>
-					{{username}}
-					</small> {{/each}}<a href="{{pathFor 'postsGroup'}}"><paper-button primary raised class="greenButton seeBlog">BLOG</paper-button></a> 
-					 <paper-icon-button icon="create" class="bouton_blog editGroup" {{isAdmin}}></paper-icon-button>
-					 <paper-icon-button icon="add" class="bouton_blog addMember"></paper-icon-button>
-					 <paper-icon-button icon="close" class="bouton_blog removeGroup" {{isAdmin}}></paper-icon-button>
-					 <paper-icon-button icon="exit-to-app" class="bouton_blog exitGroup" {{isNotAdmin}}></paper-icon-button></p> 
-					{{/each}}
+					 {{#each GroupList}}
+					
+					<div class="col s12 m8 offset-m2 l6 offset-l3 container-grouplist">
+				        <div class="card-panel grey lighten-5 z-depth-1">
+				          <div class="row valign-wrapper">
+				            <div class="col s2">
+				              <core-icon icon="social:people"></core-icon>
+				            </div>
+				            <div class="col s4">
+				              <span class="black-text">
+				              {{nomDuGroupe}}<br>
+				              <small>{{nombreDeMembre}} membre{{pluriel}}</small>	
+				              </span>
+				            </div>
 
-					<div id="editGroup-container">
+				            <div class="col s7">
+
+				            	<paper-icon-button icon="dashboard" iconSize="11" class="seeBlog"></paper-icon-button> 
+					 			<paper-icon-button icon="create" id="edG" class="editGroup" {{isAdmin}}></paper-icon-button>
+					 			<paper-icon-button icon="add" id="aM" class="addMember"></paper-icon-button>
+					 			<paper-icon-button icon="close" id="rG" class="removeGroup" {{isAdmin}}></paper-icon-button>
+								 <paper-icon-button icon="exit-to-app" id="eG" class="exitGroup" {{isNotAdmin}}></paper-icon-button>
+
+				            </div>
+
+				          </div>
+				          <div id="editGroup-container" class="eG-C">
 					
 
-			        <div class="form-group">
-			            <div class="controls">
-						<paper-input-decorator floatingLabel label="Modifier le nom du groupe">
-	                	  <input name="namegroupe" id="idNewGroupe" type="text"  placeholder="Modifier le nom du groupe" />
+						        <div class="form-group">
+						            <div class="controls">
+									<paper-input-decorator floatingLabel label="Modifier le nom du groupe" class="inline-button">
+				                	  <input name="namegroupe" id="idNewGroupe" type="text"  placeholder="Modifier le nom du groupe" />
 
-	                 	</paper-input-decorator>
-	                 	
-	                 	 <paper-icon-button icon="check" class="bouton_blog changeNameGroup"></paper-icon-button>
-	                 
-	                 	</div>
-	                 </div>
+				                 	</paper-input-decorator>
+				                 	
+				                 	 <paper-icon-button icon="check" class="changeNameGroup"></paper-icon-button>
+				                 
+				                 	</div>
+				                 </div>
 	                 
 					</div>
-					<div id="addMember-container">
+					<div id="addMember-container" class="aM-C">
 
 
 				         {{> esInput index="addmorefriends" id="addfriendSearch" placeholder="Rechercher des amis à ajouter..." }}
@@ -84,8 +120,29 @@
 					        {{#esEach index="addmorefriends" id="addfriendSearch"}}
 						 		{{#each friendsList}}
 						 		{{#if searchMatch2 friendIs}}
-						 			
-					    			<p>{{friendIs}}<paper-icon-button icon="check" class="bouton_blog" id="addFriendToGroup" user-id="{{ID}}"> </paper-icon-button></p>
+						 		
+
+					    			<div class="col s12 m8 offset-m2 l6 offset-l3 container-grouplist">
+							        <div class="card-panel grey lighten-5 z-depth-1">
+							          <div class="row valign-wrapper">
+							            <div class="col s2">
+							              <core-icon icon="social:person"></core-icon>
+							            </div>
+							            <div class="col s10">
+							              <span class="black-text">
+							              <p class="friendName">{{friendIs}}</p>	
+							              </span>
+							            </div>
+
+							            <div class="col s2">
+
+							            	<paper-icon-button icon="add" id="addFriendToGroup" user-id="{{ID}}"></paper-icon-button>
+
+							            </div>
+
+							          </div>
+							        </div>
+				   					</div>
 						 			
 					    		{{/if}}
 					    		{{/each}}
@@ -101,17 +158,65 @@
 					            <div>{{> loading}}</div>
 						    {{/ifEsIsSearching}}
 
-					</div>
+					</div> 
+				        </div>
+
+				    </div>
+
+            		{{/each}}
 
 				</div>
 				<div label="tab3">
 					{{#each QueryGroupList}}
-					<p>{{Admin}}, vous a invité à rejoindre le groupe {{nomDuGroupe}} <paper-button primary raised class="greenButton joinGroup"> <i class="fa fa-check"></i></paper-button> </p> 
-					{{/each}}
-					{{#each QueryGroupListAsk}}
-						<p>	{{#each utilisateur}}
-					{{username}}{{/each}}, vous demande s'il peut rejoindre votre groupe <paper-button primary raised class="greenButton joinGroupAsk"> <i class="fa fa-check"></i></paper-button> </p> 
+					<div class="col s12 m8 offset-m2 l6 offset-l3 container-grouplist">
+				        <div class="card-panel grey lighten-5 z-depth-1">
+				          <div class="row valign-wrapper">
+				            <div class="col s2">
+				              <core-icon icon="social:plus-one"></core-icon>
+				            </div>
+				            <div class="col s10">
+				              <span class="black-text">
+				              <p class="friendName">{{Admin}},</p><small>vous a invité à rejoindre le groupe <span class="groupName">&ldquo; {{nomDuGroupe}} &rdquo;</span></small>
+				              </span>
+				            </div>
 
+				            <div class="col s2">
+
+				            	<paper-icon-button icon="check" class="joinGroup" user-id="{{_id}}"></paper-icon-button>
+
+				            </div>
+
+				          </div>
+				        </div>
+				    </div> 
+					{{/each}}
+
+
+
+					{{#each QueryGroupListAsk}}
+						
+					
+					<div class="col s12 m8 offset-m2 l6 offset-l3 container-grouplist">
+				        <div class="card-panel grey lighten-5 z-depth-1">
+				          <div class="row valign-wrapper">
+				            <div class="col s2">
+				              <core-icon icon="social:plus-one"></core-icon>
+				            </div>
+				            <div class="col s10">
+				              <span class="black-text">
+				              <p class="friendName">{{#each utilisateur}}{{username}}{{/each}},</p><small>vous demande s'il peut rejoindre votre groupe</small>
+				              </span>
+				            </div>
+
+				            <div class="col s2">
+
+				            	<paper-icon-button icon="check" class="joinGroupAsk" user-id="{{_id}}"></paper-icon-button>
+
+				            </div>
+
+				          </div>
+				        </div>
+				    </div> 
 					{{/each}}
 				</div>
 			</core-pages>

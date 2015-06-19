@@ -1,6 +1,6 @@
 <template name="chatGroup" is="auto-binding">
-    <div class="row">
-        <div class="col s12">
+    <div class="row lesspadd">
+        <div class="col s12 lesspadd">
             {{> chapp_form}}
         </div>
     </div>
@@ -14,22 +14,42 @@
             {{/each}}
         </div>
 
-        <form id="chapp-form">
-            <div id="chapp-input-div">
+        <form id="chapp-form" >
+            <div id="chapp-input-div"  class="container-text">
                 <paper-input-decorator floatingLabel label="Message">
                     <input id="chapp-input" type="text" />
                 </paper-input-decorator>
             </div>
-            <!-- <paper-icon-button id="send-message" icon="send"></paper-icon-button> -->
-            <button id="chapp-button" type="submit">Send</button>
+            <div id="fake">
+           <paper-fab icon="send"></paper-fab>
+            </div>
+           <!--  <a class="btn-floating btn-large waves-effect waves-light red"><i class="mdi-content-add"></i>
+             </a> -->
         </form>
     </div>
 </template>
 
 <template name="chat_item">
-    <p>
-        <span class="chapp-chat-date">{{formatDate chatDate}}</span> |
-        <span class="chapp-username">{{chatUserName}}:</span>
-        <span class="chapp-message">{{chatText}}</span>
-    </p>
+    
+         <div class="col s12 card-chat">
+        <div class="card-panel grey lighten-5 z-depth-1 card-chat">
+          <div class="row valign-wrapper ">
+            <div class="col s2">
+              <img src="http://www.gravatar.com/avatar/{{this.users}}" alt="" class="circle responsive-img avatr-chat"> 
+            </div>
+            <div class="col s10">
+              <span class="black-text">
+                <span class="chapp-username">{{chatUserName}}</span><br>
+                <span class="chapp-message">{{chatText}}</span>
+              </span>
+            </div>
+            <div class="col s2 ">
+            <span class="chapp-chat-date">{{formatDate chatDate}}</span> 
+            </div>
+          </div>
+        </div>
+      </div>
+        
+       
+    
 </template>

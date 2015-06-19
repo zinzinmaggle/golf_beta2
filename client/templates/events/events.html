@@ -1,0 +1,320 @@
+<template name="events">
+
+<paper-tabs selected="0" horizontal center layout>
+		<paper-tab id="tabFirst" page="tab1" inline flex center-center horizontal layout>
+			Créer un évènement
+		</paper-tab>
+		<paper-tab id="tabSecond" page="tab2" inline flex center-center horizontal layout>
+			Mon calendrier
+		</paper-tab>
+		
+	</paper-tabs>
+	<div class="row">
+	    <div class="col s12">
+			<core-pages valueattr="label" selected="{{currentTabEvent}}">
+				<div label="tab1">
+					{{> createEvent}}
+				</div>
+				<div label="tab2">
+					
+				</div>
+				
+			</core-pages>
+		</div>
+	</div>
+
+</template>
+
+
+<template name="createEvent">
+
+ <form class="main form page">
+        <div class="form-group">
+            <div class="controls">
+            	<paper-input-decorator floatingLabel label="Titre de l'évènement">
+                    <input name="tevent" id="tevent" type="text" placeholder="Titre de l'évènement" />
+                </paper-input-decorator>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="controls">
+            	<div class="row">
+				    <div class="col s12">
+					    {{> esInput index="Eventgolfs" id="golfSearchEvent" placeholder="Lieu de l'évènement" }}
+					   
+					    <ul class="row golfCards">
+					        {{#esEach index="Eventgolfs" id="golfSearchEvent"}}
+					            {{> golfCard2}}
+					        {{/esEach}}
+
+						    {{> loadMoreButton index="Eventgolfs" id="golfSearchEvent"}}
+
+						    {{#ifEsHasNoResults index="Eventgolfs" id="golfSearchEvent"}}
+						        <div class="no-results">Aucun golf correspondant à votre recherche n'a été trouvé ... :(</div>
+						    {{/ifEsHasNoResults}}
+
+						    {{#ifEsIsSearching index="Eventgolfs" id="golfSearchEvent"}}
+						        <div>{{> loading}}</div>
+						    {{/ifEsIsSearching}}
+						    
+					    	
+					    </ul>
+				    </div>
+				</div>
+            </div>
+        </div>
+         <div class="form-group">
+            <div class="controls">
+            	
+                    <paper-dropdown-menu id="jours" label="Jour">
+                        <paper-dropdown class="dropdown">
+                            <core-menu class="menu" id="jour">
+                                <paper-item value="01">01</paper-item>
+                                <paper-item value="02">02</paper-item>
+                                <paper-item value="03">03</paper-item>
+                                <paper-item value="04">04</paper-item>
+                                <paper-item value="05">05</paper-item>
+                                <paper-item value="06">06</paper-item>
+                                <paper-item value="07">07</paper-item>
+                                <paper-item value="08">08</paper-item>
+                                <paper-item value="09">09</paper-item>
+                                <paper-item value="10">10</paper-item>
+
+                                <paper-item value="11">11</paper-item>
+                                <paper-item value="12">12</paper-item>
+                                <paper-item value="13">13</paper-item>
+                                <paper-item value="14">14</paper-item>
+                                <paper-item value="15">15</paper-item>
+                                <paper-item value="16">16</paper-item>
+                                <paper-item value="17">17</paper-item>
+                                <paper-item value="18">18</paper-item>
+                                <paper-item value="19">19</paper-item>
+                                <paper-item value="20">20</paper-item>
+
+                                <paper-item value="21">21</paper-item>
+                                <paper-item value="22">22</paper-item>
+                                <paper-item value="23">23</paper-item>
+                                <paper-item value="24">24</paper-item>
+                                <paper-item value="25">25</paper-item>
+                                <paper-item value="26">26</paper-item>
+                                <paper-item value="27">27</paper-item>
+                                <paper-item value="28">28</paper-item>
+                                <paper-item value="29">29</paper-item>
+                                <paper-item value="30">30</paper-item>
+                                <paper-item value="31">31</paper-item>
+                            </core-menu>
+                        </paper-dropdown>
+                    </paper-dropdown-menu>
+
+                    <paper-dropdown-menu id="mois" label="Mois">
+                        <paper-dropdown class="dropdown">
+                            <core-menu class="menu" id="moi">
+                                <paper-item value="01">Janvier</paper-item>
+                                <paper-item value="02">Février</paper-item>
+                                <paper-item value="03">Mars</paper-item>
+                                <paper-item value="04">Avril</paper-item>
+                                <paper-item value="05">Mai</paper-item>
+                                <paper-item value="06">Juin</paper-item>
+                                <paper-item value="07">Juillet</paper-item>
+                                <paper-item value="08">Aout</paper-item>
+                                <paper-item value="09">Septembre</paper-item>
+                                <paper-item value="10">Octobre</paper-item>
+                                <paper-item value="11">Novembre</paper-item>
+                                <paper-item value="12">Décembre</paper-item>
+                               
+                            </core-menu>
+                        </paper-dropdown>
+                    </paper-dropdown-menu>
+
+                    <paper-dropdown-menu id="annees" label="Année">
+                        <paper-dropdown class="dropdown">
+                            <core-menu class="menu" id="annee">
+                                <paper-item value="2015">2015</paper-item>
+                                <paper-item value="2016">2016</paper-item>
+                                <paper-item value="2017">2017</paper-item>
+                                <paper-item value="2018">2018</paper-item>
+                                <paper-item value="2019">2019</paper-item>
+                                <paper-item value="2020">2020</paper-item>
+                               
+                            </core-menu>
+                        </paper-dropdown>
+                    </paper-dropdown-menu>
+
+                     <paper-dropdown-menu id="heures" label="Heure">
+                        <paper-dropdown class="dropdown">
+                            <core-menu class="menu" id="heure">
+                                <paper-item value="00">00</paper-item>
+                                <paper-item value="01">01</paper-item>
+                                <paper-item value="02">02</paper-item>
+                                <paper-item value="03">03</paper-item>
+                                <paper-item value="04">04</paper-item>
+                                <paper-item value="05">05</paper-item>
+                                <paper-item value="06">06</paper-item>
+                                <paper-item value="07">07</paper-item>
+                                <paper-item value="08">08</paper-item>
+                                <paper-item value="09">09</paper-item>
+                                <paper-item value="10">10</paper-item>
+                                <paper-item value="11">11</paper-item>
+                                <paper-item value="12">12</paper-item>
+                                <paper-item value="13">13</paper-item>
+                                <paper-item value="14">14</paper-item>
+                                <paper-item value="15">15</paper-item>
+                                <paper-item value="16">16</paper-item>
+                                <paper-item value="17">17</paper-item>
+                                <paper-item value="18">18</paper-item>
+                                <paper-item value="19">19</paper-item>
+                                <paper-item value="20">20</paper-item>
+                                <paper-item value="21">21</paper-item>
+                                <paper-item value="22">22</paper-item>
+                                <paper-item value="23">23</paper-item>
+                            </core-menu>
+                        </paper-dropdown>
+                    </paper-dropdown-menu>
+                    :
+                    <paper-dropdown-menu id="minutes" label="Minutes">
+                        <paper-dropdown class="dropdown">
+                            <core-menu class="menu" id="minute">
+                                <paper-item value="00">00</paper-item>
+                                <paper-item value="01">01</paper-item>
+                                <paper-item value="02">02</paper-item>
+                                <paper-item value="03">03</paper-item>
+                                <paper-item value="04">04</paper-item>
+                                <paper-item value="05">05</paper-item>
+                                <paper-item value="06">06</paper-item>
+                                <paper-item value="07">07</paper-item>
+                                <paper-item value="08">08</paper-item>
+                                <paper-item value="09">09</paper-item>
+                                <paper-item value="10">10</paper-item>
+                                <paper-item value="11">11</paper-item>
+                                <paper-item value="12">12</paper-item>
+                                <paper-item value="13">13</paper-item>
+                                <paper-item value="14">14</paper-item>
+                                <paper-item value="15">15</paper-item>
+                                <paper-item value="16">16</paper-item>
+                                <paper-item value="17">17</paper-item>
+                                <paper-item value="18">18</paper-item>
+                                <paper-item value="19">19</paper-item>
+                                <paper-item value="20">20</paper-item>
+                                <paper-item value="21">21</paper-item>
+                                <paper-item value="22">22</paper-item>
+                                <paper-item value="23">23</paper-item>
+
+                                <paper-item value="24">24</paper-item>
+                                <paper-item value="25">25</paper-item>
+                                <paper-item value="26">26</paper-item>
+                                <paper-item value="27">27</paper-item>
+                                <paper-item value="28">28</paper-item>
+                                <paper-item value="29">29</paper-item>
+                                <paper-item value="30">30</paper-item>
+                                <paper-item value="31">31</paper-item>
+                                <paper-item value="32">32</paper-item>
+                                <paper-item value="33">33</paper-item>
+                                <paper-item value="34">34</paper-item>
+                                <paper-item value="35">35</paper-item>
+                                <paper-item value="36">36</paper-item>
+                                <paper-item value="37">37</paper-item>
+                                <paper-item value="38">38</paper-item>
+                                <paper-item value="39">39</paper-item>
+                                <paper-item value="40">40</paper-item>
+                                <paper-item value="41">41</paper-item>
+                                <paper-item value="42">42</paper-item>
+                                <paper-item value="43">43</paper-item>
+
+                                <paper-item value="44">44</paper-item>
+                                <paper-item value="45">45</paper-item>
+                                <paper-item value="46">46</paper-item>
+                                <paper-item value="47">47</paper-item>
+                                <paper-item value="48">48</paper-item>
+                                <paper-item value="49">49</paper-item>
+                                <paper-item value="50">50</paper-item>
+                                <paper-item value="51">51</paper-item>
+                                <paper-item value="52">52</paper-item>
+                                <paper-item value="53">53</paper-item>
+                                <paper-item value="54">54</paper-item>
+                                <paper-item value="55">55</paper-item>
+                                <paper-item value="56">56</paper-item>
+                                <paper-item value="57">57</paper-item>
+                                <paper-item value="58">58</paper-item>
+                                <paper-item value="59">59</paper-item>
+                           
+                            </core-menu>
+                        </paper-dropdown>
+                    </paper-dropdown-menu>
+              
+            </div>
+        </div>
+          <div class="form-group">
+            <div class="controls">
+            	<paper-input-decorator floatingLabel label="Description de l'évènement">
+                   	<input name="devent" id="devent" type="text" placeholder="Description de l'évènement" />
+                </paper-input-decorator>
+            </div>
+        </div>
+        <div class="form-group submit">
+            <div class="controls">
+         			<paper-button id="submitEvent" primary raised>CREER</paper-button>
+            </div>
+         </div>
+ </form>
+
+</template>
+<template name="golfCard2">
+
+
+    <div class="card white col s12 m8 offset-m2 l6 offset-l3 golfCard">
+		<div class="row valign-wrapper">
+			<div class="col s4 valign-wrapper">
+				<img class="golf-image valign" src="{{image}}">
+			</div>
+			<div class="col s8">
+				<div class="col s12">
+					<div class="">
+						<span class="left black-text flow-text capitalize">
+							{{name}}
+						</span>
+						<span class="center-align small right">
+							<a href="{{pathFor 'golfPage'}}" class="infoLink"><core-icon icon="info"></core-icon></a>
+						</span>
+					</div>
+				</div>
+				<div class="col s9">
+					<div class="center-align small col s1"><core-icon icon="star"></core-icon></div>
+					<div class="center-align small col s1"><core-icon icon="star"></core-icon></div>
+					<div class="center-align small col s1"><core-icon icon="star"></core-icon></div>
+					<div class="center-align small col s1"><core-icon icon="star-half"></core-icon></div>
+					<div class="center-align small col s1"><core-icon icon="star-outline"></core-icon></div>
+				</div>
+				<div class="col s3">
+					
+				</div>
+				<div class="divider"></div>
+				<div class="col s12 card-action center-align" id="test">
+					<div class="row">
+						<div class="col s6" style="border-right: 1px solid rgba(160, 160, 160, 0.2);">
+							<div class="row">
+								<div class="col s12 center-align" id="div1">
+								
+								</div>
+								<div class="col s12">
+									<div class="col s6 truncate">
+										<span class="black-text">
+										
+										</span>
+									</div>
+									<i class="center-align small mdi-action-android col s6 icon"></i>
+								</div>
+							</div>
+						</div>
+						<div class="col s6">
+							<span class="black-text">
+								<paper-icon-button icon="check" class="bouton_blog selectThisGolf"></paper-icon-button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+
+
+</template>

@@ -75,6 +75,17 @@ Template.postItem.helpers({
   {
   	return this._id;
   	//console.log(commentPosts.find({postID : this._id}.fetch()));
+  },
+  isEvent:function()
+  {
+  	if(this.type == "event")
+  	{
+  		return true;
+  	}
+  	else
+  	{
+  		return false;
+  	}
   }
   
 });
