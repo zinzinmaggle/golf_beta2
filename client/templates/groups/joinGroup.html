@@ -1,0 +1,60 @@
+<template name="joinGroup">
+
+<div id="global-container">
+
+<div class="col s12">
+	        {{> esInput index="groups" id="groupSearch" placeholder="Rechercher un groupe" }}
+	          <p>
+			{{#if results}}
+	    		{{results}} résultat{{pluralize}}
+	    	{{/if}}
+	    	</p>
+
+	        {{#esEach index="groups" id="groupSearch"}}
+		  	    	
+			<div class="row">	
+			<div class="card col s12">
+					<div class="col s4">
+						<div class="card-image">
+							<span>{{nomDuGroupe}}</span>
+						</div>
+					</div>
+					<div class="col s8">
+						<div class="col s12">
+								<h4>Administrateur : {{adminUsername}}</h4>
+								<div class="col s6">
+									
+								</div>
+								<div class="col s6 align-droite">
+									<p>{{nombreMembre}} membre{{pluriel}}</p>
+								</div>				
+							
+						</div>
+						<div class="col s12">
+							<div class="card-action">
+								<div class="col s6 offset-s6  align-droite">
+									<!-- <p><a class="waves-effect waves-light btn {{#if ifNotFriend}} disabled{{/if}}" id="addFriend" user-id="{{_id}}">Ajouter</a></p> -->
+									<paper-button raised class="greenButton addFriend" {{ifSelf}} {{alreadyAsked}}>Rejoindre</paper-button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			 
+			{{/esEach}}
+
+		    {{> esLoadMoreButton index="groups"}}
+		    
+		    {{#ifEsHasNoResults index="groups" id="groupSearch"}}
+		        <div class="no-results">Désolé, nous n'avons pas pu trouver ce groupe ... :(</div>
+		    {{/ifEsHasNoResults}}
+
+		    {{#ifEsIsSearching index="groups" id="groupSearch"}}
+	            <div>{{> loading}}</div>
+		    {{/ifEsIsSearching}}
+	    </div>
+
+</div>
+
+</template>

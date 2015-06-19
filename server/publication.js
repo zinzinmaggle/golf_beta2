@@ -1,9 +1,19 @@
+Meteor.publish('jgroup', function() {
+	return JGroup.find();
+});
+Meteor.publish('likepostsgroup', function() {
+	return likePostsGroup.find();
+});
 Meteor.publish('likeposts', function() {
 	return likePosts.find();
 });
 Meteor.publish('commentposts', function() {
 	return commentPosts.find();
 });
+Meteor.publish('commentpostsgroup', function() {
+	return commentPostsGroup.find();
+});
+
 
 
 Meteor.publish('postsgroup', function() {

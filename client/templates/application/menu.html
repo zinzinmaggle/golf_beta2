@@ -1,8 +1,12 @@
 <template name="menu">
-	<core-submenu id="core_submenu0" icon="loyalty" label="Groupe(s)">
+	<core-submenu icon="loyalty" label="Groupe(s)">
 		<a class="link_menu" href="{{pathFor 'createGroup'}}">
-			<core-item icon="add" label="Créer un groupe" horizontal center layout></core-item>
+			<core-item icon="social:group" label="Centre de gestion {{queryGroupCounter}}" horizontal center layout></core-item>
 		</a>
+		<a class="link_menu" href="{{pathFor 'joinGroup'}}">
+			<core-item icon="input" label="Rejoindre un groupe" horizontal center layout></core-item>
+		</a>
+
 		{{#each chatList}}
 			<a class="link_menu" href="{{pathFor 'chatGroup'}}">
 				<core-item icon="group-work" label="{{nomDuGroupe}}" horizontal center layout></core-item>
@@ -25,7 +29,7 @@
 			<core-item icon="dashboard" label="Fil D'actualités" horizontal center layout></core-item>
 		</a>
 		<a class="link_menu" href="{{pathFor 'showFriends'}}">
-			<core-item icon="supervisor-account" label="Amis" horizontal center layout></core-item>
+			<core-item icon="supervisor-account" label="Amis {{queryFriendCounter}}" horizontal center layout></core-item>
 		</a>
 		<a class="link_menu" href="{{pathFor 'gallery'}}"><core-item icon="exit-to-app" label="Photos / Video" horizontal center layout></core-item></a>
 		<core-item icon="today" label="Evenements" horizontal center layout></core-item>
@@ -35,15 +39,19 @@
 			<core-item icon="explore" label="Carte des Golfs" horizontal center layout></core-item>
 		</a>
 		<a class="link_menu" href="{{pathFor 'search_friends'}}">
-			<core-item icon="search" label="Retrouver des amis" horizontal center layout></core-item>
+			<core-item icon="social:person-add" label="Retrouver des amis" horizontal center layout></core-item>
 		</a>
 	</core-submenu>
 	<core-submenu id="core_submenu3" icon="favorite" label="Autres">
 		<a class="link_menu" href="{{pathFor 'settings'}}">
 			<core-item icon="backup" label="Paramètres" horizontal center layout></core-item>
-		</a>	
-		<a class="link_menu" href="{{pathFor 'contacts'}}"><core-item icon="bug-report" label="Signaler un Bug" horizontal center layout></core-item> </a>
+		</a>
+		<a class="link_menu" href="{{pathFor 'contacts'}}">
+			<core-item icon="bug-report" label="Signaler un Bug" horizontal center layout></core-item>
+		</a>
 		<core-item icon="favorite-outline" label="Aide / Tuto" horizontal center layout></core-item>
-		<a class="link_menu" href="{{pathFor 'logout'}}"><core-item icon="favorite-outline" label="Déconnexion" horizontal center layout></core-item></a>
+		<a class="link_menu" href="{{pathFor 'logout'}}">
+			<core-item icon="social:person-outline" label="Déconnexion" horizontal center layout></core-item>
+		</a>
 	</core-submenu>
 </template>
