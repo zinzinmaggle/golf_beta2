@@ -47,14 +47,25 @@
 							    <div class="col s2">
 							        <img src="http://www.gravatar.com/avatar/{{user.encryptedMail}}" alt="" class="circle responsive-img">
 							    </div>
-							    <div class="col s8">
+							    <div class="col s12">
 							        <span class="black-text">
 								        <p class="search_content_username"> {{user.username}}, <small>vous a ajouté !</small> <br></p>
 								        <p class="search_content_level"> Niveau {{user.level}} </p>
 							        </span>
 							    </div>
-							    <div class="col s4">
-				   					<paper-button raised class="greenButton confirmFriend" user-id="{{idRelation}}" username="{{user.username}}"  usernameSelf="{{myUsername}}" id1="{{id1}}" id2="{{id2}}">ACCEPTER</paper-button>
+							    <div class="col s2">
+				   					<!-- <paper-button raised class="greenButton confirmFriend" user-id="{{idRelation}}" username="{{user.username}}"  usernameSelf="{{myUsername}}" id1="{{id1}}" id2="{{id2}}">ACCEPTER</paper-button>
+				   					<paper-button raised class="greenButton refuseFriend" user-id="{{idRelation}}" username="{{user.username}}"  usernameSelf="{{myUsername}}" id1="{{id1}}" id2="{{id2}}">Refuser</paper-button> -->
+				   					<paper-menu-button>
+										<paper-icon-button icon="more-vert"></paper-icon-button>
+										<paper-dropdown class='dropdown' halign='right' valign='top'>
+											<core-menu class='menu'>
+												<paper-icon-button icon="check" class="confirmFriend" user-id="{{idRelation}}" username="{{user.username}}"  usernameSelf="{{myUsername}}" id1="{{id1}}" id2="{{id2}}">ACCEPTER</paper-icon-button>
+												<paper-icon-button icon="close" class="refuseFriend" user-id="{{idRelation}}" username="{{user.username}}"  usernameSelf="{{myUsername}}" id1="{{id1}}" id2="{{id2}}">Refuser</paper-icon-button>
+												<paper-icon-button  icon="social:person" class="profilFriend" user-id="{{idRelation}}" username="{{user.username}}"  usernameSelf="{{myUsername}}" id1="{{id1}}" id2="{{id2}}">Profil</paper-icon-button>
+											</core-menu>
+										</paper-dropdown>
+									</paper-menu-button>
 							    </div>
 							</div>
 				        </div>

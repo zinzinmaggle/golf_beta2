@@ -66,7 +66,7 @@
 	            <div>{{> loading}}</div>
 		    {{/ifEsIsSearching}}
 		<hr>
- 		<paper-button id="createGroupButton" primary raised>Submit</paper-button>
+ 		<paper-button id="createGroupButton" primary raised>Créer</paper-button>
  		</form>
 				</div>
 				<div label="tab2">
@@ -78,20 +78,29 @@
 				            <div class="col s2">
 				              <core-icon icon="social:people"></core-icon>
 				            </div>
-				            <div class="col s4">
+				            <div class="col s12">
 				              <span class="black-text">
 				              {{nomDuGroupe}}<br>
 				              <small>{{nombreDeMembre}} membre{{pluriel}}</small>	
 				              </span>
 				            </div>
 
-				            <div class="col s7">
+				            <div class="col s2">
 
-				            	<paper-icon-button icon="dashboard" iconSize="11" class="seeBlog"></paper-icon-button> 
-					 			<paper-icon-button icon="create" id="edG" class="editGroup" {{isAdmin}}></paper-icon-button>
-					 			<paper-icon-button icon="add" id="aM" class="addMember"></paper-icon-button>
-					 			<paper-icon-button icon="close" id="rG" class="removeGroup" {{isAdmin}}></paper-icon-button>
-								 <paper-icon-button icon="exit-to-app" id="eG" class="exitGroup" {{isNotAdmin}}></paper-icon-button>
+				            	
+								 
+								 <paper-menu-button>
+										<paper-icon-button icon="more-vert"></paper-icon-button>
+										<paper-dropdown class='dropdown' halign='right' valign='top'>
+											<core-menu class='menu'>
+												<paper-icon-button icon="dashboard" iconSize="11" class="seeBlog"></paper-icon-button> 
+									 			<paper-icon-button icon="create" id="edG" class="editGroup" {{isAdmin}}></paper-icon-button>
+									 			<paper-icon-button icon="add" id="aM" class="addMember"></paper-icon-button>
+									 			<paper-icon-button icon="close" id="rG" class="removeGroup" {{isAdmin}}></paper-icon-button>
+									 			<paper-icon-button icon="exit-to-app" id="eG" class="exitGroup" {{isNotAdmin}}></paper-icon-button>
+											</core-menu>
+										</paper-dropdown>
+									</paper-menu-button>
 
 				            </div>
 

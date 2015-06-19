@@ -1,7 +1,7 @@
 <template name="searchFriends">
 	<div class="row">
 	    <div class="col s12">
-	        {{> esInput index="users" id="friendSearch" placeholder="Search..." }}
+	        {{> esInput index="users" id="friendSearch" placeholder="Rechercher votre ami..." }}
 	          <p>
 			{{#if results}}
 	    		{{results}} résultat{{pluralize}}
@@ -10,36 +10,18 @@
 
 	        {{#esEach index="users" id="friendSearch"}}
 		  	    	{{#if ifSelf}} 
-			<div class="row">	
-			<div class="card col s12">
-					<div class="col s4">
-						<div class="card-image">
-							<img src="http://www.gravatar.com/avatar/{{encryptedMail}}" alt="" class="circle responsive-img">
-							<span class="card-title">Label 1</span>
-						</div>
-					</div>
-					<div class="col s8">
-						<div class="col s12">
-								<h4>{{username}}</h4>
-								<div class="col s6">
-									<p>HCP : {{handicape}}</p>
-								</div>
-								<div class="col s6 align-droite">
-									<p>Niveau {{level}}</p>
-								</div>				
-							
-						</div>
-						<div class="col s12">
-							<div class="card-action">
-								<div class="col s6 offset-s6  align-droite">
-									<!-- <p><a class="waves-effect waves-light btn {{#if ifNotFriend}} disabled{{/if}}" id="addFriend" user-id="{{_id}}">Ajouter</a></p> -->
-									<paper-button raised class="greenButton addFriend" user-id="{{_id}}" {{ifNotFriend}}>Ajouter</paper-button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+	
+			  <ul class="collection">
+			    <li class="collection-item avatar">
+			      <img src="http://www.gravatar.com/avatar/{{encryptedMail}}" alt="" class="circle">
+			      <span class="title">{{username}}</span>
+			      <p><span class="sub_text">Niveau {{level}}</span><br>
+			         <span class="sub_text">HCP {{handicape}}</span>
+			      </p>
+			      <a class="secondary-content"><paper-icon-button icon="add" class="addFriend" user-id="{{_id}}" {{ifNotFriend}}></paper-icon-button></a>
+			    </li>
+			  </ul>
+			       
 			{{/if}}
 			{{/esEach}}
 

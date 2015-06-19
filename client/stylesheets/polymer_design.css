@@ -319,21 +319,21 @@ html /deep/ paper-checkbox {
 }
 html paper-checkbox::shadow #ink,
 html /deep/ paper-checkbox::shadow #ink {
-  color: #fff;
+  color: #A4D354;
 /* Change the ink color for checked state */
 }
 html paper-checkbox::shadow #ink[checked],
 html /deep/ paper-checkbox::shadow #ink[checked] {
-  color: #e8485f;
+  color: black;
 }
 html paper-checkbox::shadow #checkbox,
 html /deep/ paper-checkbox::shadow #checkbox {
-  border-color: #fff;
+  border-color: #A4D354;
 /* Change the checkbox checked color */
 }
 html paper-checkbox::shadow #checkbox.checked,
 html /deep/ paper-checkbox::shadow #checkbox.checked {
-  border-color: #e8485f;
+  border-color: #ff8f00;
 }
 html paper-fab,
 html /deep/ paper-fab {
