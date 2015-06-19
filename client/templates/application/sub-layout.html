@@ -1,12 +1,14 @@
 <template name="sublayout">
 	<core-drawer-panel id="drawerPanel">
 		<core-header-panel drawer style="background-color:#263238;color:#fff;">
-			<core-toolbar id="navheader">
-				{{> header_menu}}
-			</core-toolbar>
-			<core-menu selected="{{isActivePath class='0' regex='group'}}{{isActivePath class='1' regex='games'}}{{isActivePath class='2' regex='network'}}{{isActivePath class='3' regex='explorer'}}{{isActivePath class='4' regex='others'}}" class="menu" id="core_menu">
-				{{> menu}}
-			</core-menu>
+			<a class="link_menu" href="{{pathFor 'userProfil'}}">
+				<core-toolbar id="navheader">
+					{{> header_menu}}
+				</core-toolbar>
+				<core-menu selected="{{isActivePath class='0' regex='group'}}{{isActivePath class='1' regex='games'}}{{isActivePath class='2' regex='network'}}{{isActivePath class='3' regex='explorer'}}{{isActivePath class='4' regex='others'}}" class="menu" id="core_menu">
+					{{> menu}}
+				</core-menu>
+			</a>
 		</core-header-panel>
 		<core-header-panel main mode="seamed">
 			<core-toolbar id="mainheader">

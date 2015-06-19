@@ -9,11 +9,11 @@
               <p><small class="text-muted"></small></p>
             </div>
             <div class="timeline-body">
-              <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.</p>
+              <p>{{content}}</p>
               <div class="bouton_timeline-body" style="margin-top:25px;">
                 <div class="row">
 
-                    <div class="col-xs-2 col-sm-1"> <paper-icon-button class= "bouton_blog comment" icon="face" comment-id=".{{postID}}"></paper-icon-button></div>
+                    <div class="col-xs-2 col-sm-1"> <paper-icon-button class= "bouton_blog comment" icon="question-answer" comment-id=".{{postID}}"></paper-icon-button></div>
 
                     <div class="col-xs-3 col-sm-3">
 
@@ -58,7 +58,7 @@
                       </div>
                       <div class="col s10">
                         <span class="black-text">
-                        <span class="username-comment">{{this.user.username}}</span><br>
+                        <span class="username-comment">{{this.user.username}}<small> − il y a {{commentDate}}</small></span><br>
                           <span class="user-comment">{{this.comment}}</span>
                         </span>
                       </div>

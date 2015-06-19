@@ -1,6 +1,15 @@
 Template.showFriendsQuery.helpers({
 	friendsQuery: function() {
-		return Friends.find({ accepted: false, id2 : Meteor.userId() }).fetch();
+		var friendQuery =  Friends.find({ accepted: false, id2 : Meteor.userId() }).fetch(),
+		user,
+		tabQuery = [];
+		for(var i = friendQuery.length - 1; i >= 0; i--){
+
+			user = Meteor.users.find({_id: friendQuery[i].id1}).fetch();
+			tabQuery.push({user : user[0], idRelation : friendQuery[i]._id, id1 : friendQuery[i].id1, id2 : friendQuery[i].id2 });
+		};
+		console.log(tabQuery);
+		return tabQuery;
 	},
 	myUsername : function(){
 
@@ -61,13 +70,13 @@ Template.showFriendsQuery.events({
    
    	if($button.attr('id2') == Meteor.userId())
    	{
-   		Meteor.users.update({ _id: $button.attr('id1') },{ $push: { friendsList: $button.attr('usernameSelf') }});
-   		Meteor.users.update({ _id: $button.attr('id2') },{ $push: { friendsList: $button.attr('username') }});
+   		Meteor.users.update({ _id: $button.attr('id1') },{ $push: { friendsList: {friendIs : $button.attr('usernameSelf'),ID : Meteor.userId() }}});
+   		Meteor.users.update({ _id: $button.attr('id2') },{ $push: { friendsList: {friendIs :  $button.attr('username'), ID : $button.attr('id1') }}});
    	}
    	else
    	{
-   		Meteor.users.update({ _id: $button.attr('id1') },{ $push: { friendsList: $button.attr('username') }});
-   		Meteor.users.update({ _id: $button.attr('id2') },{ $push: { friendsList: $button.attr('usernameSelf')  }});
+   		Meteor.users.update({ _id: $button.attr('id1') },{ $push: { friendsList: {friendIs : $button.attr('username'), ID : $button.attr('id2') }}});
+   		Meteor.users.update({ _id: $button.attr('id2') },{ $push: { friendsList: {friendIs :  $button.attr('usernameSelf'),ID : Meteor.userId() } }});
    	}	
    
    	
@@ -77,7 +86,13 @@ Template.showFriendsQuery.events({
  
    	}
 });
+Template.showFriendsList.events({
+'click .removeFriend':function(e){
+	e.preventDefault();
+	Meteor.call('removeFriend',Meteor.userId(),this._id);
+}
 
+});
 Template.showFriends.helpers({
 	friendQueryCounter: function() {
 		var Counter = Friends.find({ accepted: false, id2 : Meteor.userId() }).count();
