@@ -25,5 +25,14 @@ Template.chat_item.helpers({
 	},
     formatDate: function(date) {
         return moment(date).fromNow();
+    },
+    formatISODate: function(date) {
+        return moment(date).toISOString();
+    },
+    formatFullDate: function(date) {
+        return moment(date).format('DD MMMM YYYY HH[:]mm Z');
+    },
+    color: function() {
+		return Meteor.users.findOne({username: this.chatUserName}).color;
     }
 });

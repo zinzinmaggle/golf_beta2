@@ -26,22 +26,14 @@
 </template>
 
 <template name="chat_item">
-    <div class="col s12 card-chat">
-        <div class="card-panel grey lighten-5 z-depth-1 card-chat">
-            <div class="row valign-wrapper ">
-                <div class="col s2">
-                    <img src="http://www.gravatar.com/avatar/{{users}}" alt="" class="circle responsive-img avatr-chat"> 
-                </div>
-                <div class="col s10">
-                    <span class="black-text">
-                        <span class="chapp-username">{{chatUserName}}</span><br>
-                        <span class="chapp-message">{{chatText}}</span>
-                    </span>
-                </div>
-                <div class="col s2 ">
-                <span class="chapp-chat-date">{{formatDate chatDate}}</span> 
-                </div>
+    <div class="chat-message">
+        <section class="user-list" layout horizontal>
+            <div class="avatar {{color}}" style="background-image: url(http://www.gravatar.com/avatar/{{users}});"></div>
+            <div flex>
+                <div class="username">{{chatUserName}}</div>
+                <div class="text">{{chatText}}</div>
             </div>
-        </div>
+            <time class="timestamp" is="relative-time" datetime="{{formatISODate chatDate}}" title="{{formatFullDate chatDate}}">{{formatDate chatDate}}</time>
+        </section>
     </div>
 </template>

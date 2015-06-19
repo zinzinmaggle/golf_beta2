@@ -1,7 +1,7 @@
 App.info({
-	name: 'Golf Beta',
+	name: 'TrivaGolf',
 	description: 'L\'appli du golfeur',
-	version: '0.0.1'
+	version: '0.1.0'
 });
 
 App.accessRule('*.google.com/*');
