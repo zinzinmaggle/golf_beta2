@@ -1,55 +1,47 @@
 <template name="chatGroup" is="auto-binding">
     <div class="row lesspadd">
-        <div class="col s12 lesspadd">
-            {{> chapp_form}}
+        <div class="col s12 lesspadd full-height">
+            {{> chat_form}}
         </div>
     </div>
 </template> 
 
 <template name="chat_form">
-    <div id="chapp_wrapper">
-        <div id="chapp_text">
+    <div id="chapp_wrapper" layout vertical fit>
+        <div id="chapp_text" flex>
             {{#each chapp}}
-                {{>chapp_item}}
+                {{> chat_item}}
             {{/each}}
         </div>
-
-        <form id="chapp-form" >
-            <div id="chapp-input-div"  class="container-text">
+        <div class="shim"></div>
+        <form id="chapp-form" layout horizontal>
+            <div flex>
                 <paper-input-decorator floatingLabel label="Message">
                     <input id="chapp-input" type="text" />
                 </paper-input-decorator>
             </div>
-            <div id="fake">
-           <paper-fab icon="send"></paper-fab>
-            </div>
-           <!--  <a class="btn-floating btn-large waves-effect waves-light red"><i class="mdi-content-add"></i>
-             </a> -->
+            <paper-fab id="fake" icon="send"></paper-fab>
         </form>
     </div>
 </template>
 
 <template name="chat_item">
-    
-         <div class="col s12 card-chat">
+    <div class="col s12 card-chat">
         <div class="card-panel grey lighten-5 z-depth-1 card-chat">
-          <div class="row valign-wrapper ">
-            <div class="col s2">
-              <img src="http://www.gravatar.com/avatar/{{this.users}}" alt="" class="circle responsive-img avatr-chat"> 
+            <div class="row valign-wrapper ">
+                <div class="col s2">
+                    <img src="http://www.gravatar.com/avatar/{{users}}" alt="" class="circle responsive-img avatr-chat"> 
+                </div>
+                <div class="col s10">
+                    <span class="black-text">
+                        <span class="chapp-username">{{chatUserName}}</span><br>
+                        <span class="chapp-message">{{chatText}}</span>
+                    </span>
+                </div>
+                <div class="col s2 ">
+                <span class="chapp-chat-date">{{formatDate chatDate}}</span> 
+                </div>
             </div>
-            <div class="col s10">
-              <span class="black-text">
-                <span class="chapp-username">{{chatUserName}}</span><br>
-                <span class="chapp-message">{{chatText}}</span>
-              </span>
-            </div>
-            <div class="col s2 ">
-            <span class="chapp-chat-date">{{formatDate chatDate}}</span> 
-            </div>
-          </div>
         </div>
-      </div>
-        
-       
-    
+    </div>
 </template>
