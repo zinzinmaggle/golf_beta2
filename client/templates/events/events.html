@@ -47,7 +47,7 @@
 					            {{> golfCard2}}
 					        {{/esEach}}
 
-						    {{> loadMoreButton index="Eventgolfs" id="golfSearchEvent"}}
+			
 
 						    {{#ifEsHasNoResults index="Eventgolfs" id="golfSearchEvent"}}
 						        <div>{{> resultsNotFound}}</div>
@@ -277,13 +277,7 @@
 						</span>
 					</div>
 				</div>
-				<div class="col s9">
-					<div class="center-align small col s1"><core-icon icon="star"></core-icon></div>
-					<div class="center-align small col s1"><core-icon icon="star"></core-icon></div>
-					<div class="center-align small col s1"><core-icon icon="star"></core-icon></div>
-					<div class="center-align small col s1"><core-icon icon="star-half"></core-icon></div>
-					<div class="center-align small col s1"><core-icon icon="star-outline"></core-icon></div>
-				</div>
+			
 				<div class="col s3">
 					
 				</div>
@@ -307,7 +301,7 @@
 						</div>
 						<div class="col s6">
 							<span class="black-text">
-								<paper-icon-button icon="check" class="bouton_blog selectThisGolf"></paper-icon-button>
+								<paper-button primary raised class="greenButton selectThisGolf">choisir</paper-button>
 							</span>
 						</div>
 					</div>
@@ -325,26 +319,52 @@
     <div class="row">
       <div class="col s12">
         <div class="card-panel teal cadre">
+
           <span class="white-text">
          
-         
-          <p class="day"></p>
-          <p class="day"></p>
-          <p class="day">{{day1522}}</p>
-         <p class="day">{{day2229}}</p>
-         
-           {{#each days}}
+          
           <div class="row">
-            <div class="col s12">
-              <ul class="tabs">
-                <li class="tab col s3"><a href="#test1">{{day17}}</a></li>
-                <li class="tab col s3"><a class="active" href="#test2">{{day815}}</a></li>
-                <li class="tab col s3"><a href="#test3">Test 3</a></li>
-                <li class="tab col s3"><a href="#test4">Test 4</a></li>
-              </ul>
+            <div class="col s12 container-day">
+                <h3 class="mois">Juin <span class="year">2015</span></h3>
+                <hr>
             </div>
+            <div class="col s12 container-day">
+                {{#each days17}}
+                <p class="day" id="{{day}}">{{day}}</p>
+                {{/each}}
+                  {{#each days815}}
+                <p class="day" id="{{day}}">{{day}}</p>
+                {{/each}}
+
+                {{#each days1522}}
+                <p class="day" id="{{day}}">{{day}}</p>
+                {{/each}}
+                {{#each days2229}}
+                <p class="day" id="{{day}}">{{day}}</p>
+                {{/each}}
+
+                {{#each days30}}
+                <p class="day" id="{{day}}">{{day}}</p>
+                {{/each}}
+            </div>
+            <div class="col s12  container-day">
+              
+              
+             
+            </div>
+            <div class="col s12  container-day">
+              
+            </div>
+             <div class="col s12  container-day">
+              
+                
+            </div>
+             <div class="col s12  container-day">
+              
+            </div>
+  
           </div>
-           {{/each}}
+        
           </span>
         </div>
       </div>

@@ -39,7 +39,7 @@ Template.createEvent.events({
 
 				title: Meteor.user().username,
 		        subtitle:'− à créer un évènement',
-		        content:'Golf :' + nomGolf +'<br> Adresse :' + adresse + '<br><br> <small style="font-style: italic;">'+$('[dame=tevent]').val()+'</small>',
+		        content: '<p style="text-transform: uppercase;color:black;font-szie:18px;">'+nomGolf+'</p>' +'<br>' + '<p style="text-transform: uppercase;color:grey;font-szie:12px;">'+adresse + '<br><br> <small style="font-style: italic;">'+$('[name=tevent]').val()+'</small>',
 		        author : Meteor.user().username,
 		        submit_date: new Date(),
 		        type:'event',
@@ -111,34 +111,82 @@ Template.golfCard2.events({
 		$(e.target).attr('disabled','disabled')
 	}
 });
+Template.calendar.rendered = function()
+{
+	$('#23').css("background-color","#A4D354");
+	$('#23').css("padding","10px");
+	$('#23').css("border-radius","20px");
+	$('#23').css("color","white");
+
+
+}
 Template.calendar.helpers({
 
-	days : function()
+	days17 : function()
 	{
 		var TabofDay = [];
-		for(var i = 1;i<31;i++)
+		for(var i = 1;i<8;i++)
 		{
-			if(i<8)
-			{
-				TabofDay.push({day17 : i, day815 :'', day1522:'', day2229:''});
-			}
-			if(i>7 && i<16)
-			{
-				TabofDay.push({day17 : '', day815 :i, day1522:'', day2229:''});
-			}
-			if(i>15 && i<22)
-			{
-				TabofDay.push({day17 : '', day815 :'', day1522:i, day2229:''});
-			}
-			if(i>21 && i<29)
-			{
-				TabofDay.push({day17 : '', day815 :'', day1522:'', day2229:i});
-			}
+		
+			
+				TabofDay.push({day : i});
+			
 		};
 		
 		console.log(TabofDay);
 		return TabofDay;
 	},
+	days815 : function()
+	{
+		var TabofDay = [];
+		for(var i = 8;i<15;i++)
+		{
+		
+			
+				TabofDay.push({day : i});
+			
+		};
+		return TabofDay;
+	},
+	days1522 : function()
+	{
+		var TabofDay = [];
+		for(var i = 15;i<22;i++)
+		{
+		
+			
+				TabofDay.push({day : i});
+			
+		};
+		return TabofDay;
+	},
+	days2229 : function()
+	{
+		var TabofDay = [];
+		for(var i = 22;i<29;i++)
+		{
+		
+			
+				TabofDay.push({day : i});
+				
+				
+					
+				
+		};
+		return TabofDay;
+	},
+	days30 : function()
+	{
+		var TabofDay = [];
+		for(var i = 29;i<31;i++)
+		{
+		
+			
+				TabofDay.push({day : i});
+			
+		};
+		return TabofDay;
+	}
 
 
 
