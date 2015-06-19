@@ -2,7 +2,7 @@
 	{{ caca }}
 	<div class="row">
 		{{#with golf}}
-			<div class="col s12 m6">
+			<div class="col s12 l6">
 				<div class="card golf-page">
 					<div class="slider">
 						<ul class="slides">
@@ -22,6 +22,9 @@
 						</li>
 						{{#if opening}}
 							<li class="collection-item"><core-icon icon="device:access-time"></core-icon> {{opening}}</li>
+						{{/if}}
+						{{#if prices}}
+							<li class="collection-item"><core-icon icon="credit-card"></core-icon> {{{prices}}}</li>
 						{{/if}}
 						{{#if description}}
 							<li class="collection-item">{{{description}}}</li>

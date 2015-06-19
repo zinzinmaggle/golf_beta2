@@ -1,52 +1,43 @@
 <template name="golfCard">
-    <div class="card white col s12 m8 offset-m2 l6 offset-l3 golfCard">
+    <div class="card white col s12 l6 offset-l3 golfCard">
 		<div class="row valign-wrapper">
-			<div class="col s4 valign-wrapper">
-				<img class="golf-image valign" src="{{image}}">
+			<div class="col s4">
+				<img class="golf-image" src="{{image}}">
 			</div>
 			<div class="col s8">
-				<div class="col s12">
-					<div class="">
-						<span class="left black-text flow-text capitalize">
-							{{name}}
-						</span>
-						<span class="center-align small right">
-							<a href="{{pathFor 'golfPage'}}" class="infoLink"><core-icon icon="info"></core-icon></a>
-						</span>
+				<div layout horizontal>
+					<div flex class="black-text flow-text capitalize">
+						{{name}}
+					</div>
+					<div class="small">
+						<a href="{{pathFor 'golfPage'}}" class="infoLink"><core-icon icon="info"></core-icon></a>
 					</div>
 				</div>
-				<div class="col s9">
-					<div class="center-align small col s1"><core-icon icon="star"></core-icon></div>
-					<div class="center-align small col s1"><core-icon icon="star"></core-icon></div>
-					<div class="center-align small col s1"><core-icon icon="star"></core-icon></div>
-					<div class="center-align small col s1"><core-icon icon="star-half"></core-icon></div>
-					<div class="center-align small col s1"><core-icon icon="star-outline"></core-icon></div>
+				<div class="col s8 lesspadd">
+					{{#each stars}}
+						<div class="small" style="display:inline-block;margin-right: -5px;"><core-icon icon="{{this}}"></core-icon></div>
+					{{/each}}
 				</div>
-				<div class="col s3">
+				<div class="col s4 lesspadd">
 					{{ golfDistance _id }}
 				</div>
-				<div class="divider"></div>
-				<div class="col s12 card-action center-align" id="test">
+				<div class="divider hide-on-small-only"></div>
+				<div class="col s12 card-action hide-on-small-only" style="font-size: 14px;">
 					<div class="row">
-						<div class="col s6" style="border-right: 1px solid rgba(160, 160, 160, 0.2);">
-							<div class="row">
-								<div class="col s12 center-align" id="div1">
-								logo amis
-								</div>
-								<div class="col s12">
-									<div class="col s6 truncate">
-										<span class="black-text">
-										Undefined
-										</span>
-									</div>
-									<i class="center-align small mdi-action-android col s6 icon"></i>
-								</div>
-							</div>
+						<div class="col s6" style="border-right: 1px solid rgba(160, 160, 160, 0.33);">
+							<p>
+								Ouverture : {{#if opening}}{{opening}}{{else}}inconnu{{/if}}<br />
+								Prix : {{#if prices}}{{{prices}}}{{else}}inconnu{{/if}}<br />
+							</p>
 						</div>
 						<div class="col s6">
-							<span class="black-text">
-							This is a square image.
-							</span>
+							<ul>
+								{{#each courses}}
+									<li>{{this}}</li>
+								{{else}}
+									Aucun parcours
+								{{/each}}
+							</ul>
 						</div>
 					</div>
 				</div>
