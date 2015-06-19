@@ -24,7 +24,7 @@
 			    {{> loadMoreButton index="golfs" id="golfSearch"}}
 
 			    {{#ifEsHasNoResults index="golfs" id="golfSearch"}}
-			        <div class="no-results">No results found!</div>
+			        <div >{{> resultsNotFound}}</div>
 			    {{/ifEsHasNoResults}}
 
 			    {{#ifEsIsSearching index="golfs" id="golfSearch"}}

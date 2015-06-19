@@ -69,7 +69,7 @@
 		    {{> esLoadMoreButton index="groups"}}
 		    
 		    {{#ifEsHasNoResults index="groups" id="groupSearch"}}
-		        <div class="no-results">Désolé, nous n'avons pas pu trouver ce groupe ... :(</div>
+		        <div>{{> resultsNotFound}}</div>
 		    {{/ifEsHasNoResults}}
 
 		    {{#ifEsIsSearching index="groups" id="groupSearch"}}

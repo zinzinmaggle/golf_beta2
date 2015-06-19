@@ -59,7 +59,7 @@
 		    {{> esLoadMoreButton index="usersgroup"}}
 		    
 		    {{#ifEsHasNoResults index="usersgroup" id="friendSearch"}}
-		        <div class="no-results">Désolé, nous n'avons pas pu trouver votre ami ... :(</div>
+		        <div>{{> resultsNotFound}}</div>
 		    {{/ifEsHasNoResults}}
 
 		    {{#ifEsIsSearching index="usersgroup" id="friendSearch"}}
