@@ -1,3 +1,4 @@
+
 Template.menu.helpers({
 
 chatList :function(){

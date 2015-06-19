@@ -28,7 +28,7 @@
 		    {{> esLoadMoreButton index="users"}}
 		    
 		    {{#ifEsHasNoResults index="users" id="friendSearch"}}
-		        <div class="no-results">Désolé, nous n'avons pas pu trouver votre ami ... :(</div>
+		        <div>{{> resultsNotFound}}</div>
 		    {{/ifEsHasNoResults}}
 
 		    {{#ifEsIsSearching index="users" id="friendSearch"}}

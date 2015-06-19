@@ -50,7 +50,7 @@
 						    {{> loadMoreButton index="Eventgolfs" id="golfSearchEvent"}}
 
 						    {{#ifEsHasNoResults index="Eventgolfs" id="golfSearchEvent"}}
-						        <div class="no-results">Aucun golf correspondant à votre recherche n'a été trouvé ... :(</div>
+						        <div>{{> resultsNotFound}}</div>
 						    {{/ifEsHasNoResults}}
 
 						    {{#ifEsIsSearching index="Eventgolfs" id="golfSearchEvent"}}

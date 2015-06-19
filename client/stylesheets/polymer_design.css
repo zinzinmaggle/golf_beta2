@@ -405,6 +405,10 @@ html /deep/ paper-toast {
   background: #323232;
   color: #f1f1f1;
   text-align: left;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
 }
 html paper-toast .highlight,
 html /deep/ paper-toast .highlight {
