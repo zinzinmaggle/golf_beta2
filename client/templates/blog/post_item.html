@@ -9,13 +9,13 @@
               <p><small class="text-muted"></small></p>
             </div>
             <div class="timeline-body">
-              <p>{{content}}</p>
+              <p>{{{content}}}</p>
               <div class="bouton_timeline-body" style="margin-top:25px;">
                 <div class="row">
 
                     <div class="col-xs-2 col-sm-1"> <paper-icon-button class= "bouton_blog comment" icon="question-answer" comment-id=".{{postID}}"></paper-icon-button></div>
 
-                    <div class="col-xs-3 col-sm-3">
+                    <div class="col-xs-6 col-sm-3">
 
                     <paper-icon-button class="bouton_blog like " icon="favorite" {{alreadyLike}} >
                    
@@ -28,7 +28,7 @@
               </div>
                 <div id="commentaire" class="commentClass {{postID}}">
 
-                  <div class="col-xs-6 col-sm-8">
+                  <div class="col-xs-7 col-sm-8">
                     <paper-input-decorator floatingLabel label="Entrer votre commentaire ....">
                         <input id="{{postID}}" class="ci" type="text" />
                     </paper-input-decorator>
@@ -58,7 +58,7 @@
                       </div>
                       <div class="col s10">
                         <span class="black-text">
-                        <span class="username-comment">{{this.user.username}}<small> − il y a {{commentDate}}</small></span><br>
+                        <span class="username-comment">{{this.user.username}}<small> − {{commentDate}}</small></span><br>
                           <span class="user-comment">{{this.comment}}</span>
                         </span>
                       </div>

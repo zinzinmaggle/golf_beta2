@@ -123,39 +123,39 @@ Template.commentList.helpers({
 	  
 	  if(s>0 && m==0 && h ==0 && d==0)
 	  {
-	  	custom_date = s+'s';
+	  	custom_date = "il y a "+s+'s';
 	  }
 	  else if(s>0 && m>0 && h == 0 && d== 0)
 	  {
 	 	
 	 	if(m>1)
 	 	{
-	 		custom_date = m+'mins';
+	 		custom_date = "il y a "+m+'mins';
 	 	}
 	 	else
 	 	{
-	 		custom_date = m+'min';
+	 		custom_date = "il y a "+m+'min';
 	 	}
 	  }
 	  else if(s>0 && m>0 && h>0 && d==0)
 	  {
-	  	custom_date =  h+'h';
+	  	custom_date =  "il y a "+h+'h';
 	  }
 	  else if(s>0 && m>0 && h>0 && d>0)
 	  {
 	  	
 	  	if(d>1)
 	  	{
-	  		custom_date = d+' jrs';
+	  		custom_date = "il y a "+d+' jours';
 	  	}
 	  	else
 	  	{
-	  		custom_date = d+' jr';
+	  		custom_date = "il y a "+d+' jour';
 	  	}
 	  }
 	  else
 	  {
-	  	custom_date = "now"; 
+	  	custom_date = "à l'instant"; 
 	  }
   	
 	  return custom_date;
