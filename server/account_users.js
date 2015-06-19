@@ -1,3 +1,14 @@
+function randomColor()
+{
+	var colors = ['navy', 'slate', 'olive', 'moss', 'chocolate', 'buttercup', 'maroon', 'cerise', 'plum', 'orchid'];
+
+	return colors[getRandomArbitrary(0, colors.length)];
+}
+
+function getRandomArbitrary(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 Accounts.onCreateUser(function(options, user){
 
 	user.level = '1';
@@ -6,6 +17,8 @@ Accounts.onCreateUser(function(options, user){
 	user.firstConnexion = '1';
 	user.accountType = "regular";
 	user.friendsList = [];
+	var color = randomColor();
+	user.color = color;
 	if(options.profile)
 	{
 		user.profile['level'] = options.level,
@@ -30,8 +43,6 @@ Accounts.onCreateUser(function(options, user){
 	}
 	 return user;
 });
-
-
 
 Meteor.publish('userData', function(){
 	if(!this.userId) return null;
