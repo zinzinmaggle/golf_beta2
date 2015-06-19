@@ -1,62 +1,13 @@
 <template name="header_menu">
-	<style>    
-		:host {
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			box-sizing: border-box;
-		}
-		#drawerPanel {
-			left: 0px;
-			top: 0px;
-			position: absolute;
-		}
-		#i {
-			margin-right: 15px;
-		}
-		#core_icon {
-			height: 64px;
-			width: 64px;
-			left: 20px;
-			top: 0px;
-			position: absolute;
-			opacity: 1;
-			margin: 0px;
-			padding: 0px;
-		}
-		#span {
-			margin: 10px;
-		}
-		#paper_progress {
-			position: relative;
-			top: 15px;
-		}
-	</style>
 	<div class="row" align="center">
-		
+		<a class="link_menu" href="{{pathFor 'userProfil'}}">
 			<div class="left_header_panel">
 				<img class="circle responsive-img avatar"  src="http://www.gravatar.com/avatar/{{encrypted_mail}}" /> 
-			</div>		
+			</div>
 			
 			<p style="font-style:italic;font-size:13px;"> <i class="fa fa-key" style="margin-right:5px;"></i>connecté en tant que {{statut}}</p>
 			<p style="font-size:25px;text-transform: lowercase;">{{username}}</p>
 			<p style="font-size:35px;padding-bottom:20px;"><span style="font-size:25px;"><i class="fa fa-level-up"></i></span>{{level}}</p>
-		<!-- <div class="col s6">
-			<div class="right_header_panel">
-				<p class="username">{{username}}</p>
-				<div class="row">
-					<div class="col s5">
-						<div class="niveau-div1">
-							<p class="niveau" style="font-size:12px;">Niveau </p>
-						</div>	
-					</div>
-					<div class="col s4">
-						<div class="niveau-div2">
-							<span class="niveau_numero">{{level}}</span>
-						</div>
-					</div>		
-				</div>
-			</div>
-		</div> -->
+		</a>
 	</div>
 </template>
