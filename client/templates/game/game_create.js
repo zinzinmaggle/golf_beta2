@@ -92,6 +92,7 @@ Template.gameCreate4.events({
 				course: this.course._id,
 				players : [Meteor.user()._id, null, null, null],
 				formule : $('#formule')[0].selectedItem.label,
+				depart : $('#depart')[0].selectedItem.label,
 				score: [],
 				finisehd: false,
 			});

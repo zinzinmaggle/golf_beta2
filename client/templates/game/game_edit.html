@@ -1,0 +1,39 @@
+<template name="gameEdit">
+	<div class="main form page">
+		<h4>Renseigner score</h4>
+		<p>
+			Partie sur {{golf.name}} - Créé le {{date}}<br />
+			Départ {{depart}}-Homme, Index {{player.handicape}}
+		</p>
+		<table>
+			<thead>
+				<th>Trou</th>
+				<th>Dist</th>
+				<th>Par</th>
+				<th>Hcp</th>
+				<th>Coups reçus</th>
+				<th>Score</th>
+				<th>Brut</th>
+				<th>Net</th>
+			</thead>
+			<tbody>
+				{{#each course.holes}}
+					{{> gameEditTable depart=../depart holes=this}}
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+</template>
+
+<template name="gameEditTable">
+	<tr>
+		<td>{{trous}}</td>
+		<td>{{distance depart}}</td>
+		<td>{{par}}</td>
+		<td>{{handicap}}</td>
+		<td>1</td>
+		<td>{{#if isNotTotal}}<input type="text" name="score_{{trous}}" tabindex="{{tabIndex}}" style="width: 30px"/>{{/if}}</td>
+		<td>{{#if isNotTotal}}<input type="text" name="brut_{{trous}}" tabindex="{{tabIndex}}" style="width: 30px"/>{{/if}}</td>
+		<td>{{#if isNotTotal}}<input type="text" name="net_{{trous}}" tabindex="{{tabIndex}}" style="width: 30px"/>{{/if}}</td>
+	</tr>
+</template>

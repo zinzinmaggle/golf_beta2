@@ -17,20 +17,17 @@
 						</h4>
 						<div class="collection">
 							{{#each games}}
-								<a href="#!" class="collection-item avatar">
+								<a href="{{pathFor 'gameEdit'}}" class="collection-item avatar">
                     				<span class="title">Partie sur {{golfName}}</span>
 								</a>
 							{{/each}}
 						</div>
 						<div class="col s2 offset-s2 center-align">
 							<a href="{{pathFor 'gameCreate1' data=null}}">
-								<paper-button raised class="greenButton">Créer</paper-button>
+								<paper-button raised primary>Créer</paper-button>
 							</a>
 						</div>
 						<div class="col s2 offset-s4 center-align">
-							<a href="#!">
-								<paper-button raised class="greenButton">Reprendre</paper-button>
-							</a>
 						</div>
 					</div>
 				</div>
