@@ -94,10 +94,10 @@
 										<paper-dropdown class='dropdown' halign='right' valign='top'>
 											<core-menu class='menu'>
 												<paper-icon-button icon="dashboard" iconSize="11" class="seeBlog"></paper-icon-button> 
-									 			<paper-icon-button icon="create" id="edG" class="editGroup" {{isAdmin}}></paper-icon-button>
-									 			<paper-icon-button icon="add" id="aM" class="addMember"></paper-icon-button>
-									 			<paper-icon-button icon="close" id="rG" class="removeGroup" {{isAdmin}}></paper-icon-button>
-									 			<paper-icon-button icon="exit-to-app" id="eG" class="exitGroup" {{isNotAdmin}}></paper-icon-button>
+									 			<paper-icon-button icon="create" id="edG" class="editGroup" random-id="#{{_id}}1" r-id2="#{{_id}}2" {{isAdmin}}></paper-icon-button>
+									 			<paper-icon-button icon="add" id="aM" class="addMember" random-id="#{{_id}}2" r-id2 ="#{{_id}}1" ></paper-icon-button>
+									 			<paper-icon-button icon="close" id="rG" class="removeGroup" random-id="#{{_id}}1" r-id2="#{{_id}}2" {{isAdmin}}></paper-icon-button>
+									 			<paper-icon-button icon="exit-to-app" id="eG" class="exitGroup" random-id="#{{_id}}1" r-id2="#{{_id}}2" {{isNotAdmin}}></paper-icon-button>
 											</core-menu>
 										</paper-dropdown>
 									</paper-menu-button>
@@ -105,23 +105,23 @@
 				            </div>
 
 				          </div>
-				          <div id="editGroup-container" class="eG-C">
+				          <div id="{{_id}}1" class="eG-C" style="display:none;">
 					
 
 						        <div class="form-group">
 						            <div class="controls">
 									<paper-input-decorator floatingLabel label="Modifier le nom du groupe" class="inline-button">
-				                	  <input name="namegroupe" id="idNewGroupe" type="text"  placeholder="Modifier le nom du groupe" />
+				                	  <input name="namegroupe" id="{{_id}}11" type="text"  placeholder="Modifier le nom du groupe" />
 
 				                 	</paper-input-decorator>
 				                 	
-				                 	 <paper-icon-button icon="check" class="changeNameGroup"></paper-icon-button>
+				                 	 <paper-icon-button icon="check" class="changeNameGroup" id-unique="#{{_id}}11"></paper-icon-button>
 				                 
 				                 	</div>
 				                 </div>
 	                 
 					</div>
-					<div id="addMember-container" class="aM-C">
+					<div id="{{_id}}2" class="aM-C" style="display:none;">
 
 
 				         {{> esInput index="addmorefriends" id="addfriendSearch" placeholder="Rechercher des amis à ajouter..." }}
@@ -145,7 +145,7 @@
 
 							            <div class="col s2">
 
-							            	<paper-icon-button icon="add" id="addFriendToGroup" user-id="{{ID}}"></paper-icon-button>
+							            	<paper-icon-button icon="add" id="addFriendToGroup" user-id="{{ID}}" {{isAlreadyMember}}></paper-icon-button>
 
 							            </div>
 

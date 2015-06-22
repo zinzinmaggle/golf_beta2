@@ -12,8 +12,7 @@ Template.createGroup.rendered = function() {
         id: 'createGroup',
         index: 'addmorefriends'
     });
-    $('.eG-C').css('display','none');
-    $('.aM-C').css('display','none');
+   
     $('#createGroupButton').attr('disabled','disabled');
 };
 
@@ -152,6 +151,27 @@ Template.createGroup.helpers({
 			return "s";
 		return "";
 
+	},
+	isAlreadyMember:function()
+	{
+		 var isActuallyMember = Groups.find({_id : currentGroupID },
+         { membre: { $elemMatch: { memberID: this.ID } } }).fetch();
+        console.log(isActuallyMember);
+        for(i = isActuallyMember.length-1; i>=0;i--)
+        {
+        	 if(isActuallyMember[i].membre.length < 1)
+	   	 {
+	   	 	console.log("pas membre");
+	    	return "";
+	   	 	
+	    }
+	    else
+	    {
+	    	console.log("deja membre");
+	    	return "disabled";
+	    }
+        };
+	   	
 	}
 		
 });
@@ -228,29 +248,33 @@ Template.createGroup.events({
     
 
    },
-   'click #edG':function(event){
+   'click .editGroup':function(event){
    	 event.preventDefault();
-   	 $('.eG-C').css('display','block');
-     $('.aM-C').css('display','none');
+   	 var $button = $(event.target);
+   	 $($button.attr('random-id')).css('display','block');
+     $($button.attr('r-id2')).css('display','none');
      currentGroupID = this._id;
    },
    'click .changeNameGroup':function(e){
    	e.preventDefault();
-   	Groups.update({_id : currentGroupID},
-   	{'$set' :{nomDuGroupe : $('#idNewGroupe').val()}});
+   	var $button = $(e.target);
+   	Groups.update({_id : this._id},
+   	{'$set' :{nomDuGroupe : $($button.attr('id-unique')).val()}});
 
    },
-   'click #aM':function(event){
+   'click .addMember':function(event){
    	 event.preventDefault();
-   	 $('.eG-C').css('display','none');
-     $('.aM-C').css('display','block');
+   	 var $button = $(event.target);
+   	 $($button.attr('random-id')).css('display','block');
+     $($button.attr('r-id2')).css('display','none');
      currentGroupID = this._id;
    },
-   'click #rG':function(event){
+   'click .removeGroup':function(event){
    	 event.preventDefault();
    	 Groups.remove({_id: this._id});
-   	 $('.eG-C').css('display','none');
-     $('#addMember-container').css('display','none');
+   	 var $button = $(event.target);
+   	 $($button.attr('random-id')).css('display','none');
+     $($button.attr('r-id2')).css('display','none');
     var erase = JGroup.find({IDGroupe : this._id, Administrateur :Meteor.userId()}).fetch();
     if(erase.length > 0)
     {
@@ -260,10 +284,11 @@ Template.createGroup.events({
     	};
     }
    },
-   'click #eG':function(event){
+   'click .exitGroup':function(event){
    	 event.preventDefault();
-   	 $('.eG-C').css('display','none');
-    $('.aM-C').css('display','none');
+   	var $button = $(event.target);
+   	 $($button.attr('random-id')).css('display','none');
+     $($button.attr('r-id2')).css('display','none');
     Groups.update(
 	  { _id: this._id },
 	  { $pull: { membre: { memberID: Meteor.userId() } } }
@@ -280,11 +305,21 @@ Template.createGroup.events({
    },
    'click #addFriendToGroup' :function(e){
    	e.preventDefault();
-    $(e.target).attr("disabled","disabled")
-   	Groups.update(
-   	{
-   		_id : currentGroupID},
-   		{$push:{membre :{ memberID : this.ID, statut : '0'}}}
-   	)
+    
+   
+   
+    			 	Groups.update(
+				   	{
+				   		_id : currentGroupID},
+				   		{$push:{membre :{ memberID : this.ID, statut : '0'}}}
+				   	)
+    
+   
+  
+   },
+   'click .seeBlog' :function(e){
+   	e.preventDefault();
+   	
+   	Router.go('postsGroup', {_id: this._id});
    }
 });

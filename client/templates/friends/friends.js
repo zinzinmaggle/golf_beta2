@@ -84,6 +84,14 @@ Template.showFriendsQuery.events({
   
    
  
+   	},
+   	'click .refuseFriend':function(e){
+   		var $button = $(event.target);
+   		Friends.remove({
+
+   			_id : this.idRelation
+   		});
+
    	}
 });
 Template.showFriendsList.events({
