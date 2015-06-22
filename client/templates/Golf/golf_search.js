@@ -198,10 +198,5 @@ Template.golfCard.helpers({
 			return doc.distance;
 		else
 			return '';
-	},
-	image: function() {
-		if (this.photos != undefined && this.photos.length > 0)
-			return '/photos/' + this.photos[0];
-		return 'http://lorempixel.com/90/90/nature/g' + this.zipCode;
 	}
 });

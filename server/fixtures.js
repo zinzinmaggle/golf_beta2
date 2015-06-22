@@ -8,11 +8,16 @@ if (Region.find().count() === 0) {
 	};
 }
 
+function getRandomArbitrary(min, max) {
+    return (Math.random() * (max - min + 1) + min);
+}
+
 if (Golf.find().count() === 0) {
 	var dbGolf = [];
 	dbGolf = JSON.parse(Assets.getText("assets/golf.json"));
 	for (var i = dbGolf.length - 1; i >= 0; i--) {
-		Golf.insert(dbGolf[i]);		
+		dbGolf[i].note = getRandomArbitrary(0, 5);
+		Golf.insert(dbGolf[i]);
 	};
 	Golf._ensureIndex({ pos : "2d" });
 }

@@ -1,7 +1,7 @@
 <template name="golfSearch">
 	<div class="row">
 	    <div class="col s12">
-		    {{> esInput index="golfs" id="golfSearch" placeholder="Search..." }}
+		    {{> esInput index="golfs" id="golfSearch" placeholder="Chercher un golf" }}
 		    <div class="hidden">
 		    	{{> esInput index="golfsNears" id="golfSearch2" placeholder="Yolo..." }}
 		    </div>
@@ -31,7 +31,7 @@
 			        <div>{{> loading}}</div>
 			    {{/ifEsIsSearching}}
 			    
-		    	<div class="col s12 m8 offset-m2 l6 offset-l3">
+		    	<div class="col s12 m12 l6 offset-l3">
 			    	<h3>Golf le plus proche</h3>
 		        </div>
 		        {{#esEach index="golfsNears" id="golfSearch2"}}
