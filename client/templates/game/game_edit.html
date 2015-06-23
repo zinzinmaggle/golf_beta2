@@ -5,16 +5,16 @@
 			Partie sur {{golf.name}} - Créé le {{date}}<br />
 			Départ {{depart}}-Homme, Index {{player.handicape}}
 		</p>
-		<table>
+		<table class="table">
 			<thead>
 				<th>Trou</th>
 				<th>Dist</th>
 				<th>Par</th>
 				<th>Hcp</th>
 				<th>Coups reçus</th>
-				<th>Score</th>
-				<th>Brut</th>
-				<th>Net</th>
+				<th>J1</th>
+<!-- 				<th>Brut</th>
+				<th>Net</th> -->
 			</thead>
 			<tbody>
 				{{#each course.holes}}
@@ -33,7 +33,7 @@
 		<td>{{handicap}}</td>
 		<td>1</td>
 		<td>{{#if isNotTotal}}<input type="text" name="score_{{trous}}" tabindex="{{tabIndex}}" style="width: 30px"/>{{/if}}</td>
-		<td>{{#if isNotTotal}}<input type="text" name="brut_{{trous}}" tabindex="{{tabIndex}}" style="width: 30px"/>{{/if}}</td>
-		<td>{{#if isNotTotal}}<input type="text" name="net_{{trous}}" tabindex="{{tabIndex}}" style="width: 30px"/>{{/if}}</td>
+<!-- 		<td>{{#if isNotTotal}}<input type="text" name="brut_{{trous}}" tabindex="{{tabIndex}}" style="width: 30px"/>{{/if}}</td>
+		<td>{{#if isNotTotal}}<input type="text" name="net_{{trous}}" tabindex="{{tabIndex}}" style="width: 30px"/>{{/if}}</td> -->
 	</tr>
 </template>
